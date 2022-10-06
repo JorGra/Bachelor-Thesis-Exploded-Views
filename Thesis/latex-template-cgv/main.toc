@@ -1,0 +1,32 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline Abstract}{VII}{section*.7}%
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\nonumberline Zusammenfassung}{VII}{section*.8}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline Symbols and Acronyms}{XI}{chapter*.10}%
+\contentsline {chapter}{\numberline {0}About Latex and this Template}{1}{chapter.0}%
+\contentsline {section}{\numberline {0.1}Using the Template}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}File Structure}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Changing the Language to German}{2}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {0.1.3}Biblatex and Biber}{2}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}Adapt the Template to Different Types of Works}{2}{subsection.0.1.4}%
+\contentsline {section}{\numberline {0.2}Latex Basics}{3}{section.0.2}%
+\contentsline {subsection}{\numberline {0.2.1}Weblinks}{3}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {0.2.2}Figures}{4}{subsection.0.2.2}%
+\contentsline {subsection}{\numberline {0.2.3}Symbols and Acronyms}{4}{subsection.0.2.3}%
+\contentsline {subsection}{\numberline {0.2.4}Equations}{4}{subsection.0.2.4}%
+\contentsline {subsection}{\numberline {0.2.5}Tables}{5}{subsection.0.2.5}%
+\contentsline {subsection}{\numberline {0.2.6}Code}{5}{subsection.0.2.6}%
+\contentsline {chapter}{\numberline {1}Introduction}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Goal}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Structure of the Work}{9}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Background}{11}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Related Work}{13}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Methods and Implementation}{15}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Results}{17}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion and Further Work}{19}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Appendix I}{27}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix II}{29}{appendix.B}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

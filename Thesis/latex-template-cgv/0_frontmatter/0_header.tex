@@ -1,0 +1,120 @@
+\documentclass[
+	paper = a4,
+	BCOR=5mm, 			% BCOR je nach Seitenzahl setzen
+	ngerman, english,	% Give every language used in the document, the main one as last
+%	english, ngerman,
+	twoside,
+	numbers=noenddot,
+	parskip	= half, 	% separate paragraphs with half a line
+	cdgeometry = symmetric,
+	cd = barcolor,
+	chapterpage	= false,
+	cdmath = false,
+	slantedgreek=standard,
+	captions=tableheading
+]{tudscrbook}
+
+\usepackage{tudscrsupervisor} % script for creatiing the task description
+\usepackage{tudscrcolor}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}	
+
+\usepackage{babel}
+\usepackage{csquotes}
+
+\usepackage{isodate} 
+\usepackage{blindtext}
+
+\usepackage{setspace}
+\usepackage{acronym}
+\usepackage{scrhack} 	% acronyms result in warning without this
+\usepackage{multicol} 	% use multiple columns, used for the acronyms section
+
+\usepackage{enumitem}\setlist{noitemsep} % used for the bullet points in the task section
+\usepackage{microtype}	% better spacing
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}			% used for making things bold in equations
+\usepackage[b]{esvect}
+
+\usepackage{multirow}	% use tables with columns stretching over multiple rows
+\usepackage{booktabs}
+\setlength\heavyrulewidth{0.25ex}
+\usepackage{longtable}
+
+\usepackage[font=footnotesize, format=plain, labelfont=bf]{caption}  % 
+\usepackage{subcaption}	% Packages to allow subfigures
+
+\usepackage[bottom, hang, flushmargin]{footmisc}
+\renewcommand\hangfootparindent{1em}
+%\usepackage{fnpct}
+
+% use modern bib package
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+	sorting=ynt]{biblatex}
+\addbibresource{2_bib/references.bib}
+
+%\usepackage{xcolor}
+\usepackage{listings}	% Package for displaying code
+\definecolor{KeywordBlue}{cmyk}{0.88,0.77,0,0} %88,77,0,0
+\definecolor{CommentGreen}{cmyk}{0.87,0.24,1.0,0.13} %87,24,100,13
+\lstset{basicstyle=\scriptsize\ttfamily, language=C, commentstyle=\color{CommentGreen}, keywordstyle=\ttfamily\color{KeywordBlue}, backgroundcolor =\color[rgb]{0.95,0.95,0.95}, breaklines=true,literate={\\\%}{{\textcolor{black}{\\\%}}}1}
+
+
+% some of the metadata for the pdf are defined in the title-file,
+% as there are variables like author and title, whích would appear twice otherwise
+% hyperref should always be the last package to be loaded
+\usepackage[
+colorlinks=true,
+urlcolor=.,
+citecolor=.,
+linkcolor=.,        
+pdfstartview=FitV,                          		
+pdfdisplaydoctitle=true,
+hyperfootnotes=false
+]{hyperref}
+\urlstyle{same}		% use the same font for URLs as for the text
+
+%%% PARAMS %%%
+\pdfminorversion=7	% creates pdfs in the version 1.7, which prevents a warning with the logo
+
+% Allow for triple digit page numbers in the toc
+\makeatletter
+\renewcommand*\@pnumwidth{2.1em}
+\renewcommand*\@tocrmarg{3.1em}
+\makeatother
+
+\KOMAoptions{toc=chapterentrydotfill} 	% Add dots in toc for chapters
+\setstretch{1.1}						% Adds a bit of space between the lines
+\frenchspacing							% Only a single space after a dot
+
+
+% Parameters to reduce 'Orphans' and 'Widdows'
+\clubpenalty 			= 9999
+\widowpenalty 			= 9999
+\displaywidowpenalty   	= 1602
+\brokenpenalty			= 4999	% Parameter for word disjuction on a pagebreak
+\pretolerance			= 1100	% Parameter for difference from choosen format
+\tolerance 				= 100 	% Parameter for difference from choosen format
+
+% Less coservative parameters for floating objects in LaTeX
+% An overview can be found in the book
+% The Latex Companions Chapter 6.1
+% A good start is
+% http://robjhyndman.com/researchtips/latex-floats/
+
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+\renewcommand{\textfraction}{0.1}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+%\setlength{\textfloatsep}{15pt plus 2pt minus 2pt}
+%\setlength{\intextsep}{5pt plus 2pt minus 2pt}
