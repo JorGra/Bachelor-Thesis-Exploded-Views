@@ -8,8 +8,8 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
-/[Uu]ser[Ss]ettings/
-/Bachelor-Thesis-Exploded-Views/Thesis/BA- ExplodedView/Logs/
+#/[Uu]ser[Ss]ettings/
+#/Bachelor-Thesis-Exploded-Views/Thesis/BA- ExplodedView/Logs/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
