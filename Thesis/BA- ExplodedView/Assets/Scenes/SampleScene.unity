@@ -386,11 +386,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animated: 1
+  animationSpeed: 0.2
   cellPrefab: {fileID: 5073040963358046397, guid: dbe98fdd4169e174b850a640926a8739,
     type: 3}
   cellChildPrefab: {fileID: 0}
   cellContainer: {fileID: 1744631589}
-  gridOffset: {x: -50, y: -50, z: -50}
+  gridOffset: {x: -50, y: -50, z: 0}
   cells: []
 --- !u!4 &450028559
 Transform:

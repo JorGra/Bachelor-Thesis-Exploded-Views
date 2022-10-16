@@ -66,17 +66,6 @@ public class Cell : MonoBehaviour
     Vector3[] GenerateCubeVertices(Vector3Int position, Vector3 offset)
     {
         Vector3[] vertices = {
-            /*
-            new Vector3 (0 + offset.x, 0 + offset.y, 0 + offset.z),
-            new Vector3 (1 + offset.x, 0 + offset.y, 0 + offset.z),
-            new Vector3 (1 + offset.x, 1 + offset.y, 0 + offset.z),
-            new Vector3 (0 + offset.x, 1 + offset.y, 0 + offset.z),
-            new Vector3 (0 + offset.x, 1 + offset.y, 1 + offset.z),
-            new Vector3 (1 + offset.x, 1 + offset.y, 1 + offset.z),
-            new Vector3 (1 + offset.x, 0 + offset.y, 1 + offset.z),
-            new Vector3 (0 + offset.x, 0 + offset.y, 1 + offset.z),
-            */
-
             new Vector3 (-.5f + offset.x + position.x, -.5f + position.y + offset.y, -.5f + position.z + offset.z),
             new Vector3 ( .5f + offset.x + position.x, -.5f + position.y + offset.y, -.5f + position.z + offset.z),
             new Vector3 ( .5f + offset.x + position.x,  .5f + position.y + offset.y, -.5f + position.z + offset.z),

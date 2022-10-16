@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class CellManager : MonoBehaviour
 {
-
+    [Header("Animation")]
     [SerializeField] bool animated;
+    [Range(0.05f, 2f)]
+    [SerializeField] float animationSpeed;
+    [Header("Cells")]
     [SerializeField] GameObject cellPrefab;
-    [SerializeField] GameObject cellChildPrefab;
     [SerializeField] Transform cellContainer;
     [SerializeField] Vector3 gridOffset;
     public List<Cell> cells = new List<Cell>();
+    
     private static CellManager _instance;
 
     public static CellManager Instance { get { return _instance; } }
@@ -31,7 +34,7 @@ public class CellManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(AdvanceTime(.3f));
+        StartCoroutine(AdvanceTime());
     }
 
     // Update is called once per frame
@@ -40,15 +43,19 @@ public class CellManager : MonoBehaviour
         
     }
 
-    IEnumerator AdvanceTime(float timeDelta)
+    IEnumerator AdvanceTime()
     {
-        while (animated)
+        while (true)
         {
-            foreach (var cell in cells)
+
+            if (animated)
             {
-                cell.AdvanceTime();
+                foreach (var cell in cells)
+                {
+                    cell.AdvanceTime();
+                }
             }
-            yield return new WaitForSeconds(timeDelta);
+            yield return new WaitForSeconds(animationSpeed);
         }
     }
 

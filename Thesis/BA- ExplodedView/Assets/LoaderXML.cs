@@ -46,7 +46,7 @@ public class LoaderXML : MonoBehaviour
                     if (string.IsNullOrEmpty(cell.Id) || string.IsNullOrEmpty(cell.Center) || string.IsNullOrEmpty(cell.Nodes))
                         break;
 
-                    Debug.Log(cell.Nodes);
+                    //Debug.Log(cell.Nodes);
 
                     //id
                     var id = int.Parse(cell.Id);
