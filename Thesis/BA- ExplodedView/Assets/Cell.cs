@@ -29,7 +29,7 @@ public class Cell : MonoBehaviour
     }
 
 
-    public void AddTimeStep(Vector3Int[] positions, Vector3 center, int timeStep)
+    public void AddTimeStep(Vector3Int[] positions, Vector3 center, int timeStep, float voxelSize)
     {
         var meshObj = new GameObject(timeStep.ToString());
         meshObj.transform.SetParent(transform);
@@ -38,11 +38,11 @@ public class Cell : MonoBehaviour
         //cellMaterial.SetColor();
         meshRenderer.material = cellMaterial;
         meshRenderer.material.SetColor("_BaseColor", cellColor);
-        meshFilter.mesh = GenerateMesh(positions);
+        meshFilter.mesh = GenerateMesh(positions, voxelSize);
         meshObj.SetActive(false);
     }
 
-    Mesh GenerateMesh(Vector3Int[] positions)
+    Mesh GenerateMesh(Vector3Int[] positions, float voxelSize)
     {
         var m = new Mesh();
 
@@ -51,7 +51,7 @@ public class Cell : MonoBehaviour
 
         for (int i = 0; i < positions.Length; i++)
         {
-            v.AddRange(GenerateCubeVertices(positions[i], GridOffset));
+            v.AddRange(GenerateCubeVertices(positions[i], GridOffset, voxelSize));
             t.AddRange(GenerateCubeTriangles(i));
         }
 
@@ -60,20 +60,21 @@ public class Cell : MonoBehaviour
 
         m.RecalculateNormals();
         m.Optimize();
+        m.RecalculateBounds();
         return m;
     }
 
-    Vector3[] GenerateCubeVertices(Vector3Int position, Vector3 offset)
+    Vector3[] GenerateCubeVertices(Vector3Int position, Vector3 offset, float voxelSize)
     {
         Vector3[] vertices = {
-            new Vector3 (-.5f + offset.x + position.x, -.5f + position.y + offset.y, -.5f + position.z + offset.z),
-            new Vector3 ( .5f + offset.x + position.x, -.5f + position.y + offset.y, -.5f + position.z + offset.z),
-            new Vector3 ( .5f + offset.x + position.x,  .5f + position.y + offset.y, -.5f + position.z + offset.z),
-            new Vector3 (-.5f + offset.x + position.x,  .5f + position.y + offset.y, -.5f + position.z + offset.z),
-            new Vector3 (-.5f + offset.x + position.x,  .5f + position.y + offset.y,  .5f + position.z + offset.z),
-            new Vector3 ( .5f + offset.x + position.x,  .5f + position.y + offset.y,  .5f + position.z + offset.z),
-            new Vector3 ( .5f + offset.x + position.x, -.5f + position.y + offset.y,  .5f + position.z + offset.z),
-            new Vector3 (-.5f + offset.x + position.x, -.5f + position.y + offset.y,  .5f + position.z + offset.z),
+            new Vector3 (-.5f + offset.x + position.x, -.5f + position.y + offset.y, -.5f + position.z + offset.z) * voxelSize,
+            new Vector3 ( .5f + offset.x + position.x, -.5f + position.y + offset.y, -.5f + position.z + offset.z) * voxelSize,
+            new Vector3 ( .5f + offset.x + position.x,  .5f + position.y + offset.y, -.5f + position.z + offset.z) * voxelSize,
+            new Vector3 (-.5f + offset.x + position.x,  .5f + position.y + offset.y, -.5f + position.z + offset.z) * voxelSize,
+            new Vector3 (-.5f + offset.x + position.x,  .5f + position.y + offset.y,  .5f + position.z + offset.z) * voxelSize,
+            new Vector3 ( .5f + offset.x + position.x,  .5f + position.y + offset.y,  .5f + position.z + offset.z) * voxelSize,
+            new Vector3 ( .5f + offset.x + position.x, -.5f + position.y + offset.y,  .5f + position.z + offset.z) * voxelSize,
+            new Vector3 (-.5f + offset.x + position.x, -.5f + position.y + offset.y,  .5f + position.z + offset.z) * voxelSize,
         };
         return vertices;
     }

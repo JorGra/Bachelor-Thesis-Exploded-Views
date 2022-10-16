@@ -54,9 +54,9 @@ public class LoaderXML : MonoBehaviour
                     //Center
                     var centerVals = cell.Center.Split(",");
                     Vector3 center = Vector3.zero;
-                    center[0] = float.Parse(centerVals[0]);
-                    center[1] = float.Parse(centerVals[1]);
-                    center[2] = float.Parse(centerVals[2]);
+                    center[0] = (float)double.Parse(centerVals[0], System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo);
+                    center[1] = (float)double.Parse(centerVals[1], System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo);
+                    center[2] = (float)double.Parse(centerVals[2], System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo);
 
                     //Nodes
                     var nodeVals = cell.Nodes.Split(";");

@@ -13,6 +13,7 @@ public class CellManager : MonoBehaviour
     [SerializeField] GameObject cellPrefab;
     [SerializeField] Transform cellContainer;
     [SerializeField] Vector3 gridOffset;
+    [SerializeField] float voxelSize = 0.1f;
     public List<Cell> cells = new List<Cell>();
     
     private static CellManager _instance;
@@ -63,10 +64,12 @@ public class CellManager : MonoBehaviour
     {
 
         var cell = cells.FirstOrDefault(it => id == it.id);
+
+        var scaledCenter = center * voxelSize;
+
         if (cell == null)
         {
-            var newCellObj = Instantiate(cellPrefab, cellContainer);
-
+            var newCellObj = Instantiate(cellPrefab, scaledCenter, Quaternion.identity, cellContainer);
             cell = newCellObj.GetComponent<Cell>();
             cell.id = id;
             cell.GridOffset = gridOffset;
@@ -74,8 +77,8 @@ public class CellManager : MonoBehaviour
             cells.Add(cell);
         }
 
-        cell.centers.Add(center);
-        cell.AddTimeStep(voxelPos, center, timeStep);
+        cell.centers.Add(scaledCenter);
+        cell.AddTimeStep(voxelPos, center, timeStep, voxelSize);
 
 
     }
