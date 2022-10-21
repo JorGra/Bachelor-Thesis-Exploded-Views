@@ -64,15 +64,98 @@ https://www.dgp.toronto.edu/papers/mmcguffin_IEEEVIS2003.pdf
 - force based model to push occluding parts out of the way
 - magic lenses 
 
-![implementation ideas](D:\Uni\.Bachelorarbeit\git\Bachelor-Thesis-Exploded-Views\Thesis\Resources\implementaion_ideas.jpg)
+-----
+## Possible structure
+
+### Introduction
+#### Motivation
+Here you motivate, why you are doing your research.
+Which problem does this thesis try to solve and how? What is new? Why is it relevant? What is the strategy to solve this problem? Which parts of the problem are being worked on, which are excluded? 
+Why is occlusion a problem, when viewing models and datasets in general? 
+Why is the virtual reality a good way to visualize data? What does it offer compared to the traditional desktop screens?
+Why is the inspection of surfaces in the virtual space advantageous?
+
+#### Goal 
+
+This section should clarify, what should be achieved by the work.
+How does my implementation solve the occlusion problem?
+How do I plan on implementing an exploded view in VR? What is the overall goal for this thesis?
+Which questions and task am I trying to answer/solve?
+
+#### Structure of work 
+Here the structure can be *briefly* explained.
+Possible structure:
+- related work, maybe do it chronologically  like Li et al. 
+- background/basic concepts/important attributes of exploded views should have
+- describe different implementation concepts and categorize them
+- explain how I implemented those concepts in my work, which technologies did I use and why, what did I change and why and what did I do that is somewhat new
+- Show results of my work/what went right and what did not work
+- discuss results, what went well, what was interesting about my implementation and why? Why did some things not work and what could be improved and how? 
+- Summarize results and draw a conclusion of the work 
+- give an outlook on what could be done to improve the work
+
+### Related work
+chronologically summarize related work and papers on the subject of occlusion avoidance
+
+### Background
+Which basic concepts does the reader need to understand this thesis?
+Explanation of important attributes exploded views should have?
+
+### Methods
+#### introductions to this chapter and comparison of 2D exploded views and exploded views in VR  
+**Theoretical analysis** 
+
+start by comparing the characteristics of the virtual space to 2D screens and the differences in the interaction
+- viewing angles 
+- depth in selection
+- movement in the scene/data set
+- occlusion avoidance
+
+What are important traits for useful/good exploded views? 
+How can we categorize them?
+*Differentiate between view dependend/view independend exploded views*
+
+#### Possible implementations
+**practical realisation**
+
+describe different implementation concepts and categorize them, what advantages do they have? What do they require?
+
+- *simple linear explosion away from given point*
+- *Cone/Cylinder- shape explosion*
+- *view definded/dependend explosion*
+- *anti-gravity view*
+
+How can the I use the advantages of vr interaction to implement a good exploded view/avoid occlusion?
+Which user interactions are supported and why?
+
+### Results
+Show results of the work, this might be difficult for this project as evalutation of exploded views are somewhat subjective
+a user study might be useful here, but I don't know if i'll have the time for that.
+If not compare results with the meassurement that has been established in the previous section.
+Quantitative/Qualitative evaluation if that is possible.
+
+### Discussion
+Review results and explain advantages and disadvatages of the implemented exploded views.
+What went well what could be improved?
+
+### Summarization
+shortly summarize the thesis and what has been done
+give a short conclusion and explain briefly how the questions in the motivation have been answered
+- *how has occlusion avoidance been implemented and improved using vr technology in this thesis*
+- *which conclusions are to be drawn from the work*
+
+
+### Outlook
+What could be done to further improve the concepts that have been implemented and work on?
+Which weekpoints does the current implementation have that would need to be fixed?
+Which further reserch could be done on the subject? Possible other solutions to the problem that haven't been explored in this thesis?
+
+
+-----
+## implementation ideas
+![implementation ideas](/Thesis/Resources/wip/scetches/implementaion_ideas.jpg)
 
 
 ## Fragen
-
-Termin künftig verlegen!
-Muss bei der Seite Objektives of work im Template was geändert werden/was muss geändert werden?
-Muss vor der Motivation in der introduction was stehen? Wenn ja was?
-In welchem Kapitel wird die Arbeit(Das Hauptkonzept und die verschiedenen Möglichkeiten Occlusion zu vermeiden und Exploded Views zu implementiren) erklärt und wo wird auf die verwnadten Arbeiten eingegangen? Wie wird klar was meine Struktur ist und was aus Papern kommt?
-Gibt es eine fertige Bachelorarbeit des Lehrstuhl an welcher man sich ein wenig orientieren kann?
-Brauche möglichst mehr Morpheus Modelle 
+- how could a quantitative/qualitative evaluation look like?
 
