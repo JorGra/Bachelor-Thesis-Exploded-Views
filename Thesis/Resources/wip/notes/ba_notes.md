@@ -64,15 +64,12 @@ https://www.dgp.toronto.edu/papers/mmcguffin_IEEEVIS2003.pdf
 - force based model to push occluding parts out of the way
 - magic lenses 
 
-![implementation ideas](D:\Uni\.Bachelorarbeit\git\Bachelor-Thesis-Exploded-Views\Thesis\Resources\implementaion_ideas.jpg)
+-----
+
+#implementation ideas
+![implementation ideas](/Thesis/Resources/wip/scetches/implementaion_ideas.jpg)
 
 
 ## Fragen
-
-Termin künftig verlegen!
-Muss bei der Seite Objektives of work im Template was geändert werden/was muss geändert werden?
-Muss vor der Motivation in der introduction was stehen? Wenn ja was?
-In welchem Kapitel wird die Arbeit(Das Hauptkonzept und die verschiedenen Möglichkeiten Occlusion zu vermeiden und Exploded Views zu implementiren) erklärt und wo wird auf die verwnadten Arbeiten eingegangen? Wie wird klar was meine Struktur ist und was aus Papern kommt?
-Gibt es eine fertige Bachelorarbeit des Lehrstuhl an welcher man sich ein wenig orientieren kann?
-Brauche möglichst mehr Morpheus Modelle 
+-
 
