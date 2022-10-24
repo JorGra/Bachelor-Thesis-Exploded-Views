@@ -16,7 +16,7 @@ The quality meassure of the selected representative takes the following attribut
 
 These attributes are then weighted and the best representative is exploded. While this won't translate to the virtual space, some ideas are insightful: trying to maximize the dot product of the viewing direction  and explosion direction seems useful for, especially of the application is used in seated mode as it gives a better initial explosion direction. Additionally could a quality score like this be used as a good reference between a good exlpoded view and a mediocre one and for user studies.
 
-
+-------------
 
 ### Medical Image Atlas Interaction in Virtual Reality
 https://aviz.fr/~bbach/immersive2017/papers/IA_1371-paper.pdf
@@ -27,6 +27,7 @@ To allow easy manipulation of the exploded view axis they use hermitsplines that
 - *leafing interaction:* cut object into pieces and search trough them as if they were pages in a book
 - *fanning interaction:* like spreading a hand of playing cards so that the suits of the cards are visible
 
+-------------
 
 ### Automated Generation of Interactive 3D Exploded View Diagrams
 https://dl.acm.org/doi/pdf/10.1145/1360612.1360700
@@ -45,16 +46,39 @@ They also describe to common ways of cutting objects to show internal parts:
 
 They continue showing an algorithm that automatically generates exploded view from hierarchical and non-hierarchical CAD models. Their approach works by generating an explosion graph when the model is loaded. This graph contains information that is needed to determin how the model should be expanded based on the current view direction. It allows the algorithm to determin the order in which the parts should be moved dynamically. One downside is that this apporach only works on rigid models that do not change their shape over time and it needs to be calculated in advance. They also describe how containers can be split by cutting the bounding boxes of the mesh in half and moving the two parts away so that none of the inside parts are occluded. 
 
+-------------
 
-### Exploded View Diagrams of 3D Grids
-DOI: 10.1109/SIBGRAPI.2015.12
+### Coherent zooming and Fisheye views
+https://www.researchgate.net/publication/221474893_Coherent_Zooming_of_Illustrations_with_3D-Graphics_and_Text
+Authors use a fish eye zoom to enlarge objects an make they labeling clearer and more readable. Scaling parts of the objects makes it harder to recognize spacial relationships and confuse the user. However I could use the something like an anti-gravity tool to push objects away from a certain point.
+
+-------------
 
 ### Exploded Views for Volume Data
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=4015467&casa_token=IQrGQ8PHnCUAAAAA:jIA6CIDwI_FAwEcnPOCga6lAKBkoVAZc2aR0NZi8X0VxtS75UeOJJ045ezVwZc9JpZLdU1jZ5g
 10.1109/tvcg.2006.140
+Bruckner et al. apply different algorithms to cut and split 3D volume datasets alonge defined axis. They introduce 3 simple cutting algorithms to define splitting axis and cutting planes. 
+- **Axis splitter:** user selects a point, then the viewing direction and the first intersecting part define the axis on which this object is split by using the crossproduct of the point to that axis.
+- **Depth splitter:** user selects a point, a ray is cast until it hits the background, then all objects are split based on the viewing direction and this ray
+- **Line splitter:** user draws a line, objects get projected onto this line and if their projection point is on this axis, the object is split. 
+
+Another interesting approach they used is the definition of forces that apply on all parts to improve the explosion quality. They defined four forces that push each object in the desired direction. The forces are defined as follows:
+- **Return force:** the part should move as little as possible from its original position. Therefore, there is a force that pushes the part back to its original position
+- **Explosion force:** they let the user select certain points of interest and push all parts away from those points/parts
+- **Viewing force:** they also indroduce a viewing force that pushes objects away from the cameras viewing angle to not occlude selected parts. This is achieved by casting rays from the cameras image plane to each explosion point and pushing objects along their projected center point on this ray and the centerpoint of the part. 
+- **Spacing force:** to avoid clustering they also indroduce a force which pushes all objects away from each other
+
+All of these forces are then individually scaled by a factor and applied to each part. While these are intended to work on volume dataset there is no reason why this wouldn't work on an object oriented scene. Most of them also seem very much usable for VR interaction methods an should therefore further explored in this thesis.   
+
+-------------
 
 ### Using Deformations for Browsing Volumetric Data
 https://www.dgp.toronto.edu/papers/mmcguffin_IEEEVIS2003.pdf
 
+-------------
+
+### Exploded View Diagrams of 3D Grids
+DOI: 10.1109/SIBGRAPI.2015.12
 
 ## Types of exploded views/occlusion avoidance
 - linear transformation
