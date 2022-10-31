@@ -1,15 +1,11 @@
 [0] Config.pm:306> INFO - This is Biber 2.18
 [0] Config.pm:309> INFO - Logfile is 'main.blg'
-[166] biber-MSWIN64:340> INFO - === 
-[247] Biber.pm:418> INFO - Reading 'main.bcf'
-[417] Biber.pm:975> INFO - Using all citekeys in bib section 0
-[438] Biber.pm:4401> INFO - Processing section 0
-[456] Biber.pm:4592> INFO - Looking for bibtex file '2_bib/references.bib' for section 0
-[543] bibtex.pm:1713> INFO - LaTeX decoding ...
-[557] bibtex.pm:1518> INFO - Found BibTeX data source '2_bib/references.bib'
-[639] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[639] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[639] Biber.pm:4221> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'de-DE'
-[639] Biber.pm:4227> INFO - No sort tailoring available for locale 'de-DE'
-[649] bbl.pm:654> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[651] bbl.pm:757> INFO - Output to main.bbl
+[169] biber-MSWIN64:340> INFO - === 
+[233] Biber.pm:418> INFO - Reading 'main.bcf'
+[404] Biber.pm:975> INFO - Using all citekeys in bib section 0
+[423] Biber.pm:4401> INFO - Processing section 0
+[441] Biber.pm:4592> INFO - Looking for bibtex file '2_bib/references.bib' for section 0
+[532] bibtex.pm:1713> INFO - LaTeX decoding ...
+[545] bibtex.pm:1518> INFO - Found BibTeX data source '2_bib/references.bib'
+[612] Utils.pm:410> ERROR - BibTeX subsystem: C:\Users\Jorris10\AppData\Local\Temp\biber_tmp_ypSR\33e59b5ca9ec342068223d604c3f8d55_23352.utf8, line 27, syntax error: found "_2015", expected ","
+[612] Biber.pm:135> INFO - ERRORS: 1
