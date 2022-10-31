@@ -36,4 +36,10 @@ public class ExplosionViewHandler : MonoBehaviour
             objectsToExplode[i].position = Vector3.Lerp(explosionOriginalPos[i], explosionTargetPos[i], currentExplosionForce);
         }
     }
+
+    public void OnExplosionForceSliderChange(float value)
+    {
+        Debug.Log("explosion force" + value.ToString());
+        currentExplosionForce = value;
+    }
 }
