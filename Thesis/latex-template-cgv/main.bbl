@@ -1,0 +1,210 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Foley1982}{book}{}
+      \name{author}{2}{}{%
+        {{hash=61151e3691774bd7a6ecf72e3c15d034}{%
+           family={Foley},
+           familyi={F\bibinitperiod},
+           given={James\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=1a43815572691c3036032556ca985ab6}{%
+           family={Van\bibnamedelima Dam},
+           familyi={V\bibinitperiod\bibinitdelim D\bibinitperiod},
+           given={Andries},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley Longman Publishing Co., Inc.}%
+      }
+      \strng{namehash}{5d2026456dc0a8b04f20062901eeb183}
+      \strng{fullhash}{5d2026456dc0a8b04f20062901eeb183}
+      \strng{bibnamehash}{5d2026456dc0a8b04f20062901eeb183}
+      \strng{authorbibnamehash}{5d2026456dc0a8b04f20062901eeb183}
+      \strng{authornamehash}{5d2026456dc0a8b04f20062901eeb183}
+      \strng{authorfullhash}{5d2026456dc0a8b04f20062901eeb183}
+      \field{labelalpha}{FV82}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0201144689}
+      \field{title}{Fundamentals of Interactive Computer Graphics}
+      \field{year}{1982}
+    \endentry
+    \entry{Milder2006}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=e78d2b3fb9e524baeeae523193eff0a2}{%
+           family={Milder},
+           familyi={M\bibinitperiod},
+           given={Peter\bibnamedelima A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=ed0968f33daf36ae7577303e24b5a504}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9880b5c3ff04162daf0a04a66e216f68}{%
+           family={Hoe},
+           familyi={H\bibinitperiod},
+           given={James\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=8f4f7b9935992aa7a20147800e695b1e}{%
+           family={Püschel},
+           familyi={P\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Monterey, California, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{ff503f5df3ff3f2398333872f826a29e}
+      \strng{fullhash}{3b7b3c48460c0f39e3e3787dbd659249}
+      \strng{bibnamehash}{ff503f5df3ff3f2398333872f826a29e}
+      \strng{authorbibnamehash}{ff503f5df3ff3f2398333872f826a29e}
+      \strng{authornamehash}{ff503f5df3ff3f2398333872f826a29e}
+      \strng{authorfullhash}{3b7b3c48460c0f39e3e3787dbd659249}
+      \field{labelalpha}{Mil+06}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2006 ACM/SIGDA 14th International Symposium on Field Programmable Gate Arrays}
+      \field{isbn}{1595932925}
+      \field{series}{FPGA '06}
+      \field{title}{Fast and Accurate Resource Estimation of Automatically Generated Custom DFT IP Cores}
+      \field{year}{2006}
+      \field{pages}{211\bibrangedash 220}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/1117201.1117232
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/1117201.1117232
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/1117201.1117232
+      \endverb
+      \keyw{design generator,FPGA resource estimation,discrete fourier transform,IP}
+    \endentry
+    \entry{Wilmot_Li_2008}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3984a3a3963ab8fca0127ddad21fff34}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Wilmot},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2f600a42bcab8fe8771b080139adcc0a}{%
+           family={Agrawala},
+           familyi={A\bibinitperiod},
+           given={Maneesh},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7133c602cdd8e7ab92c7a3430532a3db}{%
+           family={Curless},
+           familyi={C\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f0b3c3b76a946d06e8680775a2d32856}{%
+           family={Salesin},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{d56ee4454e6c8d077045562bf1644ae9}
+      \strng{fullhash}{25335cd029d0d7bd2d06e6404cb016c5}
+      \strng{bibnamehash}{d56ee4454e6c8d077045562bf1644ae9}
+      \strng{authorbibnamehash}{d56ee4454e6c8d077045562bf1644ae9}
+      \strng{authornamehash}{d56ee4454e6c8d077045562bf1644ae9}
+      \strng{authorfullhash}{25335cd029d0d7bd2d06e6404cb016c5}
+      \field{labelalpha}{Li+08}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a system for creating and viewing interactive exploded views of complex 3D models. In our approach, a 3D input model is organized into an explosion graph that encodes how parts explode with respect to each other. We present an automatic method for computing explosion graphs that takes into account part hierarchies in the input models and handles common classes of interlocking parts. Our system also includes an interface that allows users to interactively explore our exploded views using both direct controls and higher-level interaction modes.}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{8}
+      \field{number}{3}
+      \field{title}{Automated Generation of Interactive 3D Exploded View Diagrams}
+      \field{volume}{27}
+      \field{year}{2008}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1145/1360612.1360700
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/1360612.1360700
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/1360612.1360700
+      \endverb
+      \keyw{exploded view illustration,interactive,visualization}
+    \endentry
+    \entry{peichl_2015}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=465af5bb850b82142294c104f4073045}{%
+           family={Peichl},
+           familyi={P\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{465af5bb850b82142294c104f4073045}
+      \strng{fullhash}{465af5bb850b82142294c104f4073045}
+      \strng{bibnamehash}{465af5bb850b82142294c104f4073045}
+      \strng{authorbibnamehash}{465af5bb850b82142294c104f4073045}
+      \strng{authornamehash}{465af5bb850b82142294c104f4073045}
+      \strng{authorfullhash}{465af5bb850b82142294c104f4073045}
+      \field{labelalpha}{Pei15}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Helmholtz}
+      \field{month}{4}
+      \field{title}{Wie viele Nervenzellen hat das gehirn?}
+      \field{year}{2015}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.helmholtz.de/newsroom/artikel/wie-viele-nervenzellen-hat-das-gehirn/#:~:text=Tats%C3%A4chlich%20geht%20man%20heute%20von%20etwa%2086%20Milliarden%20Nervenzellen%20aus.
+      \endverb
+      \verb{url}
+      \verb https://www.helmholtz.de/newsroom/artikel/wie-viele-nervenzellen-hat-das-gehirn/#:~:text=Tats%C3%A4chlich%20geht%20man%20heute%20von%20etwa%2086%20Milliarden%20Nervenzellen%20aus.
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
