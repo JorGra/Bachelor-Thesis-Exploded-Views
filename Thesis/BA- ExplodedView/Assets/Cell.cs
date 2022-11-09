@@ -13,6 +13,8 @@ public class Cell : MonoBehaviour
     public GameObject[] timeSteps;
     public List<Vector3> centers = new List<Vector3>();
 
+    Quaternion savedRotation;
+
     public Vector3 GridOffset { get; set; }
 
     [SerializeField] Material cellMaterial;
@@ -25,6 +27,17 @@ public class Cell : MonoBehaviour
         
         if (currentTimestep >= transform.childCount)
             currentTimestep = 0;
+
+        transform.GetChild(currentTimestep).gameObject.SetActive(true);
+    }
+
+    public void ReturnTime()
+    {
+        transform.GetChild(currentTimestep).gameObject.SetActive(false);
+        currentTimestep--;
+
+        if (currentTimestep <= 0)
+            currentTimestep = transform.childCount - 1;
 
         transform.GetChild(currentTimestep).gameObject.SetActive(true);
     }
@@ -43,7 +56,15 @@ public class Cell : MonoBehaviour
         meshObj.SetActive(false);
     }
 
+    public void ActivateCell()
+    {
+        savedRotation = transform.rotation;
+    }
 
+    public void DeactivateCell()
+    {
+        transform.rotation = savedRotation;
+    }
  
 
     Mesh GenerateMesh(Vector3Int[] positions, float voxelSize)

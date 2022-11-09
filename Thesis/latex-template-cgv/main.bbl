@@ -52,6 +52,77 @@
       \field{isbn}{0201144689}
       \field{title}{Fundamentals of Interactive Computer Graphics}
       \field{year}{1982}
+      \true{nocite}
+    \endentry
+    \entry{Mohammad_1993}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=fad685c33c878409a41e55b6c4b2225f}{%
+           family={Mohammad},
+           familyi={M\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=335cf3df020e825cae79625685c00a64}{%
+           family={Kroll},
+           familyi={K\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{54905889489c1dcc5cd36cbfabe2a3cc}
+      \strng{fullhash}{54905889489c1dcc5cd36cbfabe2a3cc}
+      \strng{bibnamehash}{54905889489c1dcc5cd36cbfabe2a3cc}
+      \strng{authorbibnamehash}{54905889489c1dcc5cd36cbfabe2a3cc}
+      \strng{authornamehash}{54905889489c1dcc5cd36cbfabe2a3cc}
+      \strng{authorfullhash}{54905889489c1dcc5cd36cbfabe2a3cc}
+      \field{labelalpha}{MK93}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of 9th IEEE Conference on Artificial Intelligence for Applications}
+      \field{title}{Automatic generation of exploded view by graph transformation}
+      \field{year}{1993}
+      \true{nocite}
+      \field{pages}{368\bibrangedash 374}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/CAIA.1993.366643
+      \endverb
+    \endentry
+    \entry{li2004interactive}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=3984a3a3963ab8fca0127ddad21fff34}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Wilmot},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2f600a42bcab8fe8771b080139adcc0a}{%
+           family={Agrawala},
+           familyi={A\bibinitperiod},
+           given={Maneesh},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f0b3c3b76a946d06e8680775a2d32856}{%
+           family={Salesin},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{a16efb39ceec201c23186be598549977}
+      \strng{fullhash}{a16efb39ceec201c23186be598549977}
+      \strng{bibnamehash}{a16efb39ceec201c23186be598549977}
+      \strng{authorbibnamehash}{a16efb39ceec201c23186be598549977}
+      \strng{authornamehash}{a16efb39ceec201c23186be598549977}
+      \strng{authorfullhash}{a16efb39ceec201c23186be598549977}
+      \field{labelalpha}{LAS04}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of Graphics Interface 2004}
+      \field{title}{Interactive image-based exploded view diagrams}
+      \field{year}{2004}
+      \true{nocite}
+      \field{pages}{203\bibrangedash 212}
+      \range{pages}{10}
     \endentry
     \entry{Milder2006}{inproceedings}{}
       \name{author}{4}{}{%
@@ -98,6 +169,7 @@
       \field{series}{FPGA '06}
       \field{title}{Fast and Accurate Resource Estimation of Automatically Generated Custom DFT IP Cores}
       \field{year}{2006}
+      \true{nocite}
       \field{pages}{211\bibrangedash 220}
       \range{pages}{10}
       \verb{doi}

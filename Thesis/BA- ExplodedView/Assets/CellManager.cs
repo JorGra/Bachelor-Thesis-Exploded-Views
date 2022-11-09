@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CellManager : MonoBehaviour
 {
@@ -15,7 +16,12 @@ public class CellManager : MonoBehaviour
     [SerializeField] Vector3 gridOffset;
     [SerializeField] float voxelSize = 0.1f;
     public List<Cell> cells = new List<Cell>();
-    
+
+    [SerializeField] float minContainerSize = 0.1f;
+    [SerializeField] float maxContainerSize = 1.5f;
+
+    [SerializeField] TMP_Text pauseText;
+
     private static CellManager _instance;
 
     public static CellManager Instance { get { return _instance; } }
@@ -73,7 +79,7 @@ public class CellManager : MonoBehaviour
             cell = newCellObj.GetComponent<Cell>();
             cell.id = id;
             cell.GridOffset = gridOffset;
-            cell.cellColor = Random.ColorHSV();
+            cell.cellColor = Color.HSVToRGB(Random.Range(0f, 360f)/360f, 0.9f, 0.7f);// Random.ColorHSV();
             cells.Add(cell);
         }
 
@@ -81,5 +87,41 @@ public class CellManager : MonoBehaviour
         cell.AddTimeStep(voxelPos, center, timeStep, voxelSize);
 
 
+    }
+
+    public void OnSizeSliderChange(float value)
+    {
+        float dist = maxContainerSize - minContainerSize;
+        var val = minContainerSize + (dist * value);
+
+        cellContainer.transform.localScale = Vector3.one * val;
+    }
+
+    public void OnButtonTimePause()
+    {
+        animated = !animated;
+
+        if (animated)
+            pauseText.text = "II";
+        else
+            pauseText.text = ">";
+
+    }
+
+    public void OnButtonTimeForward()
+    {
+        foreach (var cell in cells)
+        {
+            cell.AdvanceTime();
+        }
+    }
+
+    public void OnButtonTimeBackward()
+    {
+        foreach (var cell in cells)
+        {
+            cell.ReturnTime
+                ();
+        }
     }
 }

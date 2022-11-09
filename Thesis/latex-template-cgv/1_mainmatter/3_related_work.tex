@@ -3,10 +3,37 @@
 {\chapter{Related Work}}
 \label{sec:related}
 
-Describing the research field with relevant works on the same or similar issues.
+% Describing the research field with relevant works on the same or similar issues.
 
 % Aufzeigen, wer sich bereits mit dem Thema oder ähnlichen verwandten
 % Themen auseinandergesetzt hat, welche Lösungswege beschrieben wurden und was die Verbindung der jeweiligen zur eigenen Arbeit ist.
 % Kurzen ausblick auf die eigene Arbeit und was man neu gemacht hat. Own Contributions
 
 
+Occlusion avoidance is a widely researched area of computer visualization that is continuously evolving with the technology. 
+New devices and technologies enable innovative ways to extend and improve known concepts and methods. 
+This is especially true for visualization techniques such as exploded views and cutting planes, which benefit greatly from these novel interaction possibilities.
+ 
+For example, Li et al. describe a method in their paper that automatically separates drawn explosion views to make them interactive. %TODO cite=li2004interactive
+Their algorithm takes 2D images of explosion view diagrams and automatically cuts them apart, both reducing visual clutter and clarifying the spatial separation of the individual components. %TODO add picutres from paper
+Furthermore, the separated parts can be better labeled and retracted and extended as desired.
+
+Since two-dimensional images are limited in their interaction possibilities and the data sets and models have become increasingly complex, the question arises as to how the same principles of explosion views can be transferred to three-dimensional objects.
+For this purpose, Mohammad et al developed a tool that creates exploded views for three-dimensional CAD models. It shows both precise spatial relationships and the order in which the object was assembled. % TODO cite=Mohammad_1993
+This is especially useful for the visualization of machines and gives the viewer a clear idea of the arrangement. 
+A disadvantage of their implementation is that the individual relations must be clearly defined by a designer beforehand to enable the generation of the explosion view and to calculate the position of the exploded parts.
+So the order of composition and the blocking elements must be known and have to be defined manually. 
+
+Li et al therefore presented a system that automatically extracts non-blocking exploded views from a 3D model, focusing on rearranging parts instead of hiding obscuring geometry. %TODO cite=Wilmot_Li_2008
+They also provide a list of tools to interact with the exploded views and dynamically select and show parts of interest.
+Their implementation works for both hierarchical and non-hierarchical models, which also allows it to process biological datasets where there is no fixed assembly order.  %TODO add pictures
+The algorithm works by calculating an explosion graph when loading the model, which describes the blocking elements of each part from different angles. 
+This allows to retrieve at runtime the sequence of elements needed to disassemble the object without parts passing through others. 
+Thus a dynamic explosion graph can be generated which shows an animated composition from all viewing directions.
+An important part of this is the generation of a correct explosion graph. 
+To accomplish this, two problems have to be solved: first, how to move the parts to uncover the target parts without occluding them, and second, how to deal with enclosed parts. 
+Li et al. solve this problem by iteratively going through all the parts and testing for two conditions: each part must be moved so that none of the target parts are obscured; if the part is a target part, it must not be obscured by any part that has already been visited. 
+In order to isolate target parts from other touching parts, it is also made sure that they are completely visible and close parts are moved further away. 
+If one part is completely enclosed by another, the outer one is separated in the bounding box center and pulled apart so that the inner parts are completely visible, then the algorithm continues. %TODO add pictures
+The resulting application generates animated exploded views for models with up to fifty parts. 
+However, a disadvantage of this implementation is that it only works for static data sets and must be adapted for time-varying data sets.

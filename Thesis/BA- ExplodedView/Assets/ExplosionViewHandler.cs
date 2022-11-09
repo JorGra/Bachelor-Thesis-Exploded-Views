@@ -39,7 +39,7 @@ public class ExplosionViewHandler : MonoBehaviour
 
     public void OnExplosionForceSliderChange(float value)
     {
-        Debug.Log("explosion force" + value.ToString());
+        //Debug.Log("explosion force" + value.ToString());
         currentExplosionForce = value;
     }
 }
