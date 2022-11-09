@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<MorpheusModel version="4">
+    <Description>
+        <Details>Model for blastocyst formation from single stem cell incl. proliferation, polarization upon ECM contact (surrounding medium), trophectoderm formation, lumen formation, inner cell mass aggregation.
+
+</Details>
+        <Title>Virtual Embryo</Title>
+    </Description>
+    <Space>
+        <Lattice class="cubic">
+            <Neighborhood>
+                <Order>1</Order>
+            </Neighborhood>
+            <Size value="200, 200, 200" symbol="size"/>
+            <BoundaryConditions>
+                <Condition boundary="x" type="periodic"/>
+                <Condition boundary="-x" type="periodic"/>
+                <Condition boundary="y" type="periodic"/>
+                <Condition boundary="-y" type="periodic"/>
+            </BoundaryConditions>
+        </Lattice>
+        <SpaceSymbol symbol="space"/>
+        <MembraneLattice>
+            <Resolution value="20"/>
+            <SpaceSymbol symbol="mem"/>
+        </MembraneLattice>
+    </Space>
+    <Time>
+        <StartTime value="0"/>
+        <StopTime value="3000"/>
+        <TimeSymbol symbol="time"/>
+        <RandomSeed value="0"/>
+    </Time>
+    <CellTypes>
+        <CellType class="medium" name="ECM"/>
+        <CellType class="biological" name="cells">
+            <VolumeConstraint target="vol.cell" strength="1"/>
+            <SurfaceConstraint target="1" mode="aspherity" strength="1"/>
+            <ConnectivityConstraint/>
+            <MembraneProperty value="0" symbol="basal">
+                <Diffusion rate="0"/>
+            </MembraneProperty>
+            <NeighborhoodReporter time-step="1.0" name="basal">
+                <Input value="cell.type == celltype.ECM.id" scaling="length"/>
+                <Output mapping="average" symbol-ref="basal"/>
+            </NeighborhoodReporter>
+            <MembraneProperty value="0" symbol="cadherin">
+                <Diffusion rate="5"/>
+            </MembraneProperty>
+            <System solver="Heun [fixed, O(2)]" time-step="1.0">
+                <DiffEqn symbol-ref="cadherin">
+                    <Expression>basal*(1-cadherin) - 0.1*cadherin</Expression>
+                </DiffEqn>
+            </System>
+            <PropertyVector value="1, 0, 0" notation="r,φ,θ" symbol="polarity"/>
+            <Mapper time-step="1.0" name="polarity away from basal (to apical)">
+                <Input value="- cadherin"/>
+                <Polarity symbol-ref="polarity"/>
+            </Mapper>
+            <!--    <Disabled>
+        <VectorFunction notation="x,y,z" symbol="division_plane">
+            <Expression>-polarity.y,
+polarity.x,
+0 </Expression>
+        </VectorFunction>
+    </Disabled>
+-->
+            <CellDivision trigger="when-true" name="along epithelial sheet" division-plane="minor">
+                <Condition>rand_uni(0,1) &lt; 0.001*(polarity.abs>0.005)+0.001*((celltype.cells.size&lt;20)*(polarity.abs>0.001)+0.5*(celltype.cells.size&lt;2))</Condition>
+            </CellDivision>
+            <ChangeCellType time-step="1" name="lumen formation" newCellType="lumen">
+                <Condition>rand_uni(0,1) &lt; 0.01*(polarity.abs&lt;0.01)*(celltype.lumen.size&lt;1)*(celltype.cells.size>15)*(time>500)</Condition>
+                <Triggers>
+                    <Rule symbol-ref="time.start">
+                        <Expression>time</Expression>
+                    </Rule>
+                </Triggers>
+            </ChangeCellType>
+        </CellType>
+        <CellType class="biological" name="lumen">
+            <VolumeConstraint target="vol.target" strength="1"/>
+            <ConnectivityConstraint/>
+            <Function symbol="vol.target">
+                <Expression>vol.cell+10*(time-time.start)</Expression>
+            </Function>
+            <Property value="0" symbol="time.start"/>
+        </CellType>
+    </CellTypes>
+    <CellPopulations>
+        <Population size="0" name="seed one single stem cell" type="cells">
+            <InitCircle mode="regular" number-of-cells="1">
+                <Dimensions center="size/2" radius="10"/>
+            </InitCircle>
+        </Population>
+    </CellPopulations>
+    <Analysis>
+        <Gnuplotter time-step="100" decorate="true">
+            <Terminal name="png"/>
+            <Plot slice="100">
+                <Cells value="cadherin"/>
+                <CellArrows orientation="50*polarity" style="4"/>
+            </Plot>
+            <Plot slice="98">
+                <Cells value="cadherin"/>
+                <CellArrows orientation="50*polarity" style="4"/>
+            </Plot>
+            <Plot slice="99">
+                <Cells value="cell.type" per-frame-range="true">
+                    <ColorMap>
+                        <Color value="1" color="red"/>
+                        <Color value="2" color="blue"/>
+                    </ColorMap>
+                </Cells>
+            </Plot>
+            <Plot slice="97">
+                <Cells value="cell.type" per-frame-range="true">
+                    <ColorMap>
+                        <Color value="1" color="red"/>
+                        <Color value="2" color="blue"/>
+                    </ColorMap>
+                </Cells>
+            </Plot>
+        </Gnuplotter>
+        <ModelGraph reduced="false" format="svg" include-tags="#untagged"/>
+    </Analysis>
+    <Global>
+        <Constant value="0" symbol="cadherin"/>
+        <Constant value="800" name="target volume of cells" symbol="vol.cell"/>
+    </Global>
+    <CPM>
+        <Interaction>
+            <Contact type2="cells" type1="cells" value="1">
+                <HomophilicAdhesion adhesive="cadherin" strength="-100"/>
+            </Contact>
+            <Contact type2="ECM" type1="lumen" value="50"/>
+            <Contact type2="cells" type1="lumen" value="10"/>
+        </Interaction>
+        <ShapeSurface scaling="norm">
+            <Neighborhood>
+                <Order>7</Order>
+            </Neighborhood>
+        </ShapeSurface>
+        <MonteCarloSampler stepper="edgelist">
+            <MCSDuration value="1"/>
+            <MetropolisKinetics temperature="1"/>
+            <Neighborhood>
+                <Order>2</Order>
+            </Neighborhood>
+        </MonteCarloSampler>
+    </CPM>
+</MorpheusModel>

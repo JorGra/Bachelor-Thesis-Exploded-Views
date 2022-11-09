@@ -1,0 +1,216 @@
+<MorpheusModel version="5">
+	<Time>
+		<StartTime value="600"/>
+		<StopTime value="3000"/>
+		<TimeSymbol symbol="time"/>
+		<SaveInterval value="100"/>
+	</Time>
+	<Description>
+		<Details>Model for blastocyst formation from single stem cell incl. proliferation, polarization upon ECM contact (surrounding medium), trophectoderm formation, lumen formation, inner cell mass aggregation.</Details>
+		<Title>Virtual Embryo</Title>
+	</Description>
+	<Space>
+		<Lattice class="cubic">
+			<Neighborhood>
+				<Order>1</Order>
+			</Neighborhood>
+			<Size symbol="size" value="200, 200, 200"/>
+			<BoundaryConditions>
+				<Condition type="periodic" boundary="x"/>
+				<Condition type="periodic" boundary="-x"/>
+				<Condition type="periodic" boundary="y"/>
+				<Condition type="periodic" boundary="-y"/>
+			</BoundaryConditions>
+		</Lattice>
+		<SpaceSymbol symbol="space"/>
+		<MembraneLattice>
+			<Resolution value="20"/>
+			<SpaceSymbol symbol="mem"/>
+		</MembraneLattice>
+	</Space>
+	<Global>
+		<Constant symbol="cadherin" value="0"/>
+		<Constant symbol="vol.cell" name="target volume of cells" value="800"/>
+	</Global>
+	<CellTypes>
+		<CellType name="ECM" class="medium"/>
+		<CellType name="cells" class="biological">
+			<VolumeConstraint target="vol.cell" strength="1"/>
+			<SurfaceConstraint target="1" strength="1" mode="aspherity"/>
+			<ConnectivityConstraint/>
+			<MembraneProperty symbol="basal" value="0"/>
+			<NeighborhoodReporter time-step="1.0" name="basal">
+				<Input scaling="length" value="cell.type == celltype.ECM.id"/>
+				<Output symbol-ref="basal" mapping="average"/>
+			</NeighborhoodReporter>
+			<MembraneProperty symbol="cadherin" value="0"/>
+			<System time-step="1.0" solver="Heun [fixed, O(2)]">
+				<DiffEqn symbol-ref="cadherin">
+					<Reaction>basal*(1-cadherin) - 0.1*cadherin</Reaction>
+					<Diffusion>5</Diffusion>
+				</DiffEqn>
+			</System>
+			<PropertyVector notation="r,φ,θ" symbol="polarity" value="1, 0, 0"/>
+			<Mapper time-step="1.0" name="polarity away from basal (to apical)">
+				<Input value="- cadherin"/>
+				<Polarity symbol-ref="polarity"/>
+			</Mapper>
+			<!--    <Disabled>
+        <VectorFunction notation="x,y,z" symbol="division_plane">
+            <Expression>-polarity.y,
+polarity.x,
+0 </Expression>
+        </VectorFunction>
+    </Disabled>
+-->
+			<CellDivision trigger="when-true" name="along epithelial sheet" division-plane="minor">
+				<Condition>rand_uni(0,1) &lt; 0.001*(polarity.abs&gt;0.005)+0.001*((celltype.cells.size&lt;20)*(polarity.abs&gt;0.001)+0.5*(celltype.cells.size&lt;2))</Condition>
+			</CellDivision>
+			<ChangeCellType time-step="1" name="lumen formation" newCellType="lumen">
+				<Condition>rand_uni(0,1) &lt; 0.01*(polarity.abs&lt;0.01)*(celltype.lumen.size&lt;1)*(celltype.cells.size&gt;15)*(time&gt;500)</Condition>
+				<Triggers>
+					<Rule symbol-ref="time.start">
+						<Expression>time</Expression>
+					</Rule>
+				</Triggers>
+			</ChangeCellType>
+		</CellType>
+		<CellType name="lumen" class="biological">
+			<VolumeConstraint target="vol.target" strength="1"/>
+			<ConnectivityConstraint/>
+			<Function symbol="vol.target">
+				<Expression>vol.cell+10*(time-time.start)</Expression>
+			</Function>
+			<Property symbol="time.start" value="0"/>
+		</CellType>
+	</CellTypes>
+	<CPM>
+		<Interaction>
+			<Contact type2="cells" type1="cells" value="1">
+				<HomophilicAdhesion strength="-100" adhesive="cadherin"/>
+			</Contact>
+			<Contact type2="ECM" type1="lumen" value="50"/>
+			<Contact type2="cells" type1="lumen" value="10"/>
+		</Interaction>
+		<ShapeSurface scaling="norm">
+			<Neighborhood>
+				<Order>7</Order>
+			</Neighborhood>
+		</ShapeSurface>
+		<MonteCarloSampler stepper="edgelist">
+			<MCSDuration value="1"/>
+			<MetropolisKinetics temperature="1"/>
+			<Neighborhood>
+				<Order>2</Order>
+			</Neighborhood>
+		</MonteCarloSampler>
+	</CPM>
+	<Analysis>
+		<Gnuplotter time-step="100" decorate="true">
+			<Terminal name="screen"/>
+			<Plot slice="100">
+				<Cells value="cadherin"/>
+				<CellArrows style="4" orientation="50*polarity"/>
+			</Plot>
+			<Plot slice="98">
+				<Cells value="cadherin"/>
+				<CellArrows style="4" orientation="50*polarity"/>
+			</Plot>
+			<Plot slice="99">
+				<Cells per-frame-range="true" value="cell.type">
+					<ColorMap>
+						<Color color="red" value="1"/>
+						<Color color="blue" value="2"/>
+					</ColorMap>
+				</Cells>
+			</Plot>
+			<Plot slice="97">
+				<Cells per-frame-range="true" value="cell.type">
+					<ColorMap>
+						<Color color="red" value="1"/>
+						<Color color="blue" value="2"/>
+					</ColorMap>
+				</Cells>
+			</Plot>
+		</Gnuplotter>
+		<ModelGraph include-tags="#untagged" reduced="false" format="svg"/>
+	</Analysis>
+	<CellPopulations>
+		<Population type="cells" name="seed one single stem cell" size="0">
+			<InitCircle mode="regular" number-of-cells="1">
+				<Dimensions center="size/2" radius="10"/>
+			</InitCircle>
+		</Population>
+		<Population type="ECM" size="1">
+			<Cell id="0"/>
+		</Population>
+		<Population type="cells" size="1">
+			<Cell id="1">
+				<MembranePropertyData encoding="base64" word-size="8" symbol-ref="basal">AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAA
+AADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAA
+AAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/
+AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA
+8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPw==</MembranePropertyData>
+				<MembranePropertyData encoding="base64" word-size="8" symbol-ref="cadherin">Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX
+7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTR
+RRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxpd
+dNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/
+Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX
+7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8XXXTR
+RRftPxdddNFFF+0/F1100UUX7T8XXXTRRRftPxdddNFFF+0/F1100UUX7T8XXXTRRRftPxdd
+dNFFF+0/F1100UUX7T8XXXTRRRftPxdddNFFF+0/F1100UUX7T8XXXTRRRftPxdddNFFF+0/
+F1100UUX7T8XXXTRRRftPxdddNFFF+0/F1100UUX7T8XXXTRRRftPxdddNFFF+0/Gl100UUX
+7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTR
+RRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpd
+dNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxZddNFFF+0/
+Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX
+7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTR
+RRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZd
+dNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/
+Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX
+7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/FF100UUX7T8UXXTR
+RRftPxRddNFFF+0/FF100UUX7T8UXXTRRRftPxRddNFFF+0/FF100UUX7T8UXXTRRRftPxRd
+dNFFF+0/FF100UUX7T8UXXTRRRftPxRddNFFF+0/FF100UUX7T8UXXTRRRftPxRddNFFF+0/
+FF100UUX7T8UXXTRRRftPxRddNFFF+0/FF100UUX7T8UXXTRRRftPxZddNFFF+0/Fl100UUX
+7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTR
+RRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZd
+dNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8aXXTRRRftPxpddNFFF+0/
+Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX
+7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Gl100UUX7T8aXXTR
+RRftPxpddNFFF+0/Gl100UUX7T8aXXTRRRftPxpddNFFF+0/Fl100UUX7T8WXXTRRRftPxZd
+dNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/
+Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPxZddNFFF+0/Fl100UUX
+7T8WXXTRRRftPxZddNFFF+0/Fl100UUX7T8WXXTRRRftPw==</MembranePropertyData>
+				<PropertyVectorData symbol-ref="polarity" value="0.00063313483421,-0.00030470796662,0.00027081456417"/>
+				<Center>99.23875,98.93125,99.07375</Center>
+				<Nodes>99, 99, 93;98, 97, 94;99, 97, 94;100, 97, 94;101, 97, 94;97, 98, 94;98, 98, 94;99, 98, 94;100, 98, 94;101, 98, 94;97, 99, 94;98, 99, 94;99, 99, 94;100, 99, 94;101, 99, 94;102, 99, 94;98, 100, 94;99, 100, 94;100, 100, 94;101, 100, 94;98, 101, 94;99, 101, 94;100, 101, 94;101, 101, 94;99, 95, 95;97, 96, 95;98, 96, 95;99, 96, 95;100, 96, 95;101, 96, 95;96, 97, 95;97, 97, 95;98, 97, 95;99, 97, 95;100, 97, 95;101, 97, 95;102, 97, 95;96, 98, 95;97, 98, 95;98, 98, 95;99, 98, 95;100, 98, 95;101, 98, 95;102, 98, 95;103, 98, 95;96, 99, 95;97, 99, 95;98, 99, 95;99, 99, 95;100, 99, 95;101, 99, 95;102, 99, 95;103, 99, 95;96, 100, 95;97, 100, 95;98, 100, 95;99, 100, 95;100, 100, 95;101, 100, 95;102, 100, 95;103, 100, 95;96, 101, 95;97, 101, 95;98, 101, 95;99, 101, 95;100, 101, 95;101, 101, 95;102, 101, 95;98, 102, 95;99, 102, 95;100, 102, 95;101, 102, 95;99, 103, 95;100, 94, 96;97, 95, 96;98, 95, 96;99, 95, 96;100, 95, 96;101, 95, 96;96, 96, 96;97, 96, 96;98, 96, 96;99, 96, 96;100, 96, 96;101, 96, 96;102, 96, 96;103, 96, 96;95, 97, 96;96, 97, 96;97, 97, 96;98, 97, 96;99, 97, 96;100, 97, 96;101, 97, 96;102, 97, 96;103, 97, 96;95, 98, 96;96, 98, 96;97, 98, 96;98, 98, 96;99, 98, 96;100, 98, 96;101, 98, 96;102, 98, 96;103, 98, 96;104, 98, 96;95, 99, 96;96, 99, 96;97, 99, 96;98, 99, 96;99, 99, 96;100, 99, 96;101, 99, 96;102, 99, 96;103, 99, 96;104, 99, 96;95, 100, 96;96, 100, 96;97, 100, 96;98, 100, 96;99, 100, 96;100, 100, 96;101, 100, 96;102, 100, 96;103, 100, 96;95, 101, 96;96, 101, 96;97, 101, 96;98, 101, 96;99, 101, 96;100, 101, 96;101, 101, 96;102, 101, 96;103, 101, 96;96, 102, 96;97, 102, 96;98, 102, 96;99, 102, 96;100, 102, 96;101, 102, 96;102, 102, 96;97, 103, 96;98, 103, 96;99, 103, 96;100, 103, 96;101, 103, 96;98, 94, 97;99, 94, 97;100, 94, 97;101, 94, 97;96, 95, 97;97, 95, 97;98, 95, 97;99, 95, 97;100, 95, 97;101, 95, 97;102, 95, 97;95, 96, 97;96, 96, 97;97, 96, 97;98, 96, 97;99, 96, 97;100, 96, 97;101, 96, 97;102, 96, 97;103, 96, 97;95, 97, 97;96, 97, 97;97, 97, 97;98, 97, 97;99, 97, 97;100, 97, 97;101, 97, 97;102, 97, 97;103, 97, 97;104, 97, 97;94, 98, 97;95, 98, 97;96, 98, 97;97, 98, 97;98, 98, 97;99, 98, 97;100, 98, 97;101, 98, 97;102, 98, 97;103, 98, 97;104, 98, 97;94, 99, 97;95, 99, 97;96, 99, 97;97, 99, 97;98, 99, 97;99, 99, 97;100, 99, 97;101, 99, 97;102, 99, 97;103, 99, 97;104, 99, 97;94, 100, 97;95, 100, 97;96, 100, 97;97, 100, 97;98, 100, 97;99, 100, 97;100, 100, 97;101, 100, 97;102, 100, 97;103, 100, 97;104, 100, 97;95, 101, 97;96, 101, 97;97, 101, 97;98, 101, 97;99, 101, 97;100, 101, 97;101, 101, 97;102, 101, 97;103, 101, 97;104, 101, 97;95, 102, 97;96, 102, 97;97, 102, 97;98, 102, 97;99, 102, 97;100, 102, 97;101, 102, 97;102, 102, 97;103, 102, 97;96, 103, 97;97, 103, 97;98, 103, 97;99, 103, 97;100, 103, 97;101, 103, 97;102, 103, 97;98, 104, 97;99, 104, 97;100, 104, 97;97, 94, 98;98, 94, 98;99, 94, 98;100, 94, 98;101, 94, 98;102, 94, 98;96, 95, 98;97, 95, 98;98, 95, 98;99, 95, 98;100, 95, 98;101, 95, 98;102, 95, 98;103, 95, 98;95, 96, 98;96, 96, 98;97, 96, 98;98, 96, 98;99, 96, 98;100, 96, 98;101, 96, 98;102, 96, 98;103, 96, 98;104, 96, 98;94, 97, 98;95, 97, 98;96, 97, 98;97, 97, 98;98, 97, 98;99, 97, 98;100, 97, 98;101, 97, 98;102, 97, 98;103, 97, 98;104, 97, 98;94, 98, 98;95, 98, 98;96, 98, 98;97, 98, 98;98, 98, 98;99, 98, 98;100, 98, 98;101, 98, 98;102, 98, 98;103, 98, 98;104, 98, 98;94, 99, 98;95, 99, 98;96, 99, 98;97, 99, 98;98, 99, 98;99, 99, 98;100, 99, 98;101, 99, 98;102, 99, 98;103, 99, 98;104, 99, 98;94, 100, 98;95, 100, 98;96, 100, 98;97, 100, 98;98, 100, 98;99, 100, 98;100, 100, 98;101, 100, 98;102, 100, 98;103, 100, 98;104, 100, 98;94, 101, 98;95, 101, 98;96, 101, 98;97, 101, 98;98, 101, 98;99, 101, 98;100, 101, 98;101, 101, 98;102, 101, 98;103, 101, 98;104, 101, 98;95, 102, 98;96, 102, 98;97, 102, 98;98, 102, 98;99, 102, 98;100, 102, 98;101, 102, 98;102, 102, 98;103, 102, 98;96, 103, 98;97, 103, 98;98, 103, 98;99, 103, 98;100, 103, 98;101, 103, 98;102, 103, 98;103, 103, 98;97, 104, 98;98, 104, 98;99, 104, 98;100, 104, 98;101, 104, 98;97, 94, 99;98, 94, 99;99, 94, 99;100, 94, 99;101, 94, 99;102, 94, 99;95, 95, 99;96, 95, 99;97, 95, 99;98, 95, 99;99, 95, 99;100, 95, 99;101, 95, 99;102, 95, 99;103, 95, 99;95, 96, 99;96, 96, 99;97, 96, 99;98, 96, 99;99, 96, 99;100, 96, 99;101, 96, 99;102, 96, 99;103, 96, 99;104, 96, 99;94, 97, 99;95, 97, 99;96, 97, 99;97, 97, 99;98, 97, 99;99, 97, 99;100, 97, 99;101, 97, 99;102, 97, 99;103, 97, 99;104, 97, 99;94, 98, 99;95, 98, 99;96, 98, 99;97, 98, 99;98, 98, 99;99, 98, 99;100, 98, 99;101, 98, 99;102, 98, 99;103, 98, 99;104, 98, 99;94, 99, 99;95, 99, 99;96, 99, 99;97, 99, 99;98, 99, 99;99, 99, 99;100, 99, 99;101, 99, 99;102, 99, 99;103, 99, 99;104, 99, 99;94, 100, 99;95, 100, 99;96, 100, 99;97, 100, 99;98, 100, 99;99, 100, 99;100, 100, 99;101, 100, 99;102, 100, 99;103, 100, 99;104, 100, 99;94, 101, 99;95, 101, 99;96, 101, 99;97, 101, 99;98, 101, 99;99, 101, 99;100, 101, 99;101, 101, 99;102, 101, 99;103, 101, 99;104, 101, 99;95, 102, 99;96, 102, 99;97, 102, 99;98, 102, 99;99, 102, 99;100, 102, 99;101, 102, 99;102, 102, 99;103, 102, 99;104, 102, 99;95, 103, 99;96, 103, 99;97, 103, 99;98, 103, 99;99, 103, 99;100, 103, 99;101, 103, 99;102, 103, 99;103, 103, 99;97, 104, 99;98, 104, 99;99, 104, 99;100, 104, 99;101, 104, 99;102, 104, 99;97, 94, 100;98, 94, 100;99, 94, 100;100, 94, 100;101, 94, 100;102, 94, 100;96, 95, 100;97, 95, 100;98, 95, 100;99, 95, 100;100, 95, 100;101, 95, 100;102, 95, 100;103, 95, 100;95, 96, 100;96, 96, 100;97, 96, 100;98, 96, 100;99, 96, 100;100, 96, 100;101, 96, 100;102, 96, 100;103, 96, 100;104, 96, 100;94, 97, 100;95, 97, 100;96, 97, 100;97, 97, 100;98, 97, 100;99, 97, 100;100, 97, 100;101, 97, 100;102, 97, 100;103, 97, 100;104, 97, 100;94, 98, 100;95, 98, 100;96, 98, 100;97, 98, 100;98, 98, 100;99, 98, 100;100, 98, 100;101, 98, 100;102, 98, 100;103, 98, 100;104, 98, 100;94, 99, 100;95, 99, 100;96, 99, 100;97, 99, 100;98, 99, 100;99, 99, 100;100, 99, 100;101, 99, 100;102, 99, 100;103, 99, 100;104, 99, 100;94, 100, 100;95, 100, 100;96, 100, 100;97, 100, 100;98, 100, 100;99, 100, 100;100, 100, 100;101, 100, 100;102, 100, 100;103, 100, 100;104, 100, 100;94, 101, 100;95, 101, 100;96, 101, 100;97, 101, 100;98, 101, 100;99, 101, 100;100, 101, 100;101, 101, 100;102, 101, 100;103, 101, 100;104, 101, 100;95, 102, 100;96, 102, 100;97, 102, 100;98, 102, 100;99, 102, 100;100, 102, 100;101, 102, 100;102, 102, 100;103, 102, 100;104, 102, 100;96, 103, 100;97, 103, 100;98, 103, 100;99, 103, 100;100, 103, 100;101, 103, 100;102, 103, 100;103, 103, 100;97, 104, 100;98, 104, 100;99, 104, 100;100, 104, 100;101, 104, 100;98, 94, 101;99, 94, 101;100, 94, 101;101, 94, 101;97, 95, 101;98, 95, 101;99, 95, 101;100, 95, 101;101, 95, 101;102, 95, 101;103, 95, 101;95, 96, 101;96, 96, 101;97, 96, 101;98, 96, 101;99, 96, 101;100, 96, 101;101, 96, 101;102, 96, 101;103, 96, 101;95, 97, 101;96, 97, 101;97, 97, 101;98, 97, 101;99, 97, 101;100, 97, 101;101, 97, 101;102, 97, 101;103, 97, 101;104, 97, 101;94, 98, 101;95, 98, 101;96, 98, 101;97, 98, 101;98, 98, 101;99, 98, 101;100, 98, 101;101, 98, 101;102, 98, 101;103, 98, 101;104, 98, 101;94, 99, 101;95, 99, 101;96, 99, 101;97, 99, 101;98, 99, 101;99, 99, 101;100, 99, 101;101, 99, 101;102, 99, 101;103, 99, 101;104, 99, 101;94, 100, 101;95, 100, 101;96, 100, 101;97, 100, 101;98, 100, 101;99, 100, 101;100, 100, 101;101, 100, 101;102, 100, 101;103, 100, 101;104, 100, 101;95, 101, 101;96, 101, 101;97, 101, 101;98, 101, 101;99, 101, 101;100, 101, 101;101, 101, 101;102, 101, 101;103, 101, 101;104, 101, 101;95, 102, 101;96, 102, 101;97, 102, 101;98, 102, 101;99, 102, 101;100, 102, 101;101, 102, 101;102, 102, 101;103, 102, 101;96, 103, 101;97, 103, 101;98, 103, 101;99, 103, 101;100, 103, 101;101, 103, 101;102, 103, 101;97, 104, 101;98, 104, 101;99, 104, 101;100, 104, 101;101, 104, 101;99, 94, 102;100, 94, 102;101, 94, 102;97, 95, 102;98, 95, 102;99, 95, 102;100, 95, 102;101, 95, 102;102, 95, 102;96, 96, 102;97, 96, 102;98, 96, 102;99, 96, 102;100, 96, 102;101, 96, 102;102, 96, 102;103, 96, 102;95, 97, 102;96, 97, 102;97, 97, 102;98, 97, 102;99, 97, 102;100, 97, 102;101, 97, 102;102, 97, 102;103, 97, 102;95, 98, 102;96, 98, 102;97, 98, 102;98, 98, 102;99, 98, 102;100, 98, 102;101, 98, 102;102, 98, 102;103, 98, 102;104, 98, 102;95, 99, 102;96, 99, 102;97, 99, 102;98, 99, 102;99, 99, 102;100, 99, 102;101, 99, 102;102, 99, 102;103, 99, 102;104, 99, 102;95, 100, 102;96, 100, 102;97, 100, 102;98, 100, 102;99, 100, 102;100, 100, 102;101, 100, 102;102, 100, 102;103, 100, 102;104, 100, 102;95, 101, 102;96, 101, 102;97, 101, 102;98, 101, 102;99, 101, 102;100, 101, 102;101, 101, 102;102, 101, 102;103, 101, 102;96, 102, 102;97, 102, 102;98, 102, 102;99, 102, 102;100, 102, 102;101, 102, 102;102, 102, 102;97, 103, 102;98, 103, 102;99, 103, 102;100, 103, 102;101, 103, 102;102, 103, 102;99, 95, 103;100, 95, 103;101, 95, 103;97, 96, 103;98, 96, 103;99, 96, 103;100, 96, 103;101, 96, 103;97, 97, 103;98, 97, 103;99, 97, 103;100, 97, 103;101, 97, 103;102, 97, 103;103, 97, 103;96, 98, 103;97, 98, 103;98, 98, 103;99, 98, 103;100, 98, 103;101, 98, 103;102, 98, 103;103, 98, 103;96, 99, 103;97, 99, 103;98, 99, 103;99, 99, 103;100, 99, 103;101, 99, 103;102, 99, 103;103, 99, 103;96, 100, 103;97, 100, 103;98, 100, 103;99, 100, 103;100, 100, 103;101, 100, 103;102, 100, 103;103, 100, 103;96, 101, 103;97, 101, 103;98, 101, 103;99, 101, 103;100, 101, 103;101, 101, 103;102, 101, 103;97, 102, 103;98, 102, 103;99, 102, 103;100, 102, 103;101, 102, 103;102, 102, 103;99, 103, 103;100, 103, 103;99, 96, 104;100, 96, 104;98, 97, 104;99, 97, 104;100, 97, 104;101, 97, 104;102, 97, 104;97, 98, 104;98, 98, 104;99, 98, 104;100, 98, 104;101, 98, 104;102, 98, 104;97, 99, 104;98, 99, 104;99, 99, 104;100, 99, 104;101, 99, 104;102, 99, 104;97, 100, 104;98, 100, 104;99, 100, 104;100, 100, 104;101, 100, 104;102, 100, 104;98, 101, 104;99, 101, 104;100, 101, 104</Nodes>
+			</Cell>
+		</Population>
+		<Population type="lumen" size="0"/>
+	</CellPopulations>
+</MorpheusModel>

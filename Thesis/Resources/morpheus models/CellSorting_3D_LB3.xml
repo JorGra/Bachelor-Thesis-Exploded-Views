@@ -1,0 +1,168 @@
+<MorpheusModel version="4">
+    <Description>
+        <Title>Example-CellSorting-3D</Title>
+        <Details>Reference:
+Graner and Glazier, Simulation of biological cell sorting using a two-dimensional extended Potts model, Phys. Rev. Lett. 69, 2013–2016 (1992) </Details>
+    </Description>
+    <Global>
+        <Variable symbol="boundary" name="Boundary length of CT1 with other cell types" value="0.0"/>
+        <Constant symbol="b" value="0.0"/>
+        <Constant symbol="b2" value="0.0"/>
+    </Global>
+    <Space>
+        <SpaceSymbol symbol="l"/>
+        <Lattice class="cubic">
+            <Size symbol="size" value="100, 100, 100"/>
+            <BoundaryConditions>
+                <Condition type="periodic" boundary="x"/>
+                <Condition type="periodic" boundary="y"/>
+            </BoundaryConditions>
+            <Neighborhood>
+                <Order>2</Order>
+            </Neighborhood>
+        </Lattice>
+    </Space>
+    <Time>
+        <StartTime value="0"/>
+        <StopTime value="25000"/>
+        <!--    <Disabled>
+        <SaveInterval value="5e3"/>
+    </Disabled>
+-->
+        <RandomSeed value="0"/>
+        <TimeSymbol symbol="time"/>
+    </Time>
+    <CellTypes>
+        <CellType name="medium" class="medium"/>
+        <CellType name="ct1" class="biological">
+            <VolumeConstraint target="1000" strength="1"/>
+            <NeighborhoodReporter>
+                <Input scaling="length" value="cell.type == celltype.ct2.id"/>
+                <Output mapping="sum" symbol-ref="boundary"/>
+            </NeighborhoodReporter>
+            <Property symbol="b" value="0"/>
+            <NeighborhoodReporter>
+                <Input scaling="cell" value="cell.type == celltype.ct2.id"/>
+                <Output mapping="sum" symbol-ref="b"/>
+            </NeighborhoodReporter>
+            <NeighborhoodReporter>
+                <Input scaling="length" value="cell.type == celltype.ct2.id"/>
+                <Output mapping="sum" symbol-ref="b2"/>
+            </NeighborhoodReporter>
+            <Property symbol="b2" name="Interface with ct2" value="0"/>
+        </CellType>
+        <CellType name="ct2" class="biological">
+            <VolumeConstraint target="1000" strength="1"/>
+            <Property symbol="b" value="0"/>
+            <NeighborhoodReporter>
+                <Input scaling="cell" value="cell.type == celltype.ct1.id"/>
+                <Output mapping="sum" symbol-ref="b"/>
+            </NeighborhoodReporter>
+            <Property symbol="b2" name="Interface with ct1" value="0"/>
+            <NeighborhoodReporter>
+                <Input scaling="length" value="cell.type == celltype.ct1.id"/>
+                <Output mapping="sum" symbol-ref="b2"/>
+            </NeighborhoodReporter>
+        </CellType>
+    </CellTypes>
+    <CPM>
+        <Interaction default="0.0">
+            <Contact type1="ct1" value="12" type2="medium"/>
+            <Contact type1="ct2" value="6" type2="medium"/>
+            <Contact type1="ct1" value="6" type2="ct1"/>
+            <Contact type1="ct2" value="6" type2="ct2"/>
+            <Contact type1="ct1" value="16" type2="ct2"/>
+        </Interaction>
+        <MonteCarloSampler stepper="edgelist">
+            <MCSDuration value="1"/>
+            <Neighborhood>
+                <Order>2</Order>
+            </Neighborhood>
+            <MetropolisKinetics temperature="2"/>
+        </MonteCarloSampler>
+        <ShapeSurface scaling="norm">
+            <Neighborhood>
+                <Distance>2.5</Distance>
+            </Neighborhood>
+        </ShapeSurface>
+    </CPM>
+    <CellPopulations>
+        <Population type="ct1" size="0">
+            <InitCircle number-of-cells="30" mode="random">
+                <Dimensions radius="size.x/5" center="size.x/2, size.y/2, size.z/2"/>
+            </InitCircle>
+        </Population>
+        <Population type="ct2" size="0">
+            <InitCircle number-of-cells="30" mode="random">
+                <Dimensions radius="size.x/5" center="size.x/2, size.y/2, size.z/2"/>
+            </InitCircle>
+        </Population>
+    </CellPopulations>
+    <Analysis>
+        <!--    <Disabled>
+        <Gnuplotter decorate="false" time-step="100">
+            <Terminal name="png"/>
+            <Plot slice="50">
+                <Cells flooding="true" value="cell.type">
+                    <ColorMap>
+                        <Color value="2" color="green"/>
+                        <Color value="1" color="red"/>
+                    </ColorMap>
+                </Cells>
+            </Plot>
+            <Plot slice="50">
+                <Cells flooding="true" value="b">
+                    <ColorMap>
+                        <Color value="2" color="red"/>
+                        <Color value="1" color="yellow"/>
+                        <Color value="0" color="white"/>
+                    </ColorMap>
+                </Cells>
+                <CellLabels value="b" precision="0" fontsize="10"/>
+            </Plot>
+            <Plot slice="50">
+                <Cells per-frame-range="true" value="b2">
+                    <ColorMap>
+                        <Color value="2" color="red"/>
+                        <Color value="1" color="yellow"/>
+                        <Color value="0" color="white"/>
+                    </ColorMap>
+                </Cells>
+                <CellLabels value="b2" precision="0" fontsize="10"/>
+            </Plot>
+        </Gnuplotter>
+    </Disabled>
+-->
+        <Logger time-step="10.0">
+            <Input force-node-granularity="true">
+                <Symbol symbol-ref="cell.id"/>
+            </Input>
+            <Output>
+                <TextOutput file-format="matrix"/>
+            </Output>
+            <!--    <Disabled>
+        <Plots>
+            <Plot time-step="500">
+                <Style style="linespoints"/>
+                <Terminal terminal="png"/>
+                <X-axis>
+                    <Symbol symbol-ref="time"/>
+                </X-axis>
+                <Y-axis>
+                    <Symbol symbol-ref="boundary"/>
+                </Y-axis>
+            </Plot>
+        </Plots>
+    </Disabled>
+-->
+        </Logger>
+        <!--    <Disabled>
+        <TiffPlotter format="16bit" compression="false" time-step="50" OME-header="true" timelapse="true">
+            <Channel exclude-medium="true" symbol-ref="cell.id"/>
+            <Channel exclude-medium="true" symbol-ref="cell.type"/>
+        </TiffPlotter>
+    </Disabled>
+-->
+        <ModelGraph include-tags="#untagged" format="svg" reduced="false"/>
+    </Analysis>
+</MorpheusModel>
