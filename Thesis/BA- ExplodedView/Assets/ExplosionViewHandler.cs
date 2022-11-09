@@ -6,40 +6,39 @@ public class ExplosionViewHandler : MonoBehaviour
 {
 
     [SerializeField] Transform explosionCenter;
+    [SerializeField] GameObject exploderObject;
     [SerializeField] List<Transform> objectsToExplode;
-    [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
-    [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
     [Range(0f, 10f)]
     [SerializeField] float maxExplosionForce;
     [Range(0f, 1f)]
     [SerializeField] float currentExplosionForce;
 
+    IExploder exploder;
 
     // Start is called before the first frame update
     void Start()
     {
         var cellManager = GetComponent<CellManager>();
         cellManager.cells.ForEach(c => objectsToExplode.Add(c.transform));
-        objectsToExplode.ForEach(o => explosionOriginalPos.Add(o.position));
-        objectsToExplode.ForEach(o => explosionTargetPos.Add(o.position));
+
+        ChangeExploder(exploderObject);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-        for (int i = 0; i < objectsToExplode.Count; i++)
-        {
-            var explosionDir = explosionOriginalPos[i] - explosionCenter.position; //might need to be normalized
-            explosionTargetPos[i] = explosionDir * maxExplosionForce;
-
-            objectsToExplode[i].position = Vector3.Lerp(explosionOriginalPos[i], explosionTargetPos[i], currentExplosionForce);
-        }
+        exploder.Explode(currentExplosionForce);
     }
+
 
     public void OnExplosionForceSliderChange(float value)
     {
-        //Debug.Log("explosion force" + value.ToString());
         currentExplosionForce = value;
+    }
+
+    public void ChangeExploder(GameObject exploderObject)
+    {
+        exploder = exploderObject.GetComponent<IExploder>();
+        exploder.GiveObjectsToExplode(objectsToExplode);
     }
 }
