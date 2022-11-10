@@ -73,10 +73,13 @@ public class LoaderXML : MonoBehaviour
                         nodeList.Add(pos);
                     }
 
-                    cellManager.AddCell(id, nodeList.ToArray(), center, timeStep);
+                    var population = pop.Type;
+
+                    cellManager.AddCell(id, nodeList.ToArray(), center, timeStep, population);
 
                 }
             }
+            cellManager.maxTimeStep++;
         }
         catch (System.Exception e)
         {

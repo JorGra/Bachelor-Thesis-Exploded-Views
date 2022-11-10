@@ -8,8 +8,13 @@ public class CellManager : MonoBehaviour
 {
     [Header("Animation")]
     [SerializeField] bool animated;
+    public int maxTimeStep;
+    [SerializeField] uint currentTimeStep;
+    [SerializeField] int previousTimeStepsShown;
+    [SerializeField] float previousTimeStepsOpacityFactor = 1f;
     [Range(0.05f, 2f)]
     [SerializeField] float animationSpeed;
+
     [Header("Cells")]
     [SerializeField] GameObject cellPrefab;
     [SerializeField] Transform cellContainer;
@@ -47,7 +52,7 @@ public class CellManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator AdvanceTime()
@@ -59,14 +64,19 @@ public class CellManager : MonoBehaviour
             {
                 foreach (var cell in cells)
                 {
-                    cell.AdvanceTime();
+                    //cell.AdvanceTime();
+                    cell.ShowTimeStep(currentTimeStep, previousTimeStepsShown, previousTimeStepsOpacityFactor);
                 }
+                currentTimeStep++;
+
+                if (currentTimeStep >= maxTimeStep)
+                    currentTimeStep = 0;
             }
             yield return new WaitForSeconds(animationSpeed);
         }
     }
 
-    public void AddCell(int id, Vector3Int[] voxelPos, Vector3 center,int timeStep)
+    public void AddCell(int id, Vector3Int[] voxelPos, Vector3 center,int timeStep, string population)
     {
 
         var cell = cells.FirstOrDefault(it => id == it.id);
@@ -80,6 +90,7 @@ public class CellManager : MonoBehaviour
             cell.id = id;
             cell.GridOffset = gridOffset;
             cell.cellColor = Color.HSVToRGB(Random.Range(0f, 360f)/360f, 0.9f, 0.7f);// Random.ColorHSV();
+            cell.population = population;
             cells.Add(cell);
         }
 
@@ -110,18 +121,27 @@ public class CellManager : MonoBehaviour
 
     public void OnButtonTimeForward()
     {
+        currentTimeStep++;
+
+        if (currentTimeStep >= maxTimeStep)
+            currentTimeStep = 0;
+
         foreach (var cell in cells)
         {
-            cell.AdvanceTime();
+            cell.ShowTimeStep(currentTimeStep, previousTimeStepsShown, previousTimeStepsOpacityFactor);
         }
     }
 
     public void OnButtonTimeBackward()
     {
+        currentTimeStep--;
+
+        if (currentTimeStep == 0)
+            currentTimeStep = (uint)maxTimeStep - 1;
+
         foreach (var cell in cells)
         {
-            cell.ReturnTime
-                ();
+            cell.ShowTimeStep(currentTimeStep, previousTimeStepsShown, previousTimeStepsOpacityFactor);
         }
     }
 }

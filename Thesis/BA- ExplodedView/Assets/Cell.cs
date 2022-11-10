@@ -9,9 +9,10 @@ public class Cell : MonoBehaviour
     public int id;
     public Color cellColor;
 
-    public int currentTimestep = 0;
-    public GameObject[] timeSteps;
+    public string population;
+
     public List<Vector3> centers = new List<Vector3>();
+    Dictionary<uint, int> timeSteps = new Dictionary<uint, int>(); //timeStep as key, childIndex as value
 
     Quaternion savedRotation;
 
@@ -20,26 +21,30 @@ public class Cell : MonoBehaviour
     [SerializeField] Material cellMaterial;
 
 
-    public void AdvanceTime()
+    public void ShowTimeStep(uint timeStep, int previousTimeSteps, float opacityFactor = 1f)
     {
-        transform.GetChild(currentTimestep).gameObject.SetActive(false);
-        currentTimestep++;
-        
-        if (currentTimestep >= transform.childCount)
-            currentTimestep = 0;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
 
-        transform.GetChild(currentTimestep).gameObject.SetActive(true);
+        for (uint i = timeStep; i >= (timeStep - previousTimeSteps); i--)
+        {
+
+            if (i == timeStep && timeSteps.ContainsKey(i))
+                EnableChildWithOpacity(timeSteps[i], 1f);
+            else if (timeSteps.ContainsKey(i))
+                EnableChildWithOpacity(timeSteps[i], (previousTimeSteps / (float)(timeStep + previousTimeSteps)) * opacityFactor);
+            if (i == 0)
+                break;
+        }
     }
 
-    public void ReturnTime()
+    void EnableChildWithOpacity(int childIndex, float opacity)
     {
-        transform.GetChild(currentTimestep).gameObject.SetActive(false);
-        currentTimestep--;
+        transform.GetChild(childIndex).gameObject.SetActive(true);
+        transform.GetChild(childIndex).gameObject.GetComponent<MeshRenderer>().material.SetFloat("_Opacity", opacity);
 
-        if (currentTimestep <= 0)
-            currentTimestep = transform.childCount - 1;
-
-        transform.GetChild(currentTimestep).gameObject.SetActive(true);
     }
 
 
@@ -47,12 +52,15 @@ public class Cell : MonoBehaviour
     {
         var meshObj = new GameObject(timeStep.ToString());
         meshObj.transform.SetParent(transform);
+        
         var meshFilter = meshObj.AddComponent<MeshFilter>();
         var meshRenderer = meshObj.AddComponent<MeshRenderer>();
-        //cellMaterial.SetColor();
+        
         meshRenderer.material = cellMaterial;
         meshRenderer.material.SetColor("_BaseColor", cellColor);
         meshFilter.mesh = GenerateMesh(positions, voxelSize);
+
+        timeSteps.Add((uint)timeStep, meshObj.transform.GetSiblingIndex());
         meshObj.SetActive(false);
     }
 

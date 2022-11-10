@@ -50,7 +50,7 @@ public class LineExplosion : MonoBehaviour, IExploder
         }
     }
 
-    public void GiveObjectsToExplode(List<Transform> objectsToExplode)
+    public void GiveObjectsToExploder(List<Transform> objectsToExplode)
     {
         parts = objectsToExplode;
 

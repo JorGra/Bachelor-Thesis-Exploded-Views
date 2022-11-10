@@ -5,11 +5,8 @@ using UnityEngine;
 public class ExplosionViewHandler : MonoBehaviour
 {
 
-    [SerializeField] Transform explosionCenter;
     [SerializeField] GameObject exploderObject;
     [SerializeField] List<Transform> objectsToExplode;
-    [Range(0f, 10f)]
-    [SerializeField] float maxExplosionForce;
     [Range(0f, 1f)]
     [SerializeField] float currentExplosionForce;
 
@@ -39,6 +36,6 @@ public class ExplosionViewHandler : MonoBehaviour
     public void ChangeExploder(GameObject exploderObject)
     {
         exploder = exploderObject.GetComponent<IExploder>();
-        exploder.GiveObjectsToExplode(objectsToExplode);
+        exploder.GiveObjectsToExploder(objectsToExplode);
     }
 }

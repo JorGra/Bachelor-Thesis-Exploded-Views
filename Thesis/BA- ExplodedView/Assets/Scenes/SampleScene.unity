@@ -1497,6 +1497,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 431018032}
   minOffset: 2
   distanceFactor: 1
+  drawDebugLines: 1
 --- !u!1 &450028557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1529,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animated: 1
+  maxTimeStep: 0
+  currentTimeStep: 0
+  previousTimeStepsShown: 1
+  previousTimeStepsOpacityFactor: 1
   animationSpeed: 0.2
   cellPrefab: {fileID: 5073040963358046397, guid: dbe98fdd4169e174b850a640926a8739,
     type: 3}
@@ -1567,10 +1572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74d8e706550f22429544679246b8385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionCenter: {fileID: 2129546204}
   exploderObject: {fileID: 431018030}
   objectsToExplode: []
-  maxExplosionForce: 10
   currentExplosionForce: 0
 --- !u!1 &472870230
 GameObject:
@@ -1879,7 +1882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506360913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.75, y: 0, z: 0}
+  m_LocalPosition: {x: 2.75, y: 4.33, z: 5.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4312,7 +4315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619443026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.33, z: 5.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
