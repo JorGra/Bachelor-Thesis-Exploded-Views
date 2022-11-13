@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ExplosionViewHandler : MonoBehaviour
 {
 
     [SerializeField] GameObject exploderObject;
     [SerializeField] List<Transform> objectsToExplode;
+    [SerializeField] List<Transform> originalTrans;
+    [SerializeField] GameObject originalPositionPrefab;
+    [SerializeField] bool showOriginalPosition = true;
     [Range(0f, 1f)]
     [SerializeField] float currentExplosionForce;
 
@@ -18,15 +22,35 @@ public class ExplosionViewHandler : MonoBehaviour
         var cellManager = GetComponent<CellManager>();
         cellManager.cells.ForEach(c => objectsToExplode.Add(c.transform));
 
+        foreach (var cell in cellManager.cells)
+        {
+            var t = Instantiate(originalPositionPrefab, cell.transform.position, Quaternion.identity).transform;
+            t.parent = cellManager.cellContainer;
+            originalTrans.Add(t);
+        }
+        
         ChangeExploder(exploderObject);
+
+        cellManager.onSizeChanged += UpdateOriginalExploderPositions;
 
     }
 
     private void Update()
     {
+        if (Keyboard.current.numpad1Key.wasPressedThisFrame)
+        {
+            showOriginalPosition = !showOriginalPosition;
+            ToggleOriginalPositionVisibility(showOriginalPosition);
+        }
+
         exploder.Explode(currentExplosionForce);
     }
 
+
+    public void ToggleOriginalPositionVisibility(bool visible)
+    {
+        originalTrans.ForEach(o => o.GetChild(0).gameObject.SetActive(visible));
+    }
 
     public void OnExplosionForceSliderChange(float value)
     {
@@ -38,4 +62,12 @@ public class ExplosionViewHandler : MonoBehaviour
         exploder = exploderObject.GetComponent<IExploder>();
         exploder.GiveObjectsToExploder(objectsToExplode);
     }
+
+    public void UpdateOriginalExploderPositions()
+    {
+        var p = new List<Vector3>();
+        originalTrans.ForEach(o => p.Add(o.localPosition));
+        exploder.UpdateOriginalPositions(p);
+    }
+
 }

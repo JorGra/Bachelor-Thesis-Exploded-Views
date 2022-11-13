@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class CellManager : MonoBehaviour
@@ -17,7 +18,7 @@ public class CellManager : MonoBehaviour
 
     [Header("Cells")]
     [SerializeField] GameObject cellPrefab;
-    [SerializeField] Transform cellContainer;
+    public Transform cellContainer;
     [SerializeField] Vector3 gridOffset;
     [SerializeField] float voxelSize = 0.1f;
     public List<Cell> cells = new List<Cell>();
@@ -27,7 +28,13 @@ public class CellManager : MonoBehaviour
 
     [SerializeField] TMP_Text pauseText;
 
+    public delegate void OnSizeChange();
+    public OnSizeChange onSizeChanged;
+
     private static CellManager _instance;
+
+    float currentSize = 1f;
+
 
     public static CellManager Instance { get { return _instance; } }
 
@@ -52,6 +59,18 @@ public class CellManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var keyb = Keyboard.current;
+        if (keyb.upArrowKey.wasPressedThisFrame)
+        {
+            currentSize += 0.05f;
+            OnSizeSliderChange(Mathf.Clamp01(currentSize));
+        }
+        else if (keyb.downArrowKey.wasPressedThisFrame)
+        {
+
+            currentSize -= 0.05f;
+            OnSizeSliderChange(Mathf.Clamp01(currentSize));
+        }
 
     }
 
@@ -86,6 +105,7 @@ public class CellManager : MonoBehaviour
         if (cell == null)
         {
             var newCellObj = Instantiate(cellPrefab, scaledCenter, Quaternion.identity, cellContainer);
+
             cell = newCellObj.GetComponent<Cell>();
             cell.id = id;
             cell.GridOffset = gridOffset;
@@ -106,6 +126,9 @@ public class CellManager : MonoBehaviour
         var val = minContainerSize + (dist * value);
 
         cellContainer.transform.localScale = Vector3.one * val;
+        
+        onSizeChanged.Invoke();
+        Debug.Log("Should invoke");
     }
 
     public void OnButtonTimePause()
@@ -116,7 +139,6 @@ public class CellManager : MonoBehaviour
             pauseText.text = "II";
         else
             pauseText.text = ">";
-
     }
 
     public void OnButtonTimeForward()

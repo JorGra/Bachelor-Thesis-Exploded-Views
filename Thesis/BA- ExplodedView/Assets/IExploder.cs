@@ -7,4 +7,6 @@ public interface IExploder
     void GiveObjectsToExploder(List<Transform> objectsToExplode);
 
     void Explode(float explosionForce);
+
+    void UpdateOriginalPositions(List<Vector3> newPositions);
 }

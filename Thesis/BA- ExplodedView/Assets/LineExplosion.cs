@@ -6,7 +6,7 @@ using UnityEngine;
 public class LineExplosion : MonoBehaviour, IExploder
 {
     [SerializeField] List<Transform> parts;
-    [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
+    [SerializeField] List<Transform> explosionOriginalTrans = new List<Transform>();
     [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
@@ -27,6 +27,8 @@ public class LineExplosion : MonoBehaviour, IExploder
         for (int i = 0; i < parts.Count; i++)
         {
 
+            var container = parts[i].parent;
+
             var AP = parts[i].position - pointA.position;
             var proj = pointA.position + Vector3.Dot(AP, AB) / Vector3.Dot(AB, AB) * AB;
 
@@ -39,13 +41,13 @@ public class LineExplosion : MonoBehaviour, IExploder
 
             if (Vector3.Dot(AB, aProj) > 0.99f)
             {
-                explosionTargetPos[i] = explosionOriginalPos[i] + expDir.normalized * minOffset
+                explosionTargetPos[i] = explosionOriginalTrans[i].position + expDir.normalized * minOffset
                     + aProj.magnitude * distanceFactor * expDir.normalized;
             }
             else
-                explosionTargetPos[i] = explosionOriginalPos[i];
+                explosionTargetPos[i] = explosionOriginalTrans[i].position;
 
-            parts[i].position = Vector3.Lerp(explosionOriginalPos[i], explosionTargetPos[i], explosionForce);
+            parts[i].position = Vector3.Lerp(explosionOriginalTrans[i].position, explosionTargetPos[i], explosionForce);
 
         }
     }
@@ -54,11 +56,16 @@ public class LineExplosion : MonoBehaviour, IExploder
     {
         parts = objectsToExplode;
 
-        parts.ForEach(o => explosionOriginalPos.Add(o.position));
+        parts.ForEach(o => explosionOriginalTrans.Add(o));
         parts.ForEach(o => explosionTargetPos.Add(o.position));
 
         if (lineRenderer == null)
             lineRenderer = GetComponent<LineRenderer>();
+    }
+
+    public void UpdateOriginalPositions(List<Vector3> newPositions)
+    {
+        throw new System.NotImplementedException();
     }
 
     void DrawLine()

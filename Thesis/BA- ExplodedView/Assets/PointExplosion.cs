@@ -6,19 +6,29 @@ public class PointExplosion : MonoBehaviour, IExploder
 {
     [SerializeField] Transform explosionCenter;
     [SerializeField] List<Transform> parts;
-    [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
+    [SerializeField] List<Vector3> explosionOriginalTrans = new List<Vector3>();
     [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
     [Range(0f, 10f)]
     [SerializeField] float maxExplosionForce;
+    [SerializeField] float lengthFactor = 1f;
 
     public void Explode(float explosionForce)
     {
         for (int i = 0; i < parts.Count; i++)
         {
-            var explosionDir = explosionOriginalPos[i] - explosionCenter.position; //might need to be normalized
-            explosionTargetPos[i] = explosionDir * maxExplosionForce;
+            if (explosionOriginalTrans.Count != parts.Count || parts[i].parent == null)
+                break;
 
-            parts[i].position = Vector3.Lerp(explosionOriginalPos[i], explosionTargetPos[i], explosionForce);
+            var origPos = explosionOriginalTrans[i];
+            var container = parts[i].parent;
+
+            var explosionDir = container.TransformPoint(origPos) - explosionCenter.position; //might need to be normalized
+
+            Debug.DrawLine(explosionCenter.position, container.TransformPoint(origPos));
+
+            explosionTargetPos[i] = origPos + explosionDir.normalized * maxExplosionForce + explosionDir * lengthFactor * explosionDir.magnitude;
+
+            parts[i].localPosition = Vector3.Lerp(origPos, explosionTargetPos[i], explosionForce);
         }
     }
 
@@ -26,7 +36,14 @@ public class PointExplosion : MonoBehaviour, IExploder
     {
         parts = objectsToExplode;
 
-        parts.ForEach(o => explosionOriginalPos.Add(o.position));
-        parts.ForEach(o => explosionTargetPos.Add(o.position));
+        parts.ForEach(o => explosionOriginalTrans.Add(o.localPosition));
+        parts.ForEach(o => explosionTargetPos.Add(o.localPosition));
+    }
+
+    public void UpdateOriginalPositions(List<Vector3> newPositions)
+    {
+        explosionOriginalTrans.Clear();
+        newPositions.ForEach(o => explosionOriginalTrans.Add(o));
+        Debug.Log("Update positions");
     }
 }

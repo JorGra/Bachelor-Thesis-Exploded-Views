@@ -49,8 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   cellColor: {r: 0, g: 0, b: 0, a: 0}
-  currentTimestep: 0
-  timeSteps: []
+  population: 
   centers: []
   cellMaterial: {fileID: 2100000, guid: 1435df888e28b994189385952a694097, type: 2}
 --- !u!54 &7337891182614863714
@@ -87,7 +86,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
@@ -206,7 +205,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
-  m_RetainTransformParent: 0
+  m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
 --- !u!135 &3475897804076583472
 SphereCollider:

@@ -52,7 +52,7 @@ public class Cell : MonoBehaviour
     {
         var meshObj = new GameObject(timeStep.ToString());
         meshObj.transform.SetParent(transform);
-        
+
         var meshFilter = meshObj.AddComponent<MeshFilter>();
         var meshRenderer = meshObj.AddComponent<MeshRenderer>();
         
@@ -66,12 +66,12 @@ public class Cell : MonoBehaviour
 
     public void ActivateCell()
     {
-        savedRotation = transform.rotation;
+        //savedRotation = transform.localRotation;
     }
 
     public void DeactivateCell()
     {
-        transform.rotation = savedRotation;
+        transform.localRotation = Quaternion.identity;
     }
  
 
