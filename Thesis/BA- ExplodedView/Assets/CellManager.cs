@@ -126,9 +126,6 @@ public class CellManager : MonoBehaviour
         var val = minContainerSize + (dist * value);
 
         cellContainer.transform.localScale = Vector3.one * val;
-        
-        onSizeChanged.Invoke();
-        Debug.Log("Should invoke");
     }
 
     public void OnButtonTimePause()

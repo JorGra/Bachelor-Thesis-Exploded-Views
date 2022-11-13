@@ -22,7 +22,7 @@ public class PointExplosion : MonoBehaviour, IExploder
             var origPos = explosionOriginalTrans[i];
             var container = parts[i].parent;
 
-            var explosionDir = container.TransformPoint(origPos) - explosionCenter.position; //might need to be normalized
+            var explosionDir = container.TransformPoint(origPos) - explosionCenter.position;
 
             Debug.DrawLine(explosionCenter.position, container.TransformPoint(origPos));
 
@@ -40,10 +40,4 @@ public class PointExplosion : MonoBehaviour, IExploder
         parts.ForEach(o => explosionTargetPos.Add(o.localPosition));
     }
 
-    public void UpdateOriginalPositions(List<Vector3> newPositions)
-    {
-        explosionOriginalTrans.Clear();
-        newPositions.ForEach(o => explosionOriginalTrans.Add(o));
-        Debug.Log("Update positions");
-    }
 }

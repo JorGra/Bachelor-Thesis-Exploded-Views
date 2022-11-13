@@ -8,5 +8,4 @@ public interface IExploder
 
     void Explode(float explosionForce);
 
-    void UpdateOriginalPositions(List<Vector3> newPositions);
 }

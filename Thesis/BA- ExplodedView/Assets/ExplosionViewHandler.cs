@@ -30,9 +30,6 @@ public class ExplosionViewHandler : MonoBehaviour
         }
         
         ChangeExploder(exploderObject);
-
-        cellManager.onSizeChanged += UpdateOriginalExploderPositions;
-
     }
 
     private void Update()
@@ -62,12 +59,4 @@ public class ExplosionViewHandler : MonoBehaviour
         exploder = exploderObject.GetComponent<IExploder>();
         exploder.GiveObjectsToExploder(objectsToExplode);
     }
-
-    public void UpdateOriginalExploderPositions()
-    {
-        var p = new List<Vector3>();
-        originalTrans.ForEach(o => p.Add(o.localPosition));
-        exploder.UpdateOriginalPositions(p);
-    }
-
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class LineExplosion : MonoBehaviour, IExploder
 {
     [SerializeField] List<Transform> parts;
-    [SerializeField] List<Transform> explosionOriginalTrans = new List<Transform>();
+    [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
     [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
@@ -26,28 +26,33 @@ public class LineExplosion : MonoBehaviour, IExploder
         //Project parts onto line vector and transform them away
         for (int i = 0; i < parts.Count; i++)
         {
+            if (parts[i].parent == null)
+                break;
 
             var container = parts[i].parent;
 
-            var AP = parts[i].position - pointA.position;
-            var proj = pointA.position + Vector3.Dot(AP, AB) / Vector3.Dot(AB, AB) * AB;
+            var ABloc = container.InverseTransformDirection(AB);
 
-            if(drawDebugLines)
-                Debug.DrawLine(parts[i].position, proj, Color.green);
+            var pA = container.transform.InverseTransformPoint(pointA.position);
+            var AP = parts[i].localPosition - pA;
+            var proj = pA + Vector3.Dot(AP, ABloc) / Vector3.Dot(ABloc, ABloc) * ABloc;
 
-            var expDir = parts[i].position - proj;
+            if (drawDebugLines)
+                Debug.DrawLine(container.transform.TransformPoint(parts[i].localPosition), container.transform.TransformPoint(proj), Color.green);
 
-            var aProj = proj - pointA.position;
+            var expDir = parts[i].localPosition - proj;
+
+            var aProj = proj - pA;
 
             if (Vector3.Dot(AB, aProj) > 0.99f)
             {
-                explosionTargetPos[i] = explosionOriginalTrans[i].position + expDir.normalized * minOffset
+                explosionTargetPos[i] = explosionOriginalPos[i] + expDir.normalized * minOffset
                     + aProj.magnitude * distanceFactor * expDir.normalized;
             }
             else
-                explosionTargetPos[i] = explosionOriginalTrans[i].position;
+                explosionTargetPos[i] = explosionOriginalPos[i];
 
-            parts[i].position = Vector3.Lerp(explosionOriginalTrans[i].position, explosionTargetPos[i], explosionForce);
+            parts[i].localPosition = Vector3.Lerp(explosionOriginalPos[i], explosionTargetPos[i], explosionForce);
 
         }
     }
@@ -56,17 +61,13 @@ public class LineExplosion : MonoBehaviour, IExploder
     {
         parts = objectsToExplode;
 
-        parts.ForEach(o => explosionOriginalTrans.Add(o));
-        parts.ForEach(o => explosionTargetPos.Add(o.position));
+        parts.ForEach(o => explosionOriginalPos.Add(o.localPosition));
+        parts.ForEach(o => explosionTargetPos.Add(o.localPosition));
 
         if (lineRenderer == null)
             lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void UpdateOriginalPositions(List<Vector3> newPositions)
-    {
-        throw new System.NotImplementedException();
-    }
 
     void DrawLine()
     {
