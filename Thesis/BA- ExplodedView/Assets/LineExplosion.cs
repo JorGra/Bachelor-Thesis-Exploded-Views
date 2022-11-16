@@ -14,6 +14,8 @@ public class LineExplosion : MonoBehaviour, IExploder
     [SerializeField] float minOffset = 2f;
     [SerializeField] float distanceFactor = 1f;
     [SerializeField] bool drawDebugLines = true;
+    [SerializeField] bool drawLines = true;
+    LineDrawer lineDrawer;
 
     public void Explode(float explosionForce)
     {
@@ -38,7 +40,11 @@ public class LineExplosion : MonoBehaviour, IExploder
             var proj = pA + Vector3.Dot(AP, ABloc) / Vector3.Dot(ABloc, ABloc) * ABloc;
 
             if (drawDebugLines)
+            {
                 Debug.DrawLine(container.transform.TransformPoint(parts[i].localPosition), container.transform.TransformPoint(proj), Color.green);
+            }
+            else if(drawLines)
+                lineDrawer.UpdatePositions(i, container.transform.TransformPoint(parts[i].localPosition), container.transform.TransformPoint(proj));
 
             var expDir = parts[i].localPosition - proj;
 
@@ -66,6 +72,15 @@ public class LineExplosion : MonoBehaviour, IExploder
 
         if (lineRenderer == null)
             lineRenderer = GetComponent<LineRenderer>();
+
+        lineDrawer = GetComponent<LineDrawer>();
+        lineDrawer.ClearContainer();
+
+        if (drawLines)
+        {
+            parts.ForEach(o => lineDrawer.GenerateLine(Color.green));
+        }
+
     }
 
 

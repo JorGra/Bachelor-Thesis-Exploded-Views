@@ -6,27 +6,40 @@ public class PointExplosion : MonoBehaviour, IExploder
 {
     [SerializeField] Transform explosionCenter;
     [SerializeField] List<Transform> parts;
-    [SerializeField] List<Vector3> explosionOriginalTrans = new List<Vector3>();
+    [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
     [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
     [Range(0f, 10f)]
     [SerializeField] float maxExplosionForce;
     [SerializeField] float lengthFactor = 1f;
 
+    [SerializeField] bool drawLines;
+    LineDrawer lineDrawer;
+
     public void Explode(float explosionForce)
     {
         for (int i = 0; i < parts.Count; i++)
         {
-            if (explosionOriginalTrans.Count != parts.Count || parts[i].parent == null)
+            if (explosionOriginalPos.Count != parts.Count || parts[i].parent == null)
                 break;
 
-            var origPos = explosionOriginalTrans[i];
+            var origPos = explosionOriginalPos[i];
             var container = parts[i].parent;
 
-            var explosionDir = container.TransformPoint(origPos) - explosionCenter.position;
+            var explosionDir = origPos - container.InverseTransformPoint(explosionCenter.position);
 
-            Debug.DrawLine(explosionCenter.position, container.TransformPoint(origPos));
 
             explosionTargetPos[i] = origPos + explosionDir.normalized * maxExplosionForce + explosionDir * lengthFactor * explosionDir.magnitude;
+
+
+            if (drawLines)
+            {
+                Debug.DrawLine(explosionCenter.position, container.TransformPoint(origPos));
+                lineDrawer.UpdatePositions(i, explosionCenter.position, container.TransformPoint(origPos));
+
+                Debug.DrawLine(container.TransformPoint(origPos), container.TransformPoint(explosionTargetPos[i]), Color.green);
+                lineDrawer.UpdatePositions(parts.Count + i, container.TransformPoint(origPos), parts[i].position);
+            }
+
 
             parts[i].localPosition = Vector3.Lerp(origPos, explosionTargetPos[i], explosionForce);
         }
@@ -36,8 +49,17 @@ public class PointExplosion : MonoBehaviour, IExploder
     {
         parts = objectsToExplode;
 
-        parts.ForEach(o => explosionOriginalTrans.Add(o.localPosition));
+        parts.ForEach(o => explosionOriginalPos.Add(o.localPosition));
         parts.ForEach(o => explosionTargetPos.Add(o.localPosition));
+
+        lineDrawer = GetComponent<LineDrawer>();
+        lineDrawer.ClearContainer();
+
+        if (drawLines)
+        {
+            parts.ForEach(o => lineDrawer.GenerateLine(Color.white));
+            parts.ForEach(o => lineDrawer.GenerateLine(Color.green));
+        }
     }
 
 }

@@ -66,7 +66,7 @@ public class Cell : MonoBehaviour
 
     public void ActivateCell()
     {
-        //savedRotation = transform.localRotation;
+
     }
 
     public void DeactivateCell()

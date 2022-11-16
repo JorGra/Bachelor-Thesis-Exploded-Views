@@ -36,4 +36,51 @@ Li et al. solve this problem by iteratively going through all the parts and test
 In order to isolate target parts from other touching parts, it is also made sure that they are completely visible and close parts are moved further away. 
 If one part is completely enclosed by another, the outer one is separated in the bounding box center and pulled apart so that the inner parts are completely visible, then the algorithm continues. %TODO add pictures
 The resulting application generates animated exploded views for models with up to fifty parts. 
-However, a disadvantage of this implementation is that it only works for static data sets and must be adapted for time-varying data sets.
+However, a disadvantage of this implementation is that it only works for static data sets and does not provide any solution for time-varying data sets.
+
+Tatzgern et al. improve on the work of Li et al. by finding frequently recurring subsets in a mesh and grouping them, then selecting the best representative of that group and exploding it based on a quality score.  %TODO cite=Tatzgern_2010
+The frequently recurring subsets are found automatically based on a frequent sub-graph search (FSG). %TODO add pictures
+The resulting explosion diagrams are especially useful for technological models where there are many identical subsets, and the explosion displays only one of them instead of doing this for each of these subsets and taking up a lot of screen space.  
+For biological datasets, however, this extension is less useful, since it brings little advantage due to the distinct structure of biological objects.
+More relevant, however, is its quality score which is used to select the representative. This is also applicable to general explosion views and can be used to quantitatively describe the quality of an explosion view. It is defined by the following evaluation criteria: 
+
+
+\begin{itemize}
+	\item \textbf{Size of the footprint of the exploded view:} Describes the entire screen space that the exploded view occupies.
+	\item \textbf{Visibility of parts of the exploded group:} Describes the relative measure for the general visibility of the parts.
+	\item \textbf{Part directions relative to current camera viewpoint:} Assumes that explosions similar to viewing direction are more difficult to read, they compute the average dot product between the viewing angle and the explosion direction.
+	\item \textbf{Size of footprint of all other similar groups without any displacements:} Describes how well other similar groups are visible when selected representative is exploded.
+\end{itemize}
+
+These criteria are then weighted by Tatzgern et al, which influences the selection of the representative.
+Even if not all of these points are suitable for use in virtual reality, some ideas can still be applied. In particular, using the dot product between the camera position and the direction of the exploding parts is a helpful approach.
+
+While Li et al. and Tatzgern et al. relied on calculating the position of the exploded parts, Bruckner et al. used various \textbf{force-based techniques} to transform parts to generate explosion diagrams. %TODO cite=Bruckner_2006
+Their presented method works with volumetric data sets and splits them into pieces before exploding. 
+For this purpose, they present three tools that interactively split the dataset at runtime using split axes and cutting planes. 
+The first tool splits the first object hit by a ray based on the camera's viewing direction, the second splits all objects not just the first, while the third allows the user to draw a line onto which all parts are projected, if the projection lies on the line the part is split. 
+These methods can also be applied to voxel data sets and are therefore also suitable for biological objects.
+Another interesting approach they use is the definition of forces acting on all parts to explode the object.
+These forces are defined by Bruckner et al. as follows:
+
+\begin{itemize}
+	\item \textbf{Return force:} The part should move as little as possible from its original position. Therefore, there is a force pushing the part back to its original position. Bruckner et al use the following formula, where $r$ is the vector from the current vertex position to that of its original and $c_r$ is a constant factor. 
+	\begin{equation}
+		F_r = c_r * ln(\|r\|) * \frac{r}{\|r\|}
+		\label{eq:returnforce}
+	\end{equation}
+	
+	\item \textbf{Visibility of parts of the exploded group:} Describes the relative measure for the general visibility of the parts.
+	\item \textbf{Part directions relative to current camera viewpoint:} Assumes that explosions similar to viewing direction are more difficult to read, they compute the average dot product between the viewing angle and the explosion direction.
+	\item \textbf{Size of footprint of all other similar groups without any displacements:} Describes how well other similar groups are visible when selected representative is exploded.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+

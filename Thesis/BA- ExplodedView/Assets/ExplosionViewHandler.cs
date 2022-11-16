@@ -7,8 +7,8 @@ public class ExplosionViewHandler : MonoBehaviour
 {
 
     [SerializeField] GameObject exploderObject;
-    [SerializeField] List<Transform> objectsToExplode;
-    [SerializeField] List<Transform> originalTrans;
+    public List<Transform> objectsToExplode;
+    public List<Transform> originalTrans;
     [SerializeField] GameObject originalPositionPrefab;
     [SerializeField] bool showOriginalPosition = true;
     [Range(0f, 1f)]

@@ -124,6 +124,42 @@
       \field{pages}{203\bibrangedash 212}
       \range{pages}{10}
     \endentry
+    \entry{Bruckner_2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=49e3c5369bcf61ae89f8c7f5abb185fd}{%
+           family={Bruckner},
+           familyi={B\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=24363bf53091874e7a50eebf11954b1b}{%
+           family={Groller},
+           familyi={G\bibinitperiod},
+           given={M.\bibnamedelimi Eduard},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0bc516385df6009f45e4b11513f6a71}
+      \strng{fullhash}{c0bc516385df6009f45e4b11513f6a71}
+      \strng{bibnamehash}{c0bc516385df6009f45e4b11513f6a71}
+      \strng{authorbibnamehash}{c0bc516385df6009f45e4b11513f6a71}
+      \strng{authornamehash}{c0bc516385df6009f45e4b11513f6a71}
+      \strng{authorfullhash}{c0bc516385df6009f45e4b11513f6a71}
+      \field{labelalpha}{BG06}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Visualization and Computer Graphics}
+      \field{number}{5}
+      \field{title}{Exploded Views for Volume Data}
+      \field{volume}{12}
+      \field{year}{2006}
+      \true{nocite}
+      \field{pages}{1077\bibrangedash 1084}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/TVCG.2006.140
+      \endverb
+    \endentry
     \entry{Milder2006}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=e78d2b3fb9e524baeeae523193eff0a2}{%
@@ -244,6 +280,46 @@
       \verb https://doi.org/10.1145/1360612.1360700
       \endverb
       \keyw{exploded view illustration,interactive,visualization}
+    \endentry
+    \entry{Tatzgern_2010}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=5cbd14f0803c5bcabc218ffb9e8cfa05}{%
+           family={Tatzgern},
+           familyi={T\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7fff406aaf42d6f94c421b2446185efd}{%
+           family={Kalkofen},
+           familyi={K\bibinitperiod},
+           given={Denis},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b31d42dd4ba4466eb4b996d6e714dc68}{%
+           family={Schmalstieg},
+           familyi={S\bibinitperiod},
+           given={Dieter},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{9ce2ee65c7353b3dfa1a41e8fd8361f6}
+      \strng{fullhash}{9ce2ee65c7353b3dfa1a41e8fd8361f6}
+      \strng{bibnamehash}{9ce2ee65c7353b3dfa1a41e8fd8361f6}
+      \strng{authorbibnamehash}{9ce2ee65c7353b3dfa1a41e8fd8361f6}
+      \strng{authornamehash}{9ce2ee65c7353b3dfa1a41e8fd8361f6}
+      \strng{authorfullhash}{9ce2ee65c7353b3dfa1a41e8fd8361f6}
+      \field{labelalpha}{TKS10}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{NPAR Symposium on Non-Photorealistic Animation and Rendering}
+      \field{month}{06}
+      \field{title}{Compact explosion diagrams}
+      \field{year}{2010}
+      \true{nocite}
+      \field{pages}{17\bibrangedash 26}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/1809939.1809942
+      \endverb
     \endentry
     \entry{peichl_2015}{misc}{}
       \name{author}{1}{}{%

@@ -26,6 +26,8 @@ public class CellManager : MonoBehaviour
     [SerializeField] float minContainerSize = 0.1f;
     [SerializeField] float maxContainerSize = 1.5f;
 
+
+    [SerializeField] GameObject[] controlObjects;
     [SerializeField] TMP_Text pauseText;
 
     public delegate void OnSizeChange();
@@ -126,6 +128,11 @@ public class CellManager : MonoBehaviour
         var val = minContainerSize + (dist * value);
 
         cellContainer.transform.localScale = Vector3.one * val;
+
+        foreach (var item in controlObjects)
+        {
+            item.transform.localScale = Vector3.one * val;
+        }
     }
 
     public void OnButtonTimePause()
