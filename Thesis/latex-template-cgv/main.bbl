@@ -88,6 +88,101 @@
       \verb 10.1109/CAIA.1993.366643
       \endverb
     \endentry
+    \entry{Viega_1996}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=0f4ed5d81fb9ac843f815f0e3d7e99ba}{%
+           family={Viega},
+           familyi={V\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=761d96630d75f7ed7ffa3a38d42dd50c}{%
+           family={Conway},
+           familyi={C\bibinitperiod},
+           given={Matthew\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=5f8459c2ba4b7fbfa4a46733d53a49ec}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c088121d9ff6d28e0dd80f0846f1670a}{%
+           family={Pausch},
+           familyi={P\bibinitperiod},
+           given={Randy},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Seattle, Washington, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{1b82fd9e5e13b29e2425b17386fb330d}
+      \strng{fullhash}{ac64f6643915ec5095dc27001d0ee50c}
+      \strng{bibnamehash}{1b82fd9e5e13b29e2425b17386fb330d}
+      \strng{authorbibnamehash}{1b82fd9e5e13b29e2425b17386fb330d}
+      \strng{authornamehash}{1b82fd9e5e13b29e2425b17386fb330d}
+      \strng{authorfullhash}{ac64f6643915ec5095dc27001d0ee50c}
+      \field{labelalpha}{Vie+96}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 9th Annual ACM Symposium on User Interface Software and Technology}
+      \field{isbn}{0897917987}
+      \field{series}{UIST '96}
+      \field{title}{3D Magic Lenses}
+      \field{year}{1996}
+      \true{nocite}
+      \field{pages}{51\bibrangedash 58}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/237091.237098
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/237091.237098
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/237091.237098
+      \endverb
+      \keyw{virtual reality,clipping planes,magic lenses,transparent user interfaces,3D graphics}
+    \endentry
+    \entry{Preim_1997}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=15fd1e7c29987cac73f37f294fb02d86}{%
+           family={Preim},
+           familyi={P\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=4ba70254e07c3161c76c10d96a612fc0}{%
+           family={Raab},
+           familyi={R\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=09fb68ef76b6d57545878ff675c0ad3d}{%
+           family={Strothotte},
+           familyi={S\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c9022e9103460bcafd2620e5c3a17ad}
+      \strng{fullhash}{6c9022e9103460bcafd2620e5c3a17ad}
+      \strng{bibnamehash}{6c9022e9103460bcafd2620e5c3a17ad}
+      \strng{authorbibnamehash}{6c9022e9103460bcafd2620e5c3a17ad}
+      \strng{authornamehash}{6c9022e9103460bcafd2620e5c3a17ad}
+      \strng{authorfullhash}{6c9022e9103460bcafd2620e5c3a17ad}
+      \field{labelalpha}{PRS97}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Coherent Zooming of Illustrations with 3D-Graphics and Text.}
+      \field{year}{1997}
+      \true{nocite}
+      \field{pages}{105\bibrangedash 113}
+      \range{pages}{9}
+    \endentry
     \entry{li2004interactive}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=3984a3a3963ab8fca0127ddad21fff34}{%
@@ -124,6 +219,61 @@
       \field{pages}{203\bibrangedash 212}
       \range{pages}{10}
     \endentry
+    \entry{Sonnet_2004}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=9e4df41f6981c649c8541c8bd5d155ec}{%
+           family={Sonnet},
+           familyi={S\bibinitperiod},
+           given={Henry},
+           giveni={H\bibinitperiod}}}%
+        {{hash=7392c87f336887365212b906f7e36640}{%
+           family={Carpendale},
+           familyi={C\bibinitperiod},
+           given={Sheelagh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=09fb68ef76b6d57545878ff675c0ad3d}{%
+           family={Strothotte},
+           familyi={S\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Gallipoli, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{45843c81436e09611681cae61fc75fe0}
+      \strng{fullhash}{45843c81436e09611681cae61fc75fe0}
+      \strng{bibnamehash}{45843c81436e09611681cae61fc75fe0}
+      \strng{authorbibnamehash}{45843c81436e09611681cae61fc75fe0}
+      \strng{authornamehash}{45843c81436e09611681cae61fc75fe0}
+      \strng{authorfullhash}{45843c81436e09611681cae61fc75fe0}
+      \field{labelalpha}{SCS04}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Understanding complex 3D virtual models can be difficult, especially when the model has interior components not initially visible and ancillary text. We describe new techniques for the interactive exploration of 3D models. Specifically, in addition to traditional viewing operations, we present new text extrusion techniques combined with techniques that create an interactive explosion diagram. In our approach, scrollable text annotations that are associated with the various parts of the model can be revealed dynamically, either in part or in full, by moving the mouse cursor within annotation trigger areas. Strong visual connections between model parts and the associated text are included in order to aid comprehension. Furthermore, the model parts can be separated, creating interactive explosion diagrams. Using a 3D probe, occluding objects can be interactively moved apart and then returned to their initial locations. Displayed annotations are kept readable despite model manipulations. Hence, our techniques provide textual context within the spatial context of the 3D model.}
+      \field{booktitle}{Proceedings of the Working Conference on Advanced Visual Interfaces}
+      \field{isbn}{1581138679}
+      \field{series}{AVI '04}
+      \field{title}{Integrating Expanding Annotations with a 3D Explosion Probe}
+      \field{year}{2004}
+      \true{nocite}
+      \field{pages}{63\bibrangedash 70}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/989863.989871
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/989863.989871
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/989863.989871
+      \endverb
+      \keyw{explosion diagram,3D model exploration,interaction design,expanding annotations}
+    \endentry
     \entry{Bruckner_2006}{article}{}
       \name{author}{2}{}{%
         {{hash=49e3c5369bcf61ae89f8c7f5abb185fd}{%
@@ -159,6 +309,52 @@
       \verb{doi}
       \verb 10.1109/TVCG.2006.140
       \endverb
+    \endentry
+    \entry{Hua_2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a442272ea785dbcf2bb0734880b37885}{%
+           family={Hua},
+           familyi={H\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e5104b334cc4059f425b7d26e754297b}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={L.\bibnamedelimi D.},
+           giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Los Alamitos, CA, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{3a513ea4457136f808de27742c4c8c12}
+      \strng{fullhash}{3a513ea4457136f808de27742c4c8c12}
+      \strng{bibnamehash}{3a513ea4457136f808de27742c4c8c12}
+      \strng{authorbibnamehash}{3a513ea4457136f808de27742c4c8c12}
+      \strng{authornamehash}{3a513ea4457136f808de27742c4c8c12}
+      \strng{authorfullhash}{3a513ea4457136f808de27742c4c8c12}
+      \field{labelalpha}{HB06}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The authors developed a Magic Lens framework for Scape, an augmented virtual environment (AVE). They generalize the functional characteristics of Magic Lenses in terms of 3D visualization in AVEs and present two tangible Magic Lens-enabled devices with complementary interface capabilities. The authors also demonstrate their Magic Lens devices through testbed applications relevant to urban planning and medical training.}
+      \field{issn}{1558-1756}
+      \field{journaltitle}{IEEE Computer Graphics and Applications}
+      \field{month}{7}
+      \field{number}{04}
+      \field{title}{Magic Lenses for Augmented Virtual Environments}
+      \field{volume}{26}
+      \field{year}{2006}
+      \true{nocite}
+      \field{pages}{64\bibrangedash 73}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/MCG.2006.84
+      \endverb
+      \keyw{augmented reality (ar);head-mounted display (hmd);head-mounted projection display (hmpd);human computer interfaces (hci);virtual reality (vr)}
     \endentry
     \entry{Milder2006}{inproceedings}{}
       \name{author}{4}{}{%
@@ -350,6 +546,70 @@
       \endverb
       \verb{url}
       \verb https://www.helmholtz.de/newsroom/artikel/wie-viele-nervenzellen-hat-das-gehirn/#:~:text=Tats%C3%A4chlich%20geht%20man%20heute%20von%20etwa%2086%20Milliarden%20Nervenzellen%20aus.
+      \endverb
+    \endentry
+    \entry{He2017}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=00662771d1b3571844552a3bd2871bb8}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Lindun},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5fcf2c7dda466372e7337c8f9f736045}{%
+           family={Guayaquil-Sosa},
+           familyi={G\bibinithyphendelim S\bibinitperiod},
+           given={Alejandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b4b29514dd0ad929e2a19e34857f1e6c}{%
+           family={McGraw},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{fefccc3f35741f99b5d0cf5a48268c49}
+      \strng{fullhash}{fefccc3f35741f99b5d0cf5a48268c49}
+      \strng{bibnamehash}{fefccc3f35741f99b5d0cf5a48268c49}
+      \strng{authorbibnamehash}{fefccc3f35741f99b5d0cf5a48268c49}
+      \strng{authornamehash}{fefccc3f35741f99b5d0cf5a48268c49}
+      \strng{authorfullhash}{fefccc3f35741f99b5d0cf5a48268c49}
+      \field{labelalpha}{HGM17}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Medical Image Atlas Interaction in Virtual Reality}
+      \field{year}{2017}
+      \true{nocite}
+    \endentry
+    \entry{krisanty_2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ff95694c0817c93f515294dd2297acd0}{%
+           family={Krisanty},
+           familyi={K\bibinitperiod},
+           given={Tania},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff95694c0817c93f515294dd2297acd0}
+      \strng{fullhash}{ff95694c0817c93f515294dd2297acd0}
+      \strng{bibnamehash}{ff95694c0817c93f515294dd2297acd0}
+      \strng{authorbibnamehash}{ff95694c0817c93f515294dd2297acd0}
+      \strng{authornamehash}{ff95694c0817c93f515294dd2297acd0}
+      \strng{authorfullhash}{ff95694c0817c93f515294dd2297acd0}
+      \field{labelalpha}{Kri22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{GitHub}
+      \field{month}{3}
+      \field{title}{Taniakrisanty/VR_CA_VIS: A virtual reality visualization for cellular automata simulation}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://github.com/taniakrisanty/vr_ca_vis
+      \endverb
+      \verb{url}
+      \verb https://github.com/taniakrisanty/vr_ca_vis
       \endverb
     \endentry
   \enddatalist

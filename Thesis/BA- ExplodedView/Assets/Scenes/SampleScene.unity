@@ -1856,7 +1856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74d8e706550f22429544679246b8385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exploderObject: {fileID: 431018030}
+  exploderObject: {fileID: 694460867}
   objectsToExplode: []
   originalTrans: []
   originalPositionPrefab: {fileID: 1836316659}
