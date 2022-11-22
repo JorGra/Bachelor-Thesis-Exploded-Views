@@ -2362,15 +2362,17 @@
     <bcf:citekey order="11" intorder="1">Wilmot_Li_2008</bcf:citekey>
     <bcf:citekey order="12" intorder="1">Tatzgern_2010</bcf:citekey>
     <bcf:citekey order="13" intorder="1">Bruckner_2006</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">Sonnet_2004</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">He2017</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">Viega_1996</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">Hua_2006</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">Hua_2006</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">Preim_1997</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">McGuffin</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">krisanty_2022</bcf:citekey>
-    <bcf:citekey order="22" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">Bruckner_2006</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">Bruckner_2006</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">Sonnet_2004</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">He2017</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">Viega_1996</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">Hua_2006</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">Hua_2006</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">Preim_1997</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">McGuffin</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">krisanty_2022</bcf:citekey>
+    <bcf:citekey order="24" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="ynt">

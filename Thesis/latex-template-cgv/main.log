@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  22 NOV 2022 16:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  22 NOV 2022 17:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2565,12 +2565,6 @@ File: fig/Images/Li_ExplodedView_GI04_fig16.jpg Graphic file (type jpg)
 Package pdftex.def Info: fig/Images/Li_ExplodedView_GI04_fig16.jpg  used on inp
 ut line 19.
 (pdftex.def)             Requested size: 198.45667pt x 124.63321pt.
-
-Underfull \hbox (badness 6859) in paragraph at lines 28--33
-[]\T1/opensans-TLF/l/n/10.95 (+20) Since the in-ter-ac-tion ca-pa-bil-i-ties of
- two-
- []
-
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig1.
 jpg, id=133, 517.18219pt x 392.21532pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
@@ -2621,16 +2615,22 @@ Underfull \hbox (badness 1629) in paragraph at lines 63--63
 ationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Automat
 edGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Images/
 AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
-[7] [8]
+[7]
+<fig/Images/Bruckner_fig2.jpg, id=173, 761.84625pt x 201.75375pt>
+File: fig/Images/Bruckner_fig2.jpg Graphic file (type jpg)
+<use fig/Images/Bruckner_fig2.jpg>
+Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 132.
+(pdftex.def)             Requested size: 418.96556pt x 110.94951pt.
+ [8 <./fig/Images/Bruckner_fig2.jpg>]
 
-LaTeX Warning: Citation 'McGuffin' on page 9 undefined on input line 168.
+LaTeX Warning: Citation 'McGuffin' on page 9 undefined on input line 174.
 
-) (1_mainmatter/4_implementation.tex [9] [10
-
-
-]
+[9]) (1_mainmatter/4_implementation.tex [10]
 chapter 4.
-) (1_mainmatter/5_results.tex [11] [12
+) (1_mainmatter/5_results.tex [11
+
+
+] [12
 
 
 ]
@@ -2722,11 +2722,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36850 strings out of 475389
- 719335 string characters out of 2785902
+ 36869 strings out of 475389
+ 719914 string characters out of 2785902
  1800120 words of memory out of 3000000
- 57195 multiletter control sequences out of 15000+600000
- 562247 words of font info for 392 fonts, out of 8000000 for 9000
+ 57206 multiletter control sequences out of 15000+600000
+ 562635 words of font info for 396 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,21n,115p,10634b,2648s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
@@ -2742,9 +2742,9 @@ ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Abhängigkeiten
 ts/type1/public/amsfonts/cm/cmr10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb>
-Output written on main.pdf (37 pages, 461259 bytes).
+Output written on main.pdf (37 pages, 518265 bytes).
 PDF statistics:
- 406 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 101052 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 101057 words of extra memory for PDF output out of 106986 (max. 10000000)
 

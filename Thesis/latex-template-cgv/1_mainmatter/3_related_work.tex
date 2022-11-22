@@ -14,11 +14,11 @@ Occlusion avoidance is a well-studied area of computer visualization that is con
 Innovative ways to expand and enhance existing concepts and techniques are made possible by new devices and technologies. 
 This is especially true for visualization methods like cutting planes and exploded views, which greatly profit from these novel interaction possibilities.
 \begin{wrapfigure}{R}{0.45\textwidth}
-	\begin{center}
-		\vspace{-0.7cm}
-		\includegraphics[width=1\linewidth]{fig/Images/Li_ExplodedView_GI04_fig16}
-	\end{center}
-	\caption[]{Interactive car diagram in its fully expanded (left) and fully collapsed configurations (right). \cite{li2004interactive} [Figure 16]}
+	\centering
+	\vspace{-0.8cm}
+	\includegraphics[width=1\linewidth]{fig/Images/Li_ExplodedView_GI04_fig16}
+	\caption[]{Interactive car diagram in its fully expanded (left) and fully collapsed configurations (right). [\cite{li2004interactive}, Figure 16]}
+	\vspace{-1cm}
 \end{wrapfigure}
 
 Li et al. provide an example of this.\cite{li2004interactive} In their work, they demonstrate an algorithm that automatically separates traditional drawn explosion views to make them interactive.
@@ -33,7 +33,7 @@ As a result, the order of composition and the blocking elements must be known an
 
 Li et al. therefore presented a system that automatically extracts non-blocking exploded views from a 3D model, focusing on rearranging parts instead of hiding obscuring geometry.\cite{Wilmot_Li_2008}
 They also provide a list of tools to interact with the exploded views and dynamically select and show parts of interest.
-Their implementation works for both hierarchical and non-hierarchical models, which also allows it to process biological datasets where there is no fixed assembly order.  %TODO add pictures
+Their implementation works for both hierarchical and non-hierarchical models, which also allows it to process biological datasets where there is no fixed assembly order.
 \begin{figure}
 	\centering
 	\normalsize
@@ -41,14 +41,14 @@ Their implementation works for both hierarchical and non-hierarchical models, wh
 		\centering
 		%\vspace{-0.7cm}
 		\includegraphics[width=.95\linewidth]{fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig1}
-		\caption[]{System presented by \cite{Wilmot_Li_2008} [Figure 1]}
+		\caption[]{System presented by Li et al.[\cite{Wilmot_Li_2008}, Figure 1]}
 		
 	\end{subfigure}
 	\smallskip
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[width=1.1\linewidth]{fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8}
-		\caption[]{Conditions for moving part $p$. For each condition, the target part is outlined in red. The orange visibility frusta show how unwanted occlusions have been eliminated in each case. \cite{Wilmot_Li_2008} [Figure 8]}
+		\caption[]{Conditions for moving part $p$. For each condition, the target part is outlined in red. The orange visibility frusta show how unwanted occlusions have been eliminated in each case. [\cite{Wilmot_Li_2008}, Figure 8]}
 	\end{subfigure}
 \end{figure}
 The algorithm works by calculating an explosion graph when loading the model, which describes the blocking elements of each part from different angles. 
@@ -60,7 +60,7 @@ To accomplish this, two problems have to be solved: first, how to move the parts
 	\centering
 	\vspace{-0.4cm}
 	\includegraphics[width=1\linewidth]{fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7}
-	\caption[]{Splitting container to reveal enclosed parts \cite{Wilmot_Li_2008} [Figure 7]}
+	\caption[]{Splitting container to reveal enclosed parts [\cite{Wilmot_Li_2008}, Figure 7]}
 	\vspace{-0.8cm}
 \end{wrapfigure}
 Li et al. solve this problem by iteratively going through all the parts and testing for two conditions: each part must be moved so that none of the target parts are obscured; if the part is a target part, it must not be obscured by any part that has already been visited. 
@@ -125,7 +125,13 @@ These forces are defined by Bruckner et al. as follows:
 	Again, $c_s$ is a constant factor and $r$ is a vector pointing from the center of part $P_i$ to the center $P_j$ of every other part.
 \end{itemize}
 
-These forces are then weighted by Bruckner et al. and applied to each part. %TODO add pictures
+These forces are then weighted by Bruckner et al. and applied to each part.
+\begin{figure}[t]
+	\centering
+	%\vspace{-0.7cm}
+	\includegraphics[width=.95\linewidth]{fig/Images/Bruckner_fig2}
+	\caption[]{Interactive exploded-view illustration of a human head with increasing degrees-of-explosion created by Bruckner et al. using their force-based approach. [\cite{Bruckner_2006}, Figure 2]}
+\end{figure}
 The result is a view-dependent explosion diagram which can be edited and expanded at runtime. 
 Thus, it is also possible to uncover enclosed parts by separating the outer part through user input.
 
