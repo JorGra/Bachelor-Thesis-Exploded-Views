@@ -81,7 +81,6 @@
       \field{booktitle}{Proceedings of 9th IEEE Conference on Artificial Intelligence for Applications}
       \field{title}{Automatic generation of exploded view by graph transformation}
       \field{year}{1993}
-      \true{nocite}
       \field{pages}{368\bibrangedash 374}
       \range{pages}{7}
       \verb{doi}
@@ -133,7 +132,6 @@
       \field{series}{UIST '96}
       \field{title}{3D Magic Lenses}
       \field{year}{1996}
-      \true{nocite}
       \field{pages}{51\bibrangedash 58}
       \range{pages}{8}
       \verb{doi}
@@ -179,9 +177,46 @@
       \field{month}{01}
       \field{title}{Coherent Zooming of Illustrations with 3D-Graphics and Text.}
       \field{year}{1997}
-      \true{nocite}
       \field{pages}{105\bibrangedash 113}
       \range{pages}{9}
+    \endentry
+    \entry{McGuffin}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=78b3d348e2cf816d10bf27204cfc7d7a}{%
+           family={McGuffin},
+           familyi={M\bibinitperiod},
+           given={M.J.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e4e0bbcd64c5489a7ab6f203a62da948}{%
+           family={Tancau},
+           familyi={T\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=875d926a178ac792d97cf21aafba7385}{%
+           family={Balakrishnan},
+           familyi={B\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{9ee2a71f941dcec6a1c6a4f31641360b}
+      \strng{fullhash}{9ee2a71f941dcec6a1c6a4f31641360b}
+      \strng{bibnamehash}{9ee2a71f941dcec6a1c6a4f31641360b}
+      \strng{authorbibnamehash}{9ee2a71f941dcec6a1c6a4f31641360b}
+      \strng{authornamehash}{9ee2a71f941dcec6a1c6a4f31641360b}
+      \strng{authorfullhash}{9ee2a71f941dcec6a1c6a4f31641360b}
+      \field{labelalpha}{MTB03}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE Visualization, 2003. VIS 2003.}
+      \field{title}{Using deformations for browsing volumetric data}
+      \field{year}{2003}
+      \field{pages}{401\bibrangedash 408}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/VISUAL.2003.1250400
+      \endverb
     \endentry
     \entry{li2004interactive}{inproceedings}{}
       \name{author}{3}{}{%
@@ -215,7 +250,6 @@
       \field{booktitle}{Proceedings of Graphics Interface 2004}
       \field{title}{Interactive image-based exploded view diagrams}
       \field{year}{2004}
-      \true{nocite}
       \field{pages}{203\bibrangedash 212}
       \range{pages}{10}
     \endentry
@@ -260,7 +294,6 @@
       \field{series}{AVI '04}
       \field{title}{Integrating Expanding Annotations with a 3D Explosion Probe}
       \field{year}{2004}
-      \true{nocite}
       \field{pages}{63\bibrangedash 70}
       \range{pages}{8}
       \verb{doi}
@@ -303,7 +336,6 @@
       \field{title}{Exploded Views for Volume Data}
       \field{volume}{12}
       \field{year}{2006}
-      \true{nocite}
       \field{pages}{1077\bibrangedash 1084}
       \range{pages}{8}
       \verb{doi}
@@ -348,7 +380,6 @@
       \field{title}{Magic Lenses for Augmented Virtual Environments}
       \field{volume}{26}
       \field{year}{2006}
-      \true{nocite}
       \field{pages}{64\bibrangedash 73}
       \range{pages}{10}
       \verb{doi}
@@ -463,7 +494,6 @@
       \field{title}{Automated Generation of Interactive 3D Exploded View Diagrams}
       \field{volume}{27}
       \field{year}{2008}
-      \true{nocite}
       \field{pages}{1\bibrangedash 7}
       \range{pages}{7}
       \verb{doi}
@@ -510,7 +540,6 @@
       \field{month}{06}
       \field{title}{Compact explosion diagrams}
       \field{year}{2010}
-      \true{nocite}
       \field{pages}{17\bibrangedash 26}
       \range{pages}{10}
       \verb{doi}
@@ -579,7 +608,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Medical Image Atlas Interaction in Virtual Reality}
       \field{year}{2017}
-      \true{nocite}
     \endentry
     \entry{krisanty_2022}{misc}{}
       \name{author}{1}{}{%
@@ -602,9 +630,8 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{GitHub}
       \field{month}{3}
-      \field{title}{Taniakrisanty/VR_CA_VIS: A virtual reality visualization for cellular automata simulation}
+      \field{title}{VR_CA_VIS: A_virtual_reality_visualization_for_cellular_automata_simulation}
       \field{year}{2022}
-      \true{nocite}
       \verb{urlraw}
       \verb https://github.com/taniakrisanty/vr_ca_vis
       \endverb

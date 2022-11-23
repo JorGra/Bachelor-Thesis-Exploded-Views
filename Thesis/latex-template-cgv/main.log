@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  22 NOV 2022 17:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  23 NOV 2022 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2615,17 +2615,49 @@ Underfull \hbox (badness 1629) in paragraph at lines 63--63
 ationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Automat
 edGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Images/
 AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
-[7]
-<fig/Images/Bruckner_fig2.jpg, id=173, 761.84625pt x 201.75375pt>
+<fig/Images/Tatzgern_fig3.jpg, id=159, 1154.81438pt x 392.21532pt>
+File: fig/Images/Tatzgern_fig3.jpg Graphic file (type jpg)
+<use fig/Images/Tatzgern_fig3.jpg>
+Package pdftex.def Info: fig/Images/Tatzgern_fig3.jpg  used on input line 81.
+(pdftex.def)             Requested size: 418.96556pt x 142.29858pt.
+
+[7 <./fig/Images/Tatzgern_fig3.jpg>]
+<fig/Images/Bruckner_fig2.jpg, id=170, 761.84625pt x 201.75375pt>
 File: fig/Images/Bruckner_fig2.jpg Graphic file (type jpg)
 <use fig/Images/Bruckner_fig2.jpg>
-Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 132.
+Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 138.
 (pdftex.def)             Requested size: 418.96556pt x 110.94951pt.
  [8 <./fig/Images/Bruckner_fig2.jpg>]
+<fig/Images/He_fig1.jpg, id=190, 1436.36626pt x 194.97844pt>
+File: fig/Images/He_fig1.jpg Graphic file (type jpg)
+<use fig/Images/He_fig1.jpg>
+Package pdftex.def Info: fig/Images/He_fig1.jpg  used on input line 164.
+(pdftex.def)             Requested size: 441.0178pt x 59.86551pt.
+<fig/Images/Viega_fig1.jpg, id=194, 402.00188pt x 399.74344pt>
+File: fig/Images/Viega_fig1.jpg Graphic file (type jpg)
+<use fig/Images/Viega_fig1.jpg>
+Package pdftex.def Info: fig/Images/Viega_fig1.jpg  used on input line 180.
+(pdftex.def)             Requested size: 110.25444pt x 109.63394pt.
 
-LaTeX Warning: Citation 'McGuffin' on page 9 undefined on input line 174.
+Underfull \hbox (badness 1308) in paragraph at lines 181--181
+\T1/opensans-TLF/l/n/9 (+20) pre-sented by Viega et al.
+ []
 
-[9]) (1_mainmatter/4_implementation.tex [10]
+[9 <./fig/Images/He_fig1.jpg>]
+<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=209, 4026.04124pt x 851.18pt>
+File: fig/Images/McGuffin_fig_4_fig11_fig8.png Graphic file (type png)
+<use fig/Images/McGuffin_fig_4_fig11_fig8.png>
+Package pdftex.def Info: fig/Images/McGuffin_fig_4_fig11_fig8.png  used on inpu
+t line 198.
+(pdftex.def)             Requested size: 441.0178pt x 93.22745pt.
+<fig/Images/Krisanty_clipping.jpg, id=214, 1431.09656pt x 748.29562pt>
+File: fig/Images/Krisanty_clipping.jpg Graphic file (type jpg)
+<use fig/Images/Krisanty_clipping.jpg>
+Package pdftex.def Info: fig/Images/Krisanty_clipping.jpg  used on input line 2
+06.
+(pdftex.def)             Requested size: 264.61337pt x 138.36401pt.
+) (1_mainmatter/4_implementation.tex [10 <./fig/Images/Viega_fig1.jpg> <./fig/I
+mages/McGuffin_fig_4_fig11_fig8.png> <./fig/Images/Krisanty_clipping.jpg>]
 chapter 4.
 ) (1_mainmatter/5_results.tex [11
 
@@ -2669,11 +2701,11 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (102.08575pt too wide) in paragraph at lines 7--7
+Overfull \hbox (30.98828pt too wide) in paragraph at lines 7--7
 []\T1/opensans-TLF/l/n/10.95 (-20) Tania Krisanty. \T1/opensans-TLF/l/it/10.95 
-(-20) Taniakrisanty/VR$[]\OML/cmm/m/it/10.95 A[]IS \T1/cmr/m/n/10.95 : \OML/cmm
-/m/it/10.95 Avirtualrealityvisualizationforcellularautomatasimulation$\T1/opens
-ans-TLF/l/n/10.95 (-20) .
+(-20) VR$[]\OML/cmm/m/it/10.95 A[]IS \T1/cmr/m/n/10.95 : \OML/cmm/m/it/10.95 A[
+]irtual[]eality[]isualization[]or[]ellular[]utomata[]imulation$\T1/opensans-TLF
+/l/n/10.95 (-20) .
  []
 
 ) [18]
@@ -2712,21 +2744,16 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36869 strings out of 475389
- 719914 string characters out of 2785902
- 1800120 words of memory out of 3000000
- 57206 multiletter control sequences out of 15000+600000
- 562635 words of font info for 396 fonts, out of 8000000 for 9000
+ 36979 strings out of 475389
+ 723216 string characters out of 2785902
+ 1801147 words of memory out of 3000000
+ 57267 multiletter control sequences out of 15000+600000
+ 565281 words of font info for 422 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,21n,115p,10634b,2648s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
@@ -2742,9 +2769,9 @@ ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Abhängigkeiten
 ts/type1/public/amsfonts/cm/cmr10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb>
-Output written on main.pdf (37 pages, 518265 bytes).
+Output written on main.pdf (37 pages, 3420134 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 85 named destinations out of 1000 (max. 500000)
- 101057 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 91 named destinations out of 1000 (max. 500000)
+ 101082 words of extra memory for PDF output out of 106986 (max. 10000000)
 

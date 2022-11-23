@@ -70,11 +70,17 @@ The resulting application generates animated exploded views for models with up t
 However, a disadvantage of this implementation is that it only works for static data sets and does not provide any solution for time-varying data sets.
 
 Tatzgern et al. improve on the work of Li et al. by finding frequently recurring subsets in a mesh and grouping them, then selecting the best representative of that group and exploding it based on a quality score.\cite{Tatzgern_2010}
-The frequently recurring subsets are found automatically based on a frequent sub-graph search. %TODO add pictures
+The frequently recurring subsets are found automatically based on a frequent sub-graph search.
 The resulting explosion diagrams are especially useful for technological models where there are many identical subsets, and the explosion displays only one of them instead of doing this for each of these subsets and taking up a lot of screen space.  
 For biological datasets, however, this extension is less useful, since it brings little advantage due to the distinct structure of biological objects.
 More relevant, however, is its quality score which is used to select the representative. This is also applicable to general explosion views and can be used to quantitatively describe the quality of an explosion view. It is defined by the following evaluation criteria: 
 
+\begin{figure}[t]
+\centering
+%\vspace{-0.7cm}
+\includegraphics[width=.95\linewidth]{fig/Images/Tatzgern_fig3}
+	\caption[]{System Architecture presented by Tatzgern et al. They describe it as follows: "Our system consists of three different modules which affect the rendering of compact explosion diagrams. By supplying a 3D CAD model, it automatically computes an initial explosion layout (A), it finds groups of equal parts (B) and it selects a representative (C) before it initiates the rendering."[\cite{Tatzgern_2010}, Figure 3]}
+\end{figure}
 
 \begin{itemize}
 	\item \textbf{Size of the footprint of the exploded view:} Describes the entire screen space that the exploded view occupies.
@@ -153,7 +159,11 @@ To allow for easy manipulation of the exploded view's axis, they use Hermit spli
 	\item \textbf{fanning interaction:} This interaction also first cuts the object into slices, then the individual slices are fanned out as if you were holding playing cards with their backs facing upwards in front of you. 
 \end{itemize}
 
-%TODO add pictures
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/Images/He_fig1}
+	\caption[]{Interaction methods described by He et al. with the controller gestures that generate them. Linear explosion(left), leafing(middle) and fanning(right). [\cite{He2017}, Figure 1]}
+\end{figure}
 Not only the interaction with VR plays an important role in this work, but also the special feature of a \textbf{time-varying data set}. 
 Special measures are necessary to display these in an exploded view, but after extensive research no related work could be found. 
 Therefore, in this work, a focus must be placed on solving this problem.
@@ -163,10 +173,17 @@ Another approach that can be combined well with interaction in VR is the use of 
 This is like a kind of magnifying glass that allows the user to look inside an object and hide the obscuring geometry of the surface.
 One advantage of this over cutting planes is that the context is preserved because only a selective subarea is hidden.   
 One possible implementation of this has been described by Viega et al. among others.\cite{Viega_1996}
-They hide the surface of a hand to reveal the underlying skeleton. %TODO add pictures
+They hide the surface of a hand to reveal the underlying skeleton.
+\begin{wrapfigure}{r}{0.25\textwidth}
+	\centering
+	\vspace{-0.4cm}
+	\includegraphics[width=1\linewidth]{fig/Images/Viega_fig1}
+	\caption[]{Magic lenses as presented by Viega et al. [\cite{Viega_1996}, Figure 1]}
+	\vspace{-0.1cm}
+\end{wrapfigure}
 The same concept was extended by Hua et al. to work in augmented reality with a physical prototype.\cite{Hua_2006}
-This also works like a magnifying glass which can be moved over a desktop and thus enables a look into the interior of various objects. 
-For example, you can look inside the buildings of a model of a city or explore the inside of a human body.
+This also functions as a magnifying glass that can be moved across a desktop to allow a look inside various objects.
+For example, you can look inside the buildings of a city model or explore the inside of a human body.
 Their user study showed that "magic lenses are efficient cognitive filters that dynamically organize and display data when and where it is needed."\cite{Hua_2006}
 They proved to be more efficient and intuitive than a traditional interface, although their prototype lacked stability.
 Another alternative approach, which is combinable, is proposed by Preim et al. In their paper, they use different scaling techniques to enlarge and dynamically label objects of interest, making it easier to identify details.\cite{Preim_1997}
@@ -176,8 +193,18 @@ They show various tools they have developed to inspect volumetric data by peelin
 They introduce a Leafer tool to slice and open the dataset, and a Peeler tool to show different layers of the dataset. They also introduce a Boxspreader tool that pushes voxels away, a Hinge Spreader tool, and a Sphere Extender tool to cut and extend different layers of the dataset.
 With these, complex transformations of the data are possible, which can provide insights into the interior of various volumetric data sets.
 One observation made by McGuffin et al. is that animations have greatly improved the usability of these tools, because without them, users had difficulty understanding how the tools operated. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/Images/McGuffin_fig_4_fig11_fig8}
+	\caption[]{Tools presented by McGuffin et al. Hinge Spreader(left), Peeler tool(middle) and the Leafer tool(right). [\cite{McGuffin}, Figure 4,11,8]}
+\end{figure}
 
 Another related work was presented by Tania Krisanty at the Chair of Computer Graphics at the TU Dresden. She uses a similar slightly simplified version of the same data set used in this work and shows the use of cutting planes in virtual reality.\cite{krisanty_2022}
 She presents several interactions in virtual reality, like grabbing a new cutting plane from an imaginary backpack. 
-One problem that arises is the loss of context when viewing the inner cells, a possibility that has been developed for this is the selective deactivation of cells, which eases the examination of individual cells in the interior, but does not solve the problem completely.
+\begin{wrapfigure}{r}{0.6\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{fig/Images/Krisanty_clipping}
+	\caption[]{Demonstration of the clipping plane interaction developed by Tania Krisanty.[\cite{krisanty_2022}]}
+\end{wrapfigure}
+One issue that arises is the loss of context when viewing the inner cells; one solution developed for this is the selective deactivation of cells, which facilitates the examination of individual cells in the interior but does not completely solve the problem.
 
