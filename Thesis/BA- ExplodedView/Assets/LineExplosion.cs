@@ -9,15 +9,19 @@ public class LineExplosion : MonoBehaviour, IExploder
     [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
     [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
     [SerializeField] Transform pointA;
-    [SerializeField] Transform pointB;
+    [SerializeField] protected Transform pointB;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float minOffset = 2f;
     [SerializeField] float distanceFactor = 1f;
     [SerializeField] bool drawDebugLines = true;
     [SerializeField] bool drawLines = true;
+
+    protected bool drawLineBetweenPoints { get; set; } = true;
+
     LineDrawer lineDrawer;
 
-    public void Explode(float explosionForce)
+
+    public virtual void Explode(float explosionForce)
     {
         DrawLine();
 
@@ -86,7 +90,15 @@ public class LineExplosion : MonoBehaviour, IExploder
 
     void DrawLine()
     {
-        lineRenderer.SetPosition(0, pointA.position);
-        lineRenderer.SetPosition(1, pointB.position);
+        if (drawLineBetweenPoints)
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, pointA.position);
+            lineRenderer.SetPosition(1, pointB.position);
+        }
+        else
+        {
+            lineRenderer.enabled = false;
+        }
     }
 }
