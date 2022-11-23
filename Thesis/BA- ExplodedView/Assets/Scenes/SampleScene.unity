@@ -1745,7 +1745,8 @@ MonoBehaviour:
   pointB: {fileID: 506360914}
   lineRenderer: {fileID: 431018032}
   minOffset: 2
-  distanceFactor: 1
+  distanceFactorProjToPart: 1
+  distanceFactorAToProj: 1
   drawDebugLines: 1
   drawLines: 0
 --- !u!114 &431018034
@@ -1904,11 +1905,14 @@ MonoBehaviour:
   cells: []
   minContainerSize: 0.1
   maxContainerSize: 1.5
+  populations: []
   controlObjects:
   - {fileID: 419503371}
   - {fileID: 1619443026}
   - {fileID: 506360913}
   - {fileID: 1307494744}
+  - {fileID: 743790828}
+  - {fileID: 2064553368}
   pauseText: {fileID: 596207397}
 --- !u!4 &450028559
 Transform:
@@ -1940,7 +1944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74d8e706550f22429544679246b8385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exploderObject: {fileID: 834215921}
+  exploderObject: {fileID: 431018030}
   objectsToExplode: []
   originalTrans: []
   originalPositionPrefab: {fileID: 1836316659}
@@ -3211,7 +3215,8 @@ MonoBehaviour:
   pointB: {fileID: 2064553369}
   lineRenderer: {fileID: 834215923}
   minOffset: 2
-  distanceFactor: 1
+  distanceFactorProjToPart: 1
+  distanceFactorAToProj: 1
   drawDebugLines: 1
   drawLines: 1
   stickToHead: 1

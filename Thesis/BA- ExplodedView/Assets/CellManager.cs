@@ -26,6 +26,7 @@ public class CellManager : MonoBehaviour
     [SerializeField] float minContainerSize = 0.1f;
     [SerializeField] float maxContainerSize = 1.5f;
 
+    [SerializeField] List<Population> populations = new List<Population>();
 
     [SerializeField] GameObject[] controlObjects;
     [SerializeField] TMP_Text pauseText;
@@ -111,7 +112,7 @@ public class CellManager : MonoBehaviour
             cell = newCellObj.GetComponent<Cell>();
             cell.id = id;
             cell.GridOffset = gridOffset;
-            cell.cellColor = Color.HSVToRGB(Random.Range(0f, 360f)/360f, 0.9f, 0.7f);// Random.ColorHSV();
+            cell.cellColor = GetOrAddPopulation(population).color;
             cell.population = population;
             cells.Add(cell);
         }
@@ -121,6 +122,19 @@ public class CellManager : MonoBehaviour
 
 
     }
+
+    Population GetOrAddPopulation(string name)
+    {
+        var pop = populations.FirstOrDefault(p => p.name == name);
+
+        if(pop == null)
+        {
+            pop = new Population(name, Color.HSVToRGB(Random.Range(0f, 360f) / 360f, 0.9f, 0.7f));
+            populations.Add(pop);
+        }
+        return pop;
+    }
+
 
     public void OnSizeSliderChange(float value)
     {
@@ -169,5 +183,18 @@ public class CellManager : MonoBehaviour
         {
             cell.ShowTimeStep(currentTimeStep, previousTimeStepsShown, previousTimeStepsOpacityFactor);
         }
+    }
+}
+
+[System.Serializable]
+public class Population
+{
+    public string name;
+    public Color color;
+
+    public Population(string popName, Color popColor)
+    {
+        name = popName;
+        color = popColor;
     }
 }

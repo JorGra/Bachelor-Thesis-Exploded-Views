@@ -12,7 +12,8 @@ public class LineExplosion : MonoBehaviour, IExploder
     [SerializeField] protected Transform pointB;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float minOffset = 2f;
-    [SerializeField] float distanceFactor = 1f;
+    [SerializeField] float distanceFactorProjToPart = 1f;
+    [SerializeField] float distanceFactorAToProj = 1f;
     [SerializeField] bool drawDebugLines = true;
     [SerializeField] bool drawLines = true;
 
@@ -57,7 +58,8 @@ public class LineExplosion : MonoBehaviour, IExploder
             if (Vector3.Dot(AB, aProj) > 0.99f)
             {
                 explosionTargetPos[i] = explosionOriginalPos[i] + expDir.normalized * minOffset
-                    + aProj.magnitude * distanceFactor * expDir.normalized;
+                    + aProj.magnitude * distanceFactorProjToPart * expDir.normalized
+                    + aProj * distanceFactorAToProj;
             }
             else
                 explosionTargetPos[i] = explosionOriginalPos[i];
