@@ -9,6 +9,7 @@ public class ExplosionViewHandler : MonoBehaviour
     [SerializeField] GameObject exploderObject;
     public List<Transform> objectsToExplode;
     public List<Transform> originalTrans;
+    public List<Transform> selectedCells;
     [SerializeField] GameObject originalPositionPrefab;
     [SerializeField] bool showOriginalPosition = true;
     [Range(0f, 1f)]
@@ -25,6 +26,7 @@ public class ExplosionViewHandler : MonoBehaviour
         foreach (var cell in cellManager.cells)
         {
             var t = Instantiate(originalPositionPrefab, cell.transform.position, Quaternion.identity).transform;
+            cell.originalTransformObject = t.gameObject;
             t.parent = cellManager.cellContainer;
             originalTrans.Add(t);
         }
@@ -57,6 +59,11 @@ public class ExplosionViewHandler : MonoBehaviour
     public void ChangeExploder(GameObject exploderObject)
     {
         exploder = exploderObject.GetComponent<IExploder>();
-        exploder.GiveObjectsToExploder(objectsToExplode);
+        exploder.GiveObjectsToExploder(objectsToExplode, this);
+    }
+
+    public void AddCellToSelection(Cell cell)
+    {
+        selectedCells.Add(cell.gameObject.transform);
     }
 }

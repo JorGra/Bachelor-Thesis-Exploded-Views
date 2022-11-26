@@ -52,6 +52,7 @@ MonoBehaviour:
   population: 
   centers: []
   cellMaterial: {fileID: 2100000, guid: 1435df888e28b994189385952a694097, type: 2}
+  selectedOriginColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &7337891182614863714
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -86,7 +87,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4
+    m_Bits: 12
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
@@ -124,10 +125,13 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5866147693099571071}
         m_TargetAssemblyTypeName: Cell, Assembly-CSharp
-        m_MethodName: DeactivateCell
+        m_MethodName: CellSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -137,9 +141,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []

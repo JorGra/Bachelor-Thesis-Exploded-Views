@@ -2,3 +2,52 @@
 {\chapter{Methoden und Umsetzung}}
 {\chapter{Methods and Implementation}}
 \label{sec:methods}
+
+
+In order to explain the developed proposed solutions, this chapter will first conduct a problem analysis, then a theoretical classification of the explosion views, and finally the implemented methods. 
+To illustrate the implementation, first the structure of the program is presented, then the individual approaches are introduced, and finally the data set and its change over time are discussed and the surface inspection is demonstrated.
+The problem addressed by this work can be divided into three sub-problems. On the one hand, this is the representation of three-dimensional cells and cell complexes; on the other hand, this is the investigation of ways to avoid occlusion and to use immersive techniques and interactions to enable cell and cell surface exploration.
+As mentioned in the introductory chapters, different types of explosion views will be tested and compared in order to solve the problem of occlusion.
+Special requirements and restrictions apply in this problem scenario, as both the data set and the use of VR technologies necessitate significant changes to traditional explosion views.
+
+Therefore, the \textbf{structure of the data set }structure of the data set should be explained first. %TODO maybe add picture of XML layout? 
+It was generated using the Morpheus program and depicts the development of cells over a predetermined time period.
+The individual cells consist of voxels which are arranged in a grid layout. Each cell has additional properties such as a unique ID, a cell center and a population to which the cell belongs, as well as data describing the surface properties. 
+A population in this context refers to a cell type with unique propagation properties that can be defined in Morpheus.
+Different cell populations form a cell complex which is simulated by Morpheus. 
+During the simulation, Morpheus then generates snapshots of the current state of the cell complex at regular intervals. 
+These are saved as XML files and form the data set used for the visualization in this work. 
+In this way, each snapshot describes a temporal state that precisely defines the arrangement of the individual cells in the form of a list of position and surface property values.
+The decisive factor here is that the shape and position of an individual cell can change significantly in the course of the simulation. 
+The chosen method of occlusion avoidance must therefore take this into account and the visualization should enable the precise inspection of a single cell at any time.
+
+If one now wants to look at the inner cells of the data set and inspect the interaction of the different populations more closely, this is not possible due to the outer cells that cover them. 
+So, occlusion occurs because data is obscured by other foreground data.
+As demonstrated by Krisanty's example, using cutting planes is not a suitable method of avoiding this problem while still observing the interaction of individual cells with one another. %TODO reference figure 3.9 and cite=Krisanty_2022
+
+Explosive views are suitable for viewing the complete data set and, in particular, for looking into the interior of a cell complex and for inspecting individual cells in a targeted manner. 
+This type of representation translates the individual parts of a model or dataset in such a way that each part is detached from its touching neighbors.
+It should be ensured that the original position of each part is recognizable or comprehensible. 
+To achieve this, exploded views should follow the conventions and properties outlined by Li et al. in the background chapter. %TODO Reference and link
+Exploded views that take these properties into account not only allow for the representation of relative spatial relationships, but also allow the viewer to mentally reconstruct the object being viewed and the arrangement of the individual parts within. 
+This is further enhanced when the explosion strength can be adjusted interactively and is therefore a suitable method for the problem at hand.
+When drawing or generating an exploded view, the following parameters are of importance and must be specified individually for each exploded object:
+\begin{itemize}
+	\item \textbf{The canonical axis} of the object, this is the main axis of expansion in which the parts should be exploded to make the mental reconstruction as simple as possible. This depends on many different factors of the object that is being inspected, for mechanical objects this is often related to the assembly order. The definition is more challenging for biological datasets and models. For the dataset at hand, it is not possible to define a clear canonical axis, because the cells change over time and there is no direction in which the propagation of the cells is focused. In this case, it is useful to make the choice of the axis dynamically selectable, as this allows the axis to be adapted to the current state of the cell complex. 
+	\item \textbf{The choice of perspective.} Traditional exploded views are often drawn from the side of the object or from slightly above, looking down at the object. An orthographic view is frequently used to better indicate the distance between the individual parts. 
+	This is not the case with interactive systems like Li et al.'s, which allow the camera perspective to be adjusted to provide a more realistic representation of the object. %TODO cite=Li_2006
+	Because this work focuses on the use of VR technologies, a perspective view should be chosen. 
+	Furthermore, the camera viewpoint is determined by the position of the headset and should change as the user moves. 
+	The use of VR headsets allows for a much more intuitive exploration of the data set and aids in understanding the object's composition. 
+	One issue with this is that it can cause visual clutter because the user's field of vision may be obscured by scattered parts.
+	\item \textbf{View dependent exploded views.} Closely related to the choice of perspective in interactive exploded views is the choice of whether the position of the exploded parts depends on the camera perspective or not. 
+	This results in two categories for exploded views in interactive systems.
+	View-independent exploded views that transform parts along an axis or away from a point and are not affected by the camera.
+	This allows for a more thorough inspection of all parts and the entire model. 
+	Each part is displayed in such a way that its position within the whole is discernible.
+	View-dependent exploded views are the second type.
+	Certain parts or points are chosen here that are always visible regardless of the angle from which they are viewed. 
+	This allows for a close examination of specific parts.
+	Which of these possibilities is the better one for the given data set has to be investigated.
+	
+\end{itemize}

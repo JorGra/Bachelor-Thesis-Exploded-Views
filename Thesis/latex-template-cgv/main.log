@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  23 NOV 2022 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  26 NOV 2022 13:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2544,6 +2544,14 @@ LaTeX Warning: Hyper reference `acro:CAD' on page XI undefined on input line 14
 LaTeX Warning: Hyper reference `acro:CAD' on page XI undefined on input line 14
 .
 
+
+LaTeX Warning: Hyper reference `acro:XML' on page XI undefined on input line 15
+.
+
+
+LaTeX Warning: Hyper reference `acro:XML' on page XI undefined on input line 15
+.
+
 ) [11] [12
 
 
@@ -2559,14 +2567,14 @@ chapter 2.
 
 ]) (1_mainmatter/3_related_work.tex [4]
 chapter 3.
-<fig/Images/Li_ExplodedView_GI04_fig16.jpg, id=127, 564.60938pt x 354.57469pt>
+<fig/Images/Li_ExplodedView_GI04_fig16.jpg, id=128, 564.60938pt x 354.57469pt>
 File: fig/Images/Li_ExplodedView_GI04_fig16.jpg Graphic file (type jpg)
 <use fig/Images/Li_ExplodedView_GI04_fig16.jpg>
 Package pdftex.def Info: fig/Images/Li_ExplodedView_GI04_fig16.jpg  used on inp
 ut line 19.
 (pdftex.def)             Requested size: 198.45667pt x 124.63321pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig1.
-jpg, id=133, 517.18219pt x 392.21532pt>
+jpg, id=134, 517.18219pt x 392.21532pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig1.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2575,7 +2583,7 @@ Package pdftex.def Info: fig/Images/AutomatedGenerationofInteractive3DExplodedV
 iewDiagrams_Li2008_fig1.jpg  used on input line 43.
 (pdftex.def)             Requested size: 205.29541pt x 155.69238pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.
-jpg, id=136, 586.44093pt x 254.45062pt>
+jpg, id=137, 586.44093pt x 254.45062pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig8.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2589,7 +2597,7 @@ Overfull \hbox (22.05223pt too wide) in paragraph at lines 50--51
  []
 
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.
-jpg, id=139, 398.99063pt x 584.1825pt>
+jpg, id=140, 398.99063pt x 584.1825pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig7.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2615,25 +2623,25 @@ Underfull \hbox (badness 1629) in paragraph at lines 63--63
 ationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Automat
 edGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Images/
 AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
-<fig/Images/Tatzgern_fig3.jpg, id=159, 1154.81438pt x 392.21532pt>
+<fig/Images/Tatzgern_fig3.jpg, id=160, 1154.81438pt x 392.21532pt>
 File: fig/Images/Tatzgern_fig3.jpg Graphic file (type jpg)
 <use fig/Images/Tatzgern_fig3.jpg>
 Package pdftex.def Info: fig/Images/Tatzgern_fig3.jpg  used on input line 81.
 (pdftex.def)             Requested size: 418.96556pt x 142.29858pt.
 
 [7 <./fig/Images/Tatzgern_fig3.jpg>]
-<fig/Images/Bruckner_fig2.jpg, id=170, 761.84625pt x 201.75375pt>
+<fig/Images/Bruckner_fig2.jpg, id=171, 761.84625pt x 201.75375pt>
 File: fig/Images/Bruckner_fig2.jpg Graphic file (type jpg)
 <use fig/Images/Bruckner_fig2.jpg>
 Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 138.
 (pdftex.def)             Requested size: 418.96556pt x 110.94951pt.
  [8 <./fig/Images/Bruckner_fig2.jpg>]
-<fig/Images/He_fig1.jpg, id=190, 1436.36626pt x 194.97844pt>
+<fig/Images/He_fig1.jpg, id=191, 1436.36626pt x 194.97844pt>
 File: fig/Images/He_fig1.jpg Graphic file (type jpg)
 <use fig/Images/He_fig1.jpg>
 Package pdftex.def Info: fig/Images/He_fig1.jpg  used on input line 164.
 (pdftex.def)             Requested size: 441.0178pt x 59.86551pt.
-<fig/Images/Viega_fig1.jpg, id=194, 402.00188pt x 399.74344pt>
+<fig/Images/Viega_fig1.jpg, id=195, 402.00188pt x 399.74344pt>
 File: fig/Images/Viega_fig1.jpg Graphic file (type jpg)
 <use fig/Images/Viega_fig1.jpg>
 Package pdftex.def Info: fig/Images/Viega_fig1.jpg  used on input line 180.
@@ -2644,13 +2652,13 @@ Underfull \hbox (badness 1308) in paragraph at lines 181--181
  []
 
 [9 <./fig/Images/He_fig1.jpg>]
-<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=209, 4026.04124pt x 851.18pt>
+<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=210, 4026.04124pt x 851.18pt>
 File: fig/Images/McGuffin_fig_4_fig11_fig8.png Graphic file (type png)
 <use fig/Images/McGuffin_fig_4_fig11_fig8.png>
 Package pdftex.def Info: fig/Images/McGuffin_fig_4_fig11_fig8.png  used on inpu
 t line 198.
 (pdftex.def)             Requested size: 441.0178pt x 93.22745pt.
-<fig/Images/Krisanty_clipping.jpg, id=214, 1431.09656pt x 748.29562pt>
+<fig/Images/Krisanty_clipping.jpg, id=215, 1431.09656pt x 748.29562pt>
 File: fig/Images/Krisanty_clipping.jpg Graphic file (type jpg)
 <use fig/Images/Krisanty_clipping.jpg>
 Package pdftex.def Info: fig/Images/Krisanty_clipping.jpg  used on input line 2
@@ -2659,15 +2667,15 @@ Package pdftex.def Info: fig/Images/Krisanty_clipping.jpg  used on input line 2
 ) (1_mainmatter/4_implementation.tex [10 <./fig/Images/Viega_fig1.jpg> <./fig/I
 mages/McGuffin_fig_4_fig11_fig8.png> <./fig/Images/Krisanty_clipping.jpg>]
 chapter 4.
-) (1_mainmatter/5_results.tex [11
+[11
 
 
-] [12
-
-
-]
+]) (1_mainmatter/5_results.tex [12]
 chapter 5.
-) (1_mainmatter/6_conclusion_and_future_work.tex [13] [14
+) (1_mainmatter/6_conclusion_and_future_work.tex [13
+
+
+] [14
 
 
 ]
@@ -2749,11 +2757,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36979 strings out of 475389
- 723216 string characters out of 2785902
- 1801147 words of memory out of 3000000
- 57267 multiletter control sequences out of 15000+600000
- 565281 words of font info for 422 fonts, out of 8000000 for 9000
+ 36994 strings out of 475389
+ 723556 string characters out of 2785902
+ 1801190 words of memory out of 3000000
+ 57269 multiletter control sequences out of 15000+600000
+ 566065 words of font info for 430 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,21n,115p,10634b,2648s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
@@ -2769,9 +2777,9 @@ ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Abhängigkeiten
 ts/type1/public/amsfonts/cm/cmr10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb>
-Output written on main.pdf (37 pages, 3420134 bytes).
+Output written on main.pdf (37 pages, 3425783 bytes).
 PDF statistics:
- 437 PDF objects out of 1000 (max. 8388607)
- 91 named destinations out of 1000 (max. 500000)
+ 438 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
  101082 words of extra memory for PDF output out of 106986 (max. 10000000)
 

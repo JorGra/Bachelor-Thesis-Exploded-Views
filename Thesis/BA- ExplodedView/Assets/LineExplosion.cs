@@ -69,7 +69,7 @@ public class LineExplosion : MonoBehaviour, IExploder
         }
     }
 
-    public void GiveObjectsToExploder(List<Transform> objectsToExplode)
+    public void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null)
     {
         parts = objectsToExplode;
 

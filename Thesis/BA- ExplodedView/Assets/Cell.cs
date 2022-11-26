@@ -15,10 +15,15 @@ public class Cell : MonoBehaviour
     Dictionary<uint, int> timeSteps = new Dictionary<uint, int>(); //timeStep as key, childIndex as value
 
     Quaternion savedRotation;
+    public GameObject originalTransformObject { get; set; }
 
     public Vector3 GridOffset { get; set; }
 
     [SerializeField] Material cellMaterial;
+    [SerializeField] Color selectedOriginColor = Color.red;
+    Color originalOriginColor;
+
+    bool selected = false;
 
 
     public void ShowTimeStep(uint timeStep, int previousTimeSteps, float opacityFactor = 1f)
@@ -74,6 +79,33 @@ public class Cell : MonoBehaviour
         transform.localRotation = Quaternion.identity;
     }
  
+    public void CellSelected()
+    {
+        if (selected)
+        {
+            DeselectCell();
+        }
+        else
+        {
+            SelectCell();
+        }
+        selected = !selected;
+    }
+
+    void SelectCell()
+    {
+        if(!CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Contains(transform))
+            CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Add(transform);
+        originalOriginColor = originalTransformObject.GetComponentInChildren<MeshRenderer>().material.color;
+        originalTransformObject.GetComponentInChildren<MeshRenderer>().material.color = selectedOriginColor;
+    }
+
+    void DeselectCell()
+    {
+        if (CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Contains(transform))
+            CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Remove(transform);
+        originalTransformObject.GetComponentInChildren<MeshRenderer>().material.color = originalOriginColor;
+    }
 
     Mesh GenerateMesh(Vector3Int[] positions, float voxelSize)
     {
@@ -132,6 +164,5 @@ public class Cell : MonoBehaviour
         };
         return triangles;
     }
-
 
 }

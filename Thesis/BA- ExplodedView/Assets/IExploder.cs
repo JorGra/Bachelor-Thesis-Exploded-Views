@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IExploder 
 {
-    void GiveObjectsToExploder(List<Transform> objectsToExplode);
+    void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null);
 
     void Explode(float explosionForce);
 
