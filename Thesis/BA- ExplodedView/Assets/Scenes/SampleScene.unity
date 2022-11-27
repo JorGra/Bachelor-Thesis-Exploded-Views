@@ -168,7 +168,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parts: []
+  partsRB: []
+  cameraTrans: {fileID: 330585546}
   explosionOriginalPos: []
+  explosionForceMultiplier: 100
+  returnForce: 5
+  viewingForce: 5
+  spacingForce: 0
 --- !u!1 &38689860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,10 +1998,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74d8e706550f22429544679246b8385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exploderObject: {fileID: 834215921}
+  exploderObject: {fileID: 21847036}
   objectsToExplode: []
   originalTrans: []
   selectedCells: []
+  useFixedUpdate: 0
   originalPositionPrefab: {fileID: 1836316659}
   showOriginalPosition: 1
   currentExplosionForce: 0
@@ -5886,7 +5893,7 @@ MonoBehaviour:
   m_RaycastMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RaycastTriggerInteraction: 1
+  m_RaycastTriggerInteraction: 2
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5

@@ -40,7 +40,7 @@ public class LineExplosion : MonoBehaviour, IExploder
 
             var ABloc = container.InverseTransformDirection(AB);
 
-            var pA = container.transform.InverseTransformPoint(pointA.position);
+            var pA = container.InverseTransformPoint(pointA.position);
             var AP = parts[i].localPosition - pA;
             var proj = pA + Vector3.Dot(AP, ABloc) / Vector3.Dot(ABloc, ABloc) * ABloc;
 

@@ -10,6 +10,7 @@ public class ExplosionViewHandler : MonoBehaviour
     public List<Transform> objectsToExplode;
     public List<Transform> originalTrans;
     public List<Transform> selectedCells;
+    public bool useFixedUpdate = false;
     [SerializeField] GameObject originalPositionPrefab;
     [SerializeField] bool showOriginalPosition = true;
     [Range(0f, 1f)]
@@ -41,8 +42,14 @@ public class ExplosionViewHandler : MonoBehaviour
             showOriginalPosition = !showOriginalPosition;
             ToggleOriginalPositionVisibility(showOriginalPosition);
         }
+        if(!useFixedUpdate)
+            exploder.Explode(currentExplosionForce);
+    }
 
-        exploder.Explode(currentExplosionForce);
+    private void FixedUpdate()
+    {
+        if (useFixedUpdate)
+            exploder.Explode(currentExplosionForce);
     }
 
 
