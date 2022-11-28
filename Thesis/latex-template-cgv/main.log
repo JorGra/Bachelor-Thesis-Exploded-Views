@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  26 NOV 2022 13:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  28 NOV 2022 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2529,14 +2529,6 @@ LaTeX Warning: Hyper reference `acro:AR' on page XI undefined on input line 12.
 
 
 
-LaTeX Warning: Hyper reference `acro:GPU' on page XI undefined on input line 13
-.
-
-
-LaTeX Warning: Hyper reference `acro:GPU' on page XI undefined on input line 13
-.
-
-
 LaTeX Warning: Hyper reference `acro:CAD' on page XI undefined on input line 14
 .
 
@@ -2555,26 +2547,133 @@ LaTeX Warning: Hyper reference `acro:XML' on page XI undefined on input line 15
 ) [11] [12
 
 
-] (1_mainmatter/1_introduction.tex
-chapter 1.
+] (1_mainmatter/0_about_this_template.tex
+chapter 0.
+LaTeX Font Info:    Font shape `T1/tudtt/l/n' will be
+(Font)              scaled to size 9.85492pt on input line 4.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `tudtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 [1
 
 
-]) (1_mainmatter/2_background.tex [2]
+] [2]
+Package acronym Info: Label `acro:CGV lab' newly defined as it shall be overrid
+den
+although it is yet undefined on input line 78.
+
+
+Package acronym Warning: Acronym `CGV lab' is not defined on input line 78.
+
+
+Package acronym Warning: Acronym `CGV lab' is not defined on input line 78.
+
+[3] (D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+)
+LaTeX Font Info:    Font shape `T1/tudtt/l/n' will be
+(Font)              scaled to size 7.19995pt on input line 89.
+<fig/Stanford_bunny_qem.png, id=172, 1431.3475pt x 481.8pt>
+File: fig/Stanford_bunny_qem.png Graphic file (type png)
+<use fig/Stanford_bunny_qem.png>
+Package pdftex.def Info: fig/Stanford_bunny_qem.png  used on input line 103.
+(pdftex.def)             Requested size: 441.0178pt x 148.44484pt.
+Package acronym Info: Label `acro:GPU' newly defined as it shall be overridden
+although it is yet undefined on input line 110.
+ [4 <./fig/Stanford_bunny_qem.png>]
+
+Package acronym Warning: Acronym `CGV lab' is not defined on input line 136.
+
+<fig/vec.png, id=191, 118.94438pt x 115.18031pt>
+File: fig/vec.png Graphic file (type png)
+<use fig/vec.png>
+Package pdftex.def Info: fig/vec.png  used on input line 148.
+(pdftex.def)             Requested size: 28.45274pt x 27.55243pt.
+<fig/pos.png, id=193, 233.37187pt x 219.82124pt>
+File: fig/pos.png Graphic file (type png)
+<use fig/pos.png>
+Package pdftex.def Info: fig/pos.png  used on input line 170.
+(pdftex.def)             Requested size: 8.5359pt x 8.04001pt.
+<fig/plane.png, id=194, 259.7203pt x 209.28188pt>
+File: fig/plane.png Graphic file (type png)
+<use fig/plane.png>
+Package pdftex.def Info: fig/plane.png  used on input line 188.
+(pdftex.def)             Requested size: 56.9055pt x 45.85373pt.
+<fig/col.png, id=195, 171.64125pt x 159.59625pt>
+File: fig/col.png Graphic file (type png)
+<use fig/col.png>
+Package pdftex.def Info: fig/col.png  used on input line 201.
+(pdftex.def)             Requested size: 56.9055pt x 52.91043pt.
+Package acronym Info: Label `acro:WYSIWYG' newly defined as it shall be overrid
+den
+although it is yet undefined on input line 245.
+
+Package acronym Warning: Acronym `WYSIWYG' is not defined on input line 245.
+
+
+Package acronym Warning: Acronym `WYSIWYG' is not defined on input line 245.
+
+
+Package acronym Warning: Acronym `WYSIWYG' is not defined on input line 245.
+
+[5] (D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+(D:\Abh채ngigkeiten\MiKTeX\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+))
+(1_mainmatter/1_introduction.tex [6 <./fig/vec.png> <./fig/pos.png> <./fig/plan
+e.png> <./fig/col.png>] [7] [8
+
+
+]
+chapter 1.
+[9]) (1_mainmatter/2_background.tex [10]
 chapter 2.
-[3
+[11
 
 
-]) (1_mainmatter/3_related_work.tex [4]
+]) (1_mainmatter/3_related_work.tex [12]
 chapter 3.
-<fig/Images/Li_ExplodedView_GI04_fig16.jpg, id=128, 564.60938pt x 354.57469pt>
+<fig/Images/Li_ExplodedView_GI04_fig16.jpg, id=314, 564.60938pt x 354.57469pt>
 File: fig/Images/Li_ExplodedView_GI04_fig16.jpg Graphic file (type jpg)
 <use fig/Images/Li_ExplodedView_GI04_fig16.jpg>
 Package pdftex.def Info: fig/Images/Li_ExplodedView_GI04_fig16.jpg  used on inp
 ut line 19.
 (pdftex.def)             Requested size: 198.45667pt x 124.63321pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig1.
-jpg, id=134, 517.18219pt x 392.21532pt>
+jpg, id=320, 517.18219pt x 392.21532pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig1.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2583,7 +2682,7 @@ Package pdftex.def Info: fig/Images/AutomatedGenerationofInteractive3DExplodedV
 iewDiagrams_Li2008_fig1.jpg  used on input line 43.
 (pdftex.def)             Requested size: 205.29541pt x 155.69238pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.
-jpg, id=137, 586.44093pt x 254.45062pt>
+jpg, id=323, 586.44093pt x 254.45062pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig8.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2597,7 +2696,7 @@ Overfull \hbox (22.05223pt too wide) in paragraph at lines 50--51
  []
 
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.
-jpg, id=140, 398.99063pt x 584.1825pt>
+jpg, id=326, 398.99063pt x 584.1825pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig7.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2616,32 +2715,32 @@ Underfull \hbox (badness 1629) in paragraph at lines 63--63
 \T1/opensans-TLF/l/n/9 (+20) tainer to re-veal en-closed
  []
 
-[5
+[13
 
 
- <./fig/Images/Li_ExplodedView_GI04_fig16.jpg>] [6 <./fig/Images/AutomatedGener
-ationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Automat
-edGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Images/
-AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
-<fig/Images/Tatzgern_fig3.jpg, id=160, 1154.81438pt x 392.21532pt>
+ <./fig/Images/Li_ExplodedView_GI04_fig16.jpg>] [14 <./fig/Images/AutomatedGene
+rationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Automa
+tedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Images
+/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
+<fig/Images/Tatzgern_fig3.jpg, id=346, 1154.81438pt x 392.21532pt>
 File: fig/Images/Tatzgern_fig3.jpg Graphic file (type jpg)
 <use fig/Images/Tatzgern_fig3.jpg>
 Package pdftex.def Info: fig/Images/Tatzgern_fig3.jpg  used on input line 81.
 (pdftex.def)             Requested size: 418.96556pt x 142.29858pt.
 
-[7 <./fig/Images/Tatzgern_fig3.jpg>]
-<fig/Images/Bruckner_fig2.jpg, id=171, 761.84625pt x 201.75375pt>
+[15 <./fig/Images/Tatzgern_fig3.jpg>]
+<fig/Images/Bruckner_fig2.jpg, id=356, 761.84625pt x 201.75375pt>
 File: fig/Images/Bruckner_fig2.jpg Graphic file (type jpg)
 <use fig/Images/Bruckner_fig2.jpg>
 Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 138.
 (pdftex.def)             Requested size: 418.96556pt x 110.94951pt.
- [8 <./fig/Images/Bruckner_fig2.jpg>]
-<fig/Images/He_fig1.jpg, id=191, 1436.36626pt x 194.97844pt>
+ [16 <./fig/Images/Bruckner_fig2.jpg>]
+<fig/Images/He_fig1.jpg, id=371, 1436.36626pt x 194.97844pt>
 File: fig/Images/He_fig1.jpg Graphic file (type jpg)
 <use fig/Images/He_fig1.jpg>
 Package pdftex.def Info: fig/Images/He_fig1.jpg  used on input line 164.
 (pdftex.def)             Requested size: 441.0178pt x 59.86551pt.
-<fig/Images/Viega_fig1.jpg, id=195, 402.00188pt x 399.74344pt>
+<fig/Images/Viega_fig1.jpg, id=375, 402.00188pt x 399.74344pt>
 File: fig/Images/Viega_fig1.jpg Graphic file (type jpg)
 <use fig/Images/Viega_fig1.jpg>
 Package pdftex.def Info: fig/Images/Viega_fig1.jpg  used on input line 180.
@@ -2651,39 +2750,39 @@ Underfull \hbox (badness 1308) in paragraph at lines 181--181
 \T1/opensans-TLF/l/n/9 (+20) pre-sented by Viega et al.
  []
 
-[9 <./fig/Images/He_fig1.jpg>]
-<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=210, 4026.04124pt x 851.18pt>
+[17 <./fig/Images/He_fig1.jpg>]
+<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=390, 4026.04124pt x 851.18pt>
 File: fig/Images/McGuffin_fig_4_fig11_fig8.png Graphic file (type png)
 <use fig/Images/McGuffin_fig_4_fig11_fig8.png>
 Package pdftex.def Info: fig/Images/McGuffin_fig_4_fig11_fig8.png  used on inpu
 t line 198.
 (pdftex.def)             Requested size: 441.0178pt x 93.22745pt.
-<fig/Images/Krisanty_clipping.jpg, id=215, 1431.09656pt x 748.29562pt>
+<fig/Images/Krisanty_clipping.jpg, id=394, 1431.09656pt x 748.29562pt>
 File: fig/Images/Krisanty_clipping.jpg Graphic file (type jpg)
 <use fig/Images/Krisanty_clipping.jpg>
 Package pdftex.def Info: fig/Images/Krisanty_clipping.jpg  used on input line 2
 06.
 (pdftex.def)             Requested size: 264.61337pt x 138.36401pt.
-) (1_mainmatter/4_implementation.tex [10 <./fig/Images/Viega_fig1.jpg> <./fig/I
+) (1_mainmatter/4_implementation.tex [18 <./fig/Images/Viega_fig1.jpg> <./fig/I
 mages/McGuffin_fig_4_fig11_fig8.png> <./fig/Images/Krisanty_clipping.jpg>]
 chapter 4.
-[11
+[19
 
 
-]) (1_mainmatter/5_results.tex [12]
+] [20] [21]) (1_mainmatter/5_results.tex [22]
 chapter 5.
-) (1_mainmatter/6_conclusion_and_future_work.tex [13
+) (1_mainmatter/6_conclusion_and_future_work.tex [23
 
 
-] [14
+] [24
 
 
 ]
 chapter 6.
-) (2_bib/0_bibliography.tex [15] [16
+) (2_bib/0_bibliography.tex [25] [26
 
 
-] [17]
+] [27]
 Overfull \hbox (0.15329pt too wide) in paragraph at lines 7--7
 \T1/opensans-TLF/l/n/10.95 (+15) text = Tats % C3 % A4chlich % 20geht % 20man %
  20heute % 20von % 20etwa % 2086 %
@@ -2716,17 +2815,17 @@ Overfull \hbox (30.98828pt too wide) in paragraph at lines 7--7
 /l/n/10.95 (-20) .
  []
 
-) [18]
+) [28]
 Package tocbasic Info: character protrusion at lof deactivated on input line 24
 .
  (main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [19
+ [29
 
 
-] [20
+] [30
 
 
 ]
@@ -2736,17 +2835,17 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 25
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- (3_appendix/0_appendix.tex [21] [22
+ (3_appendix/0_appendix.tex [31] [32
 
 
 ]
 chapter A.
-[23] [24
+[33] [34
 
 
 ]
 chapter B.
-) [25] (main.aux)
+) [35] (main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2757,29 +2856,42 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36994 strings out of 475389
- 723556 string characters out of 2785902
- 1801190 words of memory out of 3000000
- 57269 multiletter control sequences out of 15000+600000
- 566065 words of font info for 430 fonts, out of 8000000 for 9000
+ 39141 strings out of 475389
+ 753588 string characters out of 2785902
+ 1976534 words of memory out of 3000000
+ 59211 multiletter control sequences out of 15000+600000
+ 592574 words of font info for 495 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,21n,115p,10634b,2648s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
-crm0800.pk> <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1095.pk>{D:/Abh채ngigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_jg4h6
-q.enc}{D:/Abh채ngigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy.enc}<D:/Abh�
-쨙gigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Light.pfb><D:/Abh채ng
-igkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-LightItalic.pfb><D:/Abh�
-쨙gigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Regular.pfb><D:/Abh채
-ngigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-SemiBold.pfb><D:/Abh채
-ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Abh채ngigkeiten
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Abh채ngigkeiten/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/pu
+crm0900.pk>{D:/Abh채ngigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_jg4h6q.enc} <C
+:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm08
+00.pk> <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
+00\ecrm1095.pk>{D:/Abh채ngigkeiten/MiKTeX/fonts/enc/dvips/roboto/rbto_e24joy.en
+c}{D:/Abh채ngigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy.enc}<D:/Abh채ngi
+gkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Italic.pfb><D:/Abh채ngigk
+eiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Light.pfb><D:/Abh채ngigkeit
+en/MiKTeX/fonts/type1/ascender/opensans/OpenSans-LightItalic.pfb><D:/Abh채ngigk
+eiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Regular.pfb><D:/Abh채ngigke
+iten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-SemiBold.pfb><D:/Abh채ngigke
+iten/MiKTeX/fonts/type1/google/roboto/RobotoMono-Light.pfb><D:/Abh채ngigkeiten/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Abh채ngigkeiten/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/p
+ublic/amsfonts/cmextra/cmex9.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb
+><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><D:/Abh�
+쨙gigkeiten/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><D:/Abh채ngig
+keiten/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><D:/Abh채ngigkeite
+n/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Abh채ngigkeiten/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr9.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb>
-Output written on main.pdf (37 pages, 3425783 bytes).
+nts/cm/cmsy8.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+9.pfb><D:/Abh채ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+>
+Output written on main.pdf (47 pages, 4001360 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 101082 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 757 PDF objects out of 1000 (max. 8388607)
+ 180 named destinations out of 1000 (max. 500000)
+ 116571 words of extra memory for PDF output out of 128383 (max. 10000000)
 

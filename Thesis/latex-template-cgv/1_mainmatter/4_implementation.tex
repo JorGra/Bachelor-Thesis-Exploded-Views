@@ -49,5 +49,55 @@ When drawing or generating an exploded view, the following parameters are of imp
 	Certain parts or points are chosen here that are always visible regardless of the angle from which they are viewed. 
 	This allows for a close examination of specific parts.
 	Which of these possibilities is the better one for the given data set has to be investigated.
-	
 \end{itemize}
+
+Interactive explosion views can be generated in two different ways. 
+Either by calculating the final positions of the exploded parts or by defining forces that push the parts apart to create meaningful explosion views.
+Calculating the positions gives more control over the exploded view and allows to display the composition order. 
+This is more difficult with force-based systems, since the forces would have to be defined so that no elements overlap and no blocking constraints are violated during the explosion. 
+Both methods can generate qualitative explosion views, however, an advantage of the force-based method is that the strength of the forces can easily be adjusted at runtime and thus new explosion views can be generated. 
+In this work both methods are implemented and compared, for this the program structure and the utilized tools are briefly explained. 
+
+The dataset is visualized and the exploded views are implemented using Unity 2021.3. %TODO link
+The Unity-XR-Interaction-Toolkit and the Unity-InputSystem are used for VR support. %TODO link
+The universal rendering pipeline is used for more performant and lightweight rendering, allowing for more frames per second on mobile devices at the expense of more advanced rendering effects. %TODO link
+An Oculus Quest 2 connected to the computer via Airlink is utilized to test the implementation. %TODO link
+
+At program start the resource folder is checked for valid Morpheus datasets.
+For each existing file that contains a time step, the corresponding Xml-file is read and loaded. 
+Since each time step contains information about the cell populations and the states of the individual cells, these are loaded one after the other.
+For each time step it is checked if a cell with the same ID already exists, if this is not the case a new object is created which represents the cell, stores its properties and contains a mesh for each time step of the cell. 
+If a cell object with the same ID already exists, a mesh is generated which visualizes the state of the cell and is attached to the cell object as a child object.
+At runtime, only the child objects that depict the current time step are active; all others are deactivated.
+A manger class allows switching between the different implementations of the exploded views. 
+A detailed class diagram which clarifies the program structure can be found in the appendix. %TODO create this and link it
+For this work, four different methods for generating exploded views were implemented.
+
+\subsubsection{Pointexplosion}
+The simplest method to generate an exploded view is to explode from a single point.
+The initial position of the cells, which is read from the data set, is used as a reference point $P_o$. 
+The user can then place a control point $P_c$ at any position from which the explosion originates. 
+The new position of the parts is thus determined by the translation along the linear line, which is defined by the control point and the initial reference point.
+The target position $P_t$ is determined for each part $P_i$ by the following formula. 
+\begin{equation}
+	P_t = P_o + (P_o - P_c) * F_{max}
+	\label{eq:pointExpl1}
+\end{equation}
+Here, $F_{max}$ is a constant factor that describes the maximum explosion distance. At the end the position of the part is determined by interpolating between the reference point $P_o$ and the target point $P_t$ with the user adjustable explosion strength $F_e \in [0, 1]$.
+It must be ensured that the points are in the same coordinate system, this is not always the case with my implementation, since the individual parts are child objects of a container object, which allows the data set to be scaled.
+To clarify the spatial relations, a further adjustable factor $F_l$ has been added which is scaled with the length of the vector from the control point $P_c$ to the initial position $P_o$. This can be used to amplify the spatial distances and to restrict the view to nearby objects.
+The final target position is thus described by the following formula:
+\begin{equation}
+	\vec{d} = (P_o - P_c) 
+	\label{eq:pointExpl2}
+\end{equation}
+\begin{equation} 
+	P_t = P_o + \hat{d} * F_{max} + \vec{d} * F_l * \|d\|
+	\label{eq:pointExpl3}
+\end{equation}
+The point explosion is particularly suitable for selecting parts in a targeted manner and for examining them more closely.
+This method, however, does not account for any blocking directions.
+The method is similar to the implementation of the explosion probe by Sonnet et al.\cite{Sonnet_2004} but has no effect radius, so all parts, no matter how far away from the control point, are pushed away.
+
+\subsubsection{Line explosion}
+
