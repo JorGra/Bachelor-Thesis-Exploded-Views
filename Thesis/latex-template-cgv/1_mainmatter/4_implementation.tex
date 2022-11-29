@@ -58,6 +58,8 @@ This is more difficult with force-based systems, since the forces would have to 
 Both methods can generate qualitative explosion views, however, an advantage of the force-based method is that the strength of the forces can easily be adjusted at runtime and thus new explosion views can be generated. 
 In this work both methods are implemented and compared, for this the program structure and the utilized tools are briefly explained. 
 
+\section{Implementation}
+
 The dataset is visualized and the exploded views are implemented using Unity 2021.3. %TODO link
 The Unity-XR-Interaction-Toolkit and the Unity-InputSystem are used for VR support. %TODO link
 The universal rendering pipeline is used for more performant and lightweight rendering, allowing for more frames per second on mobile devices at the expense of more advanced rendering effects. %TODO link
@@ -73,7 +75,7 @@ A manger class allows switching between the different implementations of the exp
 A detailed class diagram which clarifies the program structure can be found in the appendix. %TODO create this and link it
 For this work, four different methods for generating exploded views were implemented.
 
-\subsubsection{Pointexplosion}
+\subsection{Pointexplosion}
 The simplest method to generate an exploded view is to explode from a single point.
 The initial position of the cells, which is read from the data set, is used as a reference point $P_o$. 
 The user can then place a control point $P_c$ at any position from which the explosion originates. 
@@ -96,8 +98,81 @@ The final target position is thus described by the following formula:
 	\label{eq:pointExpl3}
 \end{equation}
 The point explosion is particularly suitable for selecting parts in a targeted manner and for examining them more closely.
-This method, however, does not account for any blocking directions.
+This is a view independent explosion view, because the position of the camera has no effect on the position of the parts. 
+However, this method does not take into account any blocking directions and relations. 
+Enclosed objects are also not recognized and could remain hidden.
+Furthermore, there is no consideration of the canonical axes of an object.
 The method is similar to the implementation of the explosion probe by Sonnet et al.\cite{Sonnet_2004} but has no effect radius, so all parts, no matter how far away from the control point, are pushed away.
 
-\subsubsection{Line explosion}
+\subsection{Line explosion}
+An expanded exploded view that allows more control is achieved by defining a line and transforming the parts away from that line.
+This is achieved by allowing the user to set two control points in space, a line is then drawn between these two control points. 
+The first of the control points $P_s$ indicates the starting position of the line, the second point $P_d$ the direction in which the line should progress. 
+Now each part is projected onto this axis, if this projection lies in front of the starting point, the part is pushed away from this projection point. 
+By moving the control points, it is possible to select which parts of the model will explode from their original position and which will remain rigid. 
+Moving the control point that defines the direction of the axis allows the user to create different explosion views.
+The projection $P_{proj_i}$ of each part $P_i$ onto the defined line can be calculated by projecting the vector $\vec{d_p}$ that goes from the starting point $P_s$ to the respective part onto the line $\vec{d_{ab}}$ that passes through the two control points. 
+The projection point is thus given by the following formula:
+\begin{equation}
+	P_{proj_i} = P_s + \frac{\langle\vec{d_p},\vec{d_{ab}}\rangle}{\langle\vec{d_{ab}},\vec{d_{ab}}\rangle} * \vec{d_{ab}}
+	\label{eq:LineProj}
+\end{equation}
+The target position sought can then be determined by multiplying the vector $\vec{d_{expl}}$, which runs from the calculated point $P_{proj_i}$ to the reference position of the part, by the explosion strength $F_e$.
+In order to enable a targeted determination of the effected parts, only those parts are exploded where the dot product of the vectors $\vec{d_{aProj}}$, which is defined by the starting point of the line $P_s$ and the point $P_{proj_i}$, and the line $\vec{d_{ab}}$ is equal to one.
+This allows the user, for example, to explode only half of the parts of the object and leave the remaining parts in their original position to get a better understanding of the object. 
+To improve the display and make it suitable for each type of cell, three further customizable factors have been introduced that change the target position of the parts and thus generate different explosion views. 
+This makes it possible to customize the shape of the exploded view.
+\begin{itemize}
+	\item The first factor $F_1$ amplifies the distance between the starting point $P_s$ of the line and the projection point $P_{proj_j}$ of the part. %TODO create picture and link it
+	This allows to adjust the length of the body of the exploded view and to clarify the distances between the individual parts.  
+	\item The second factor $F_2$ amplifies the strength of explosion of the part based on the distance of the part's projection point to the starting point $P_s$ of the line. 
+	This causes a cone shape of the explosive body, i.e. the area where the parts explode.
+	\item The third factor $F_3$ adds a constant value to the explosion vector $\vec{d_{expl}}$. 
+	This leads to a cylindrical explosion view or can be used to enlarge the explosion in case of a low explosion strength.  
+\end{itemize}
+By adjusting these three factors, different explosion views can be generated. The different possibilities with the corresponding factors can be seen in Figure .  %TODO add figure and explanation and change this figurenumber
+The final calculation of the target point is shown in Figure \ref{fig:LineexplosionCode}.
+Again, it must be ensured that all points and directions are in the same coordinate system; this was not taken into account in Figure \ref{fig:LineexplosionCode}. The complete implementation can be found on the GitHub page. %TODO cite github
+\begin{figure}[b]
+	\begin{lstlisting}
+List parts
+Position a, b
+Float F1, F2, F3
+
+function Explode(float F_e){
+	var AB = b - a
+	
+	foreach(part in parts){
+		var d_p = part.position - a
+		var proj = a + DotProduct(d_p, AB) / DotProduct(AB, AB) * AB
+		
+		var d_expl = part.position - proj
+		var d_a_proj = proj - a
+		
+		if(DotProduct(AB, proj) == 1){
+			part.targetPosition = part.initalPosition + d_expl.normalized * F3
+								+ d_a_proj.magnitude * F1 * d_expl.normalized
+								+ d_a_proj * F2
+		}
+		else
+			part.targetPosition = part.initalPosition
+		
+		//LinearInterpolate(a, b, c) is a function that linearly interpolates from Position a to a Position b, by c
+		//so the returned value is a + (b - a) * c
+		part.position = LinearInterpolate(part.initialPosition, part.targetPosition, F_e)
+	}
+}
+	\end{lstlisting}
+	\caption{This shows a pseudo code implementation of the algorithm used for exploding the parts away from a line.}
+	\label{fig:LineexplosionCode}
+\end{figure}
+The line explosion diagram calculated by this method is also view-independent, since the camera has no influence on the target position of the parts.  
+It is also possible to place the line in the canonical axis of the object and thus expand it.  
+
+\subsection{Head mounted line explosion}
+This method is based on the same implementation as the line explosion, but extended to make it view dependent. 
+The only difference is that the control point $P_d$ which determines the direction of the line is set to be the same as the position of the headset in that frame. 
+When the first control point is set within the object, an exploded view is created, allowing the user to look into the object dynamically. 
+All parts that are in front of the first control point are automatically moved away. 
+A function has also been added that stops updating the position of the point $P_d$, turning the function into the previously described line explosion and allowing the user to view specific parts. 
 
