@@ -5,29 +5,19 @@
 \contentsline {chapter}{\nonumberline Zusammenfassung}{VII}{section*.8}%
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\nonumberline Symbols and Acronyms}{XI}{chapter*.10}%
-\contentsline {chapter}{\numberline {0}About Latex and this Template}{1}{chapter.0}%
-\contentsline {section}{\numberline {0.1}Using the Template}{1}{section.0.1}%
-\contentsline {subsection}{\numberline {0.1.1}File Structure}{1}{subsection.0.1.1}%
-\contentsline {subsection}{\numberline {0.1.2}Changing the Language to German}{2}{subsection.0.1.2}%
-\contentsline {subsection}{\numberline {0.1.3}Biblatex and Biber}{2}{subsection.0.1.3}%
-\contentsline {subsection}{\numberline {0.1.4}Adapt the Template to Different Types of Works}{2}{subsection.0.1.4}%
-\contentsline {section}{\numberline {0.2}Latex Basics}{3}{section.0.2}%
-\contentsline {subsection}{\numberline {0.2.1}Weblinks}{3}{subsection.0.2.1}%
-\contentsline {subsection}{\numberline {0.2.2}Figures}{4}{subsection.0.2.2}%
-\contentsline {subsection}{\numberline {0.2.3}Symbols and Acronyms}{4}{subsection.0.2.3}%
-\contentsline {subsection}{\numberline {0.2.4}Equations}{4}{subsection.0.2.4}%
-\contentsline {subsection}{\numberline {0.2.5}Tables}{5}{subsection.0.2.5}%
-\contentsline {subsection}{\numberline {0.2.6}Code}{5}{subsection.0.2.6}%
-\contentsline {chapter}{\numberline {1}Introduction}{9}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Background}{11}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Related Work}{13}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Methods and Implementation}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Implementation}{21}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Pointexplosion}{21}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Line explosion}{22}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Head mounted line explosion}{24}{subsection.4.1.3}%
-\contentsline {chapter}{\numberline {5}Results}{25}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion and Further Work}{27}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Appendix I}{35}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix II}{37}{appendix.B}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Related Work}{5}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Methods and Implementation}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Implementation}{13}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Pointexplosion}{13}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Line explosion}{14}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Head mounted line explosion}{16}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Force-based explosion}{16}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}VR interaction}{18}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}dynamic data sets for exploded views}{18}{subsection.4.1.6}%
+\contentsline {chapter}{\numberline {5}Results}{19}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusion and Further Work}{21}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Appendix I}{29}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix II}{31}{appendix.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

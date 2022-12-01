@@ -10,7 +10,7 @@ The problem addressed by this work can be divided into three sub-problems. On th
 As mentioned in the introductory chapters, different types of explosion views will be tested and compared in order to solve the problem of occlusion.
 Special requirements and restrictions apply in this problem scenario, as both the data set and the use of VR technologies necessitate significant changes to traditional explosion views.
 
-Therefore, the \textbf{structure of the data set }structure of the data set should be explained first. %TODO maybe add picture of XML layout? 
+Therefore, the \textbf{structure of the data set} should be explained first. %TODO maybe add picture of XML layout? 
 It was generated using the Morpheus program and depicts the development of cells over a predetermined time period.
 The individual cells consist of voxels which are arranged in a grid layout. Each cell has additional properties such as a unique ID, a cell center and a population to which the cell belongs, as well as data describing the surface properties. 
 A population in this context refers to a cell type with unique propagation properties that can be defined in Morpheus.
@@ -61,8 +61,14 @@ In this work both methods are implemented and compared, for this the program str
 \section{Implementation}
 
 The dataset is visualized and the exploded views are implemented using Unity 2021.3. %TODO link
+Unity is a 3D engine that can be used for game, program and movie development. 
+Since it has been developed for over a decade, there are a variety of plugins and resources that can be used to increase development speed. 
+It also allows platform-independent development and supports all conventional graphics cards. 
+It uses C\# as the programming language for implementing porgram code while rendering is implemented natively with C++.  
 The Unity-XR-Interaction-Toolkit and the Unity-InputSystem are used for VR support. %TODO link
+These are two plugins developed by Unity that simplify the support of all conventional VR headsets by allowing them to be accessed with a unified API.  
 The universal rendering pipeline is used for more performant and lightweight rendering, allowing for more frames per second on mobile devices at the expense of more advanced rendering effects. %TODO link
+Since this work is about data visualization and high performance is critical for VR headsets, using this rendering pipeline is beneficial.
 An Oculus Quest 2 connected to the computer via Airlink is utilized to test the implementation. %TODO link
 
 At program start the resource folder is checked for valid Morpheus datasets.
@@ -130,10 +136,11 @@ This makes it possible to customize the shape of the exploded view.
 	\item The third factor $F_3$ adds a constant value to the explosion vector $\vec{d_{expl}}$. 
 	This leads to a cylindrical explosion view or can be used to enlarge the explosion in case of a low explosion strength.  
 \end{itemize}
+%TODO Add final equation that shows influence of each factor
 By adjusting these three factors, different explosion views can be generated. The different possibilities with the corresponding factors can be seen in Figure .  %TODO add figure and explanation and change this figurenumber
 The final calculation of the target point is shown in Figure \ref{fig:LineexplosionCode}.
 Again, it must be ensured that all points and directions are in the same coordinate system; this was not taken into account in Figure \ref{fig:LineexplosionCode}. The complete implementation can be found on the GitHub page. %TODO cite github
-\begin{figure}[b]
+\begin{figure}[hb]
 	\begin{lstlisting}
 List parts
 Position a, b
@@ -174,5 +181,92 @@ This method is based on the same implementation as the line explosion, but exten
 The only difference is that the control point $P_d$ which determines the direction of the line is set to be the same as the position of the headset in that frame. 
 When the first control point is set within the object, an exploded view is created, allowing the user to look into the object dynamically. 
 All parts that are in front of the first control point are automatically moved away. 
-A function has also been added that stops updating the position of the point $P_d$, turning the function into the previously described line explosion and allowing the user to view specific parts. 
+This technique allows the user to walk around the object to inspect the interior of the cell from any angle.
+A function has also been added that stops updating the position of the point $P_d$, turning the function into the previously described line explosion and allowing the user to examine specific parts. 
+
+\subsection{Force-based explosion}
+Unlike the previous techniques, this method determines the exploded position of the parts using a force-based approach.
+This approach is based on the same principles described by Bruckner et al., but the forces described by Bruckner et al. have been adapted to give good results with the existing program structure.\cite{Bruckner_2006}
+In comparison to Bruckner et al.'s method, however, the reference points of the parts are used to apply the forces and not the vertices of a volumetric data set.
+To create an explosion view, the user selects the desired target parts. 
+It is possible to select multiple target parts, these are only affected by the return force and remain in their original position.
+Now four forces with different strengths are applied to all parts which push them away and allow a free line of sight to the selected parts.
+The four forces acting on each part are defined as follows:
+\begin{itemize}
+	\item The first force is the \textbf{return force}, which causes the pieces to be pushed back to their original position.
+	The first force is the return force, which causes the parts to be pushed back to their original position. 
+	For this, the vector $r$ which goes from the current position of the part to its original position is calculated and the part is pushed in the direction of this vector. 
+	To reduce the jittering when the parts are close to their original point, the vector $r$ is normalized and multiplied by the logarithm of its length. 
+	This reduces the strength of the force when the length of the vector is small. 
+	The following formula is therefore used to describe the force. 
+	It is identical to the formula used by Bruckner et al. and affects every part.
+	\begin{equation}
+		F_r = c_r * ln(\|r\|) * \hat{r}
+		\label{eq:FB_return}
+	\end{equation}
+	Here, the constant term $c_r$ refers to a variable that affects the force's strength.
+	
+	\item Any piece that is not a selected target piece is affected by the \textbf{explosive force} $F_e$. This pushes all parts apart and creates the exploded view, it emanates from each target part. 
+	It can be described by the following formula:
+	\begin{equation}
+		F_e = \frac{c_e}{e^{\|r\|}} * \frac{c_e}{P_{count}} * r * f_{expl}
+		\label{eq:FB_explosion}
+	\end{equation}
+	Where $c_e$ is again a constant factor, $r$ is a vector that goes from the target part to the part being handled and $f_expl$ is a factor that amplifies the force. 
+	$c_e$ is a value between zero and one that can be determined by the user, which is why the factor $f_{expl}$ was introduced to amplify the force. 
+	The strength of the force is divided by the number of target parts $P_{count}$ to remain constant. 
+	
+	\item The \textbf{viewing force} $F_v$ makes the explosion diagram view-dependent. 
+	This is achieved by calculating an axis from the headset to each selected target part, from which other, non-target, parts are pushed away. 
+	The projection of each part onto the axis is calculated using the same formula \ref{eq:LineProj} introduced earlier in Line Explosion.
+	The direction $r$ in which the parts are pushed is thus determined from the projection point of the equation and the position of the part. 
+	The strength of the force is then calculated as follows and applied to each part that is not a target part:
+	\begin{equation}
+		F_v = \frac{1}{\|r\|} * c_v * \hat{r}
+		\label{eq:FB_viewingForce}
+	\end{equation}
+	The strength of the force $F_v$ is here divided by the length of the vector $r$, this is useful to minimize the distance of the pushed away parts from their original position. 
+	Here, each part is pushed away no matter whether the projection of the considered part is behind or in front of the currently considered target part. 
+	This results in less visual clutter, since the target part is clearly separated from other parts and can be seen directly on the background without other parts behind it crowding the view. 
+	$c_v$ is again a constant factor which allows the strength of the force to be adjusted.
+	\item The \textbf{spacing force} $F_s$ is responsible for preventing the pieces from overlapping and acts from any piece that is not a target piece to any other non-target piece. It is calculated as follows:
+	\begin{equation}
+	F_s = \frac{c_s}{\|r\|^2} * \frac{r}{P_{count}}
+	\label{eq:FB_spacingForce}
+	\end{equation}
+	Here $c_s$ is again a constant force, which is variable and adjusts the strength of the force. 
+	The vector $r$ runs from the currently treated part $P_i$ to the other part $P_j$, while $P_{count}$ is the total count of all parts. 
+	This is used to normalize the force. 
+\end{itemize}
+The individual forces can thus be adjusted by the variables $c_r$, $c_e$, $c_v$ and $c_s$ to generate different resulting representations. 
+An advantage compared to the other methods is that it is possible to select any number of target parts. Since they remain at their original position, they can be viewed in detail and their environment can be observed.   
+Unity's physics engine is used to dampen the movement of the parts over time, preventing possible jittering of the parts. 
+However, this can also lead to a delay when changing the position of the parts, which reduces the responsiveness of the motion.
+For all methods there is the possibility to visualize the most important directions used for the calculations by lines. 
+This is to facilitate the comprehension of the applied methods and to make it easier for the user to understand the transformation of the parts.
+
+\subsection{VR interaction}
+
+All non-force based techniques presented are operated by control points that can be placed in the scene using a ray interactor. 
+This allows the user to point to the control points and dynamically adjust their position. %TODO add picture of controlpoints
+Furthermore, a user interface was implemented that allows the user to adjust all important parameters of the individual methods. 
+So the best representation can be found at runtime.  
+Additionally, a UI panel that enables the control of the time steps and subsequently permits the selection of particular time steps was added.
+At any time, it is possible for the user to separate out individual parts and take a closer inspection. 
+The part is then placed in front of the user and can be rotated and scaled with the control keys. Furthermore, a UI panel shows the population to which the cell belongs. 
+Basic cell surface inspection is therefore possible but not particularly informative. 
+
+\subsection{dynamic data sets for exploded views}
+
+A major problem that arises in the visualization is the temporal change of the data set. This is to be solved in two different ways.
+On the one hand, the change in the cell over time is visualized and displayed with less opacity.
+It can be selected how many previous time steps are displayed at the same time.
+This allows to view the temporal change of the cell over a period of time. %TODO add pictures 
+The second approach adjusts the reference point used to determine the exploded position. 
+This is read, at the user's request, from the centers of mass defined in the data set and interpolated between the individual temporal points. A problem that can occur is that the parts are close to the projection lines that are calculated to determine the target position. 
+If this is the case, the target position can change abruptly, when the used reference point jumps over the projection line and cause a lot of visual movement which makes the inspection of individual areas difficult.  
+In the dataset used for testing, it was found to be more useful to use the initial position of the cell as a permanent reference point. 
+However, this has the obvious disadvantage that the cell can move far away from this initial point over the simulation, which can complicate the spatial comprehension of the structure. 
+
+
 

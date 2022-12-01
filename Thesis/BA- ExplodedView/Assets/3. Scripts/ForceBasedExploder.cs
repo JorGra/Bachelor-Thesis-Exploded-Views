@@ -64,6 +64,8 @@ public class ForceBasedExploder : MonoBehaviour, IExploder
 
     void ApplyViewingForce(Rigidbody prb, Transform selectedPart)
     {
+        if(selectedPart.parent == null)
+            return;
         var AB = selectedPart.parent.InverseTransformPoint(cameraTrans.position) - selectedPart.localPosition;
         var AP = prb.transform.localPosition - selectedPart.localPosition; 
         var proj = selectedPart.localPosition + Vector3.Dot(AP, AB) / Vector3.Dot(AB, AB) * AB;
@@ -78,7 +80,7 @@ public class ForceBasedExploder : MonoBehaviour, IExploder
     {
         foreach(var p in partsRB)
         {
-            var r = p.transform.localPosition - prb.transform.localPosition;
+            var r = prb.transform.localPosition - p.transform.localPosition;
 
             if(r.magnitude != 0f)
             {
