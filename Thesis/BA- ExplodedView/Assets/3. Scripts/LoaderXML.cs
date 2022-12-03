@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
 using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
@@ -18,12 +19,22 @@ public class LoaderXML : MonoBehaviour
 
         var path = Path.Combine(Application.dataPath, "Resources/");
         var info = new DirectoryInfo(path);
-        var fileInfo = info.GetFiles("*.xml");
 
-        for (int i = 0; i < fileInfo.Length; i++)
+        var fileInfo = info.GetFiles("*.xml");
+        //var sorted = info.GetFiles("*.xml").OrderBy(f => f);
+
+        var dir = Directory.GetFiles(path, "*.xml").OrderBy(f => f); ;
+
+        //for (int i = 0; i < fileInfo.Length; i++)
+        //{
+        //    LoadFile(Path.Combine(path, fileInfo[i].Name), i);
+        //}
+
+        for (int i = 0; i < dir.ToArray().Length; i++)
         {
-            LoadFile(Path.Combine(path, fileInfo[i].Name), i);
+            LoadFile(Path.Combine(path, new FileInfo(dir.ToArray()[i]).Name), i);
         }
+
     }
 
     void LoadFile(string path, int timeStep)

@@ -17,8 +17,10 @@ public class Cell : MonoBehaviour
     Quaternion savedRotation;
     public GameObject originalTransformObject { get; set; }
 
+    public Vector3 previousTargetPosition;
     public Vector3 targetPosition;
-    public Transform currentReferencePoint;
+
+    [SerializeField] float timeSinceLastTimeStep = 0;
 
     public Vector3 GridOffset { get; set; }
 
@@ -47,8 +49,17 @@ public class Cell : MonoBehaviour
 
             if (i == timeStep && timeSteps.ContainsKey(i))
             {
+                if (timeSteps[i] == 0)
+                {
+                    //Debug.Log("Reset reference point.");
+                    previousTargetPosition = centers[0];
+                    targetPosition = centers[0];
+                }
                 EnableChildWithOpacity(timeSteps[i], 1f);
+                timeSinceLastTimeStep = Time.timeSinceLevelLoad;
+                previousTargetPosition = targetPosition;
                 targetPosition = centers[timeSteps[i]];
+
             }
             else if (timeSteps.ContainsKey(i))
                 EnableChildWithOpacity(timeSteps[i], (previousTimeSteps / (float)(timeStep + previousTimeSteps)) * opacityFactor);
@@ -79,14 +90,24 @@ public class Cell : MonoBehaviour
 
         timeSteps.Add((uint)timeStep, meshObj.transform.GetSiblingIndex());
         meshObj.SetActive(false);
+
+
+        targetPosition = centers[0];
+        previousTargetPosition = centers[0];
     }
 
+
+    /// <summary>
+    /// returns the lerped reference point, if enabled in the CellManager.
+    /// returned value is in world space.
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetCurrentReferencePoint()
     {
         if (!cellManager.lerpReferencePoint)
             return centers[0];
 
-        return Vector3.Lerp(transform.localPosition, targetPosition, cellManager.animationSpeed * Time.deltaTime);
+        return Vector3.Lerp(previousTargetPosition, targetPosition, (Time.timeSinceLevelLoad - timeSinceLastTimeStep) / cellManager.animationSpeed);
     }
 
     public void ActivateCell()

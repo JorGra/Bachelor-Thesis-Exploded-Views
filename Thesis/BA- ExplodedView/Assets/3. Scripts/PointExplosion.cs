@@ -5,6 +5,9 @@ using UnityEngine;
 public class PointExplosion : MonoBehaviour, IExploder
 {
     [SerializeField] Transform explosionCenter;
+    [SerializeField] List<Cell> cells;
+
+
     [SerializeField] List<Transform> parts;
     [SerializeField] List<Vector3> explosionOriginalPos = new List<Vector3>();
     [SerializeField] List<Vector3> explosionTargetPos = new List<Vector3>();
@@ -17,6 +20,7 @@ public class PointExplosion : MonoBehaviour, IExploder
 
     public void Explode(float explosionForce)
     {
+        /*
         for (int i = 0; i < parts.Count; i++)
         {
             if (explosionOriginalPos.Count != parts.Count || parts[i].parent == null)
@@ -43,12 +47,41 @@ public class PointExplosion : MonoBehaviour, IExploder
 
             parts[i].localPosition = Vector3.Lerp(origPos, explosionTargetPos[i], explosionForce);
         }
+        */
+
+        for (int i = 0; i < parts.Count; i++)
+        {
+            if (cells.Count != parts.Count || parts[i].parent == null)
+                break;
+
+            var container = parts[i].parent;
+            var origPos = container.InverseTransformPoint(cells[i].GetCurrentReferencePoint());
+
+            var explosionDir = origPos - container.InverseTransformPoint(explosionCenter.position);
+
+
+            explosionTargetPos[i] = origPos + explosionDir.normalized * maxExplosionForce + explosionDir * lengthFactor * explosionDir.magnitude;
+
+
+            if (drawLines)
+            {
+                Debug.DrawLine(explosionCenter.position, container.TransformPoint(origPos));
+                lineDrawer.UpdatePositions(i, explosionCenter.position, container.TransformPoint(origPos));
+
+                Debug.DrawLine(container.TransformPoint(origPos), container.TransformPoint(explosionTargetPos[i]), Color.green);
+                lineDrawer.UpdatePositions(parts.Count + i, container.TransformPoint(origPos), parts[i].position);
+            }
+
+
+            parts[i].localPosition = Vector3.Lerp(origPos, explosionTargetPos[i], explosionForce);
+        }
     }
 
     public void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null)
     {
         parts = objectsToExplode;
 
+        parts.ForEach(o => cells.Add(o.GetComponent<Cell>()));
         parts.ForEach(o => explosionOriginalPos.Add(o.localPosition));
         parts.ForEach(o => explosionTargetPos.Add(o.localPosition));
 
