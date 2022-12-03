@@ -14,7 +14,8 @@ public class CellManager : MonoBehaviour
     [SerializeField] int previousTimeStepsShown;
     [SerializeField] float previousTimeStepsOpacityFactor = 1f;
     [Range(0.05f, 2f)]
-    [SerializeField] float animationSpeed;
+    public float animationSpeed;
+    public bool lerpReferencePoint = false;
 
     [Header("Cells")]
     [SerializeField] GameObject cellPrefab;

@@ -17,6 +17,9 @@ public class Cell : MonoBehaviour
     Quaternion savedRotation;
     public GameObject originalTransformObject { get; set; }
 
+    public Vector3 targetPosition;
+    public Transform currentReferencePoint;
+
     public Vector3 GridOffset { get; set; }
 
     [SerializeField] Material cellMaterial;
@@ -25,6 +28,12 @@ public class Cell : MonoBehaviour
 
     bool selected = false;
 
+    CellManager cellManager;
+
+    private void Start()
+    {
+        cellManager = CellManager.Instance;
+    }
 
     public void ShowTimeStep(uint timeStep, int previousTimeSteps, float opacityFactor = 1f)
     {
@@ -37,7 +46,10 @@ public class Cell : MonoBehaviour
         {
 
             if (i == timeStep && timeSteps.ContainsKey(i))
+            {
                 EnableChildWithOpacity(timeSteps[i], 1f);
+                targetPosition = centers[timeSteps[i]];
+            }
             else if (timeSteps.ContainsKey(i))
                 EnableChildWithOpacity(timeSteps[i], (previousTimeSteps / (float)(timeStep + previousTimeSteps)) * opacityFactor);
             if (i == 0)
@@ -67,6 +79,14 @@ public class Cell : MonoBehaviour
 
         timeSteps.Add((uint)timeStep, meshObj.transform.GetSiblingIndex());
         meshObj.SetActive(false);
+    }
+
+    public Vector3 GetCurrentReferencePoint()
+    {
+        if (!cellManager.lerpReferencePoint)
+            return centers[0];
+
+        return Vector3.Lerp(transform.localPosition, targetPosition, cellManager.animationSpeed * Time.deltaTime);
     }
 
     public void ActivateCell()
