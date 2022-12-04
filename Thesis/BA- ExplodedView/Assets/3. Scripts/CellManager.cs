@@ -34,11 +34,14 @@ public class CellManager : MonoBehaviour
 
     public delegate void OnSizeChange();
     public OnSizeChange onSizeChanged;
+    
+    [HideInInspector] public Cell currentlySelectedCell;
+    [SerializeField] private TMP_Text cellIDText;
+    [SerializeField] private TMP_Text cellPopulationText;
 
     private static CellManager _instance;
 
     float currentSize = 1f;
-
 
     public static CellManager Instance { get { return _instance; } }
 
@@ -99,10 +102,10 @@ public class CellManager : MonoBehaviour
         }
     }
 
-    public void AddCell(int id, Vector3Int[] voxelPos, Vector3 center,int timeStep, string population)
+    public void AddCell(int id, Vector3Int[] voxelPos, Vector3 center, int timeStep, string population)
     {
 
-        var cell = cells.FirstOrDefault(it => id == it.id);
+        var cell = cells.FirstOrDefault(it => id == it.id && it.population == population);
 
         var scaledCenter = center * voxelSize;
 
@@ -130,6 +133,7 @@ public class CellManager : MonoBehaviour
 
         if(pop == null)
         {
+            Debug.Log("Adding new Population: " + name);
             pop = new Population(name, Color.HSVToRGB(Random.Range(0f, 360f) / 360f, 0.9f, 0.7f));
             populations.Add(pop);
         }
@@ -185,7 +189,19 @@ public class CellManager : MonoBehaviour
             cell.ShowTimeStep(currentTimeStep, previousTimeStepsShown, previousTimeStepsOpacityFactor);
         }
     }
+
+    public void OnAnimationSpeedSliderChange(float value) => animationSpeed = value;
+    public void OnPrevTimeStepsShownChange(float value) => previousTimeStepsShown = (int)value;
+
+    public void OnCellSelected(Cell cell)
+    {
+        currentlySelectedCell = cell;
+        cellIDText.text = cell.id.ToString();
+        cellPopulationText.text = cell.population;
+    }
 }
+
+
 
 [System.Serializable]
 public class Population

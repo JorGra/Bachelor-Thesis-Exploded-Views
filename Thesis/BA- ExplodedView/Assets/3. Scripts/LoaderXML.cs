@@ -49,15 +49,12 @@ public class LoaderXML : MonoBehaviour
 
             foreach (var pop in se.CellPopulations.Population)
             {
-                Debug.Log("New Population starting");
-                Debug.Log("----------------------------------------");
+                Debug.Log("New Population starting: " + pop.Type);
                 foreach (var cell in pop.Cell)
                 {
 
                     if (string.IsNullOrEmpty(cell.Id) || string.IsNullOrEmpty(cell.Center) || string.IsNullOrEmpty(cell.Nodes))
                         break;
-
-                    //Debug.Log(cell.Nodes);
 
                     //id
                     var id = int.Parse(cell.Id);
@@ -85,7 +82,7 @@ public class LoaderXML : MonoBehaviour
                     }
 
                     var population = pop.Type;
-
+                    
                     cellManager.AddCell(id, nodeList.ToArray(), center, timeStep, population);
 
                 }

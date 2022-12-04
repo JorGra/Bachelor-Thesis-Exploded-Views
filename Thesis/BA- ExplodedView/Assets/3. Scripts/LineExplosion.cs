@@ -71,6 +71,11 @@ public class LineExplosion : MonoBehaviour, IExploder
 
     public void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null)
     {
+
+        //parts.Clear();
+        explosionOriginalPos.Clear();
+        explosionTargetPos.Clear();
+
         parts = objectsToExplode;
 
         parts.ForEach(o => explosionOriginalPos.Add(o.localPosition));
@@ -103,4 +108,7 @@ public class LineExplosion : MonoBehaviour, IExploder
             lineRenderer.enabled = false;
         }
     }
+    public void OnMinOffsetSliderChange(float val) => minOffset = val;
+    public void OnDistanceFactorProjToPartSliderChange(float val) => distanceFactorProjToPart = val;
+    public void OnDistanceFactorAToProjSliderChange(float val) => distanceFactorAToProj = val;
 }

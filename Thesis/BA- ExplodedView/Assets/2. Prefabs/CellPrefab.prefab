@@ -51,6 +51,9 @@ MonoBehaviour:
   cellColor: {r: 0, g: 0, b: 0, a: 0}
   population: 
   centers: []
+  previousTargetPosition: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  timeSinceLastTimeStep: 0
   cellMaterial: {fileID: 2100000, guid: 1435df888e28b994189385952a694097, type: 2}
   selectedOriginColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &7337891182614863714
@@ -125,7 +128,19 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5866147693099571071}
+        m_TargetAssemblyTypeName: Cell, Assembly-CSharp
+        m_MethodName: DeactivateCell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls:

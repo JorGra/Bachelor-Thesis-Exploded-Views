@@ -24,4 +24,6 @@ public class LineExplosionHeadMounted : LineExplosion
 
         base.Explode(explosionForce);
     }
+
+    public void OnToggleStickToHead(bool val) => stickToHead = val; 
 }

@@ -57,7 +57,7 @@ public class ForceBasedExploder : MonoBehaviour, IExploder
     void ApplyExplosionForce(Rigidbody prb, Transform selectedPart, int selectedPartCount, float explosionForce)
     {
         var explDir = prb.transform.localPosition - selectedPart.localPosition;
-        var explForce = (explosionForce / Mathf.Exp(explDir.magnitude)) * explDir * (explosionForce / selectedPartCount) * explosionForceMultiplier;
+        var explForce = (explosionForce / Mathf.Exp(explDir.magnitude)) * explDir * (explosionForce / selectedPartCount) * explosionForceMultiplier * 15f;
         //Debug.Log(explForce);
         prb.AddRelativeForce(explForce);
     }
@@ -94,6 +94,10 @@ public class ForceBasedExploder : MonoBehaviour, IExploder
 
     public void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null)
     {
+        explosionOriginalPos.Clear();
+        //parts.Clear();
+        partsRB.Clear();
+
         parts = objectsToExplode;
         parts.ForEach(o => explosionOriginalPos.Add(o.localPosition));
         explosionViewHandlder = viewHandler;
@@ -105,4 +109,9 @@ public class ForceBasedExploder : MonoBehaviour, IExploder
         parts.ForEach(p => partsRB.Add(p.GetComponent<Rigidbody>()));
         partsRB.ForEach(r => r.isKinematic = false);
     }
+
+    public void OnExplosionForceMultiSliderChange(float val) => explosionForceMultiplier = val;
+    public void OnReturnForceSliderChange(float val) => returnForce = val;
+    public void OnViewingForceSliderChange(float val) => viewingForce = val;
+    public void OnSpacingForceSliderChange(float val) => spacingForce = val;
 }

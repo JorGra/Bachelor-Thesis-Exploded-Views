@@ -112,15 +112,16 @@ public class Cell : MonoBehaviour
 
     public void ActivateCell()
     {
+        cellManager.OnCellSelected(this); //This shows cell info
 
     }
 
-    public void DeactivateCell()
+    public void DeactivateCell() //This resets the cells rotation
     {
         transform.localRotation = Quaternion.identity;
     }
  
-    public void CellSelected()
+    public void CellSelected() //This handles force based selection of cells 
     {
         if (selected)
         {
@@ -135,10 +136,11 @@ public class Cell : MonoBehaviour
 
     void SelectCell()
     {
-        if(!CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Contains(transform))
-            CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Add(transform);
+        if(!cellManager.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Contains(transform))
+            cellManager.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Add(transform);
         originalOriginColor = originalTransformObject.GetComponentInChildren<MeshRenderer>().material.color;
         originalTransformObject.GetComponentInChildren<MeshRenderer>().material.color = selectedOriginColor;
+
     }
 
     void DeselectCell()

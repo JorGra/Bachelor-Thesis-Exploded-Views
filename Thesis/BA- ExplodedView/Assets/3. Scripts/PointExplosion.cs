@@ -55,7 +55,11 @@ public class PointExplosion : MonoBehaviour, IExploder
                 break;
 
             var container = parts[i].parent;
+            
             var origPos = container.InverseTransformPoint(cells[i].GetCurrentReferencePoint());
+
+            if (!CellManager.Instance.lerpReferencePoint)
+                origPos = explosionOriginalPos[i];
 
             var explosionDir = origPos - container.InverseTransformPoint(explosionCenter.position);
 
@@ -79,6 +83,11 @@ public class PointExplosion : MonoBehaviour, IExploder
 
     public void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null)
     {
+        //parts.Clear();
+        explosionOriginalPos.Clear();
+        explosionTargetPos.Clear();
+        cells.Clear();
+
         parts = objectsToExplode;
 
         parts.ForEach(o => cells.Add(o.GetComponent<Cell>()));
@@ -95,4 +104,8 @@ public class PointExplosion : MonoBehaviour, IExploder
         }
     }
 
+
+    public void OnMaxExplosionForceSliderChange(float val) => maxExplosionForce = val;
+    public void OnLengthFactorSliderChange(float val) => lengthFactor = val;
+    public void TogglerpReferencePos(bool val) => CellManager.Instance.lerpReferencePoint = val;
 }

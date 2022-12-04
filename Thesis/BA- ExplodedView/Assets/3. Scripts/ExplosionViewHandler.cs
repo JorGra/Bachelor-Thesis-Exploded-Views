@@ -53,24 +53,21 @@ public class ExplosionViewHandler : MonoBehaviour
     }
 
 
-    public void ToggleOriginalPositionVisibility(bool visible)
-    {
-        originalTrans.ForEach(o => o.GetChild(0).gameObject.SetActive(visible));
-    }
+    public void ToggleOriginalPositionVisibility(bool visible) => originalTrans.ForEach(o => o.GetChild(0).gameObject.SetActive(visible));
 
-    public void OnExplosionForceSliderChange(float value)
-    {
-        currentExplosionForce = value;
-    }
+    public void OnExplosionForceSliderChange(float value) => currentExplosionForce = value;
 
-    public void ChangeExploder(GameObject exploderObject)
+    public void ChangeExploder(GameObject newExploderObject)
     {
+        exploderObject = newExploderObject;
+        for (int i = 0; i < objectsToExplode.Count; i++)
+        {
+            objectsToExplode[i].localPosition = originalTrans[i].localPosition;
+        }
         exploder = exploderObject.GetComponent<IExploder>();
         exploder.GiveObjectsToExploder(objectsToExplode, this);
     }
 
-    public void AddCellToSelection(Cell cell)
-    {
-        selectedCells.Add(cell.gameObject.transform);
-    }
+    public void AddCellToSelection(Cell cell) => selectedCells.Add(cell.gameObject.transform);
+
 }
