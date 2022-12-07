@@ -83,12 +83,25 @@ public class Cell : MonoBehaviour
 
         var meshFilter = meshObj.AddComponent<MeshFilter>();
         var meshRenderer = meshObj.AddComponent<MeshRenderer>();
+
         
         meshRenderer.material = cellMaterial;
         meshRenderer.material.SetColor("_BaseColor", cellColor);
         meshFilter.mesh = GenerateMesh(positions, voxelSize);
-
+        
         timeSteps.Add((uint)timeStep, meshObj.transform.GetSiblingIndex());
+
+        //var coll = meshObj.AddComponent<MeshCollider>();
+        var coll = meshObj.AddComponent<SphereCollider>();
+        //coll.convex = true;
+        coll.isTrigger = true;
+        //coll.sharedMesh = meshFilter.mesh;
+
+        var inter = GetComponent<XRGrabInteractable>();
+        inter.colliders.Add(coll);
+        inter.interactionManager.UnregisterInteractable(inter.GetComponent<IXRInteractable>());
+        inter.interactionManager.RegisterInteractable(inter.GetComponent<IXRInteractable>());
+
         meshObj.SetActive(false);
 
 

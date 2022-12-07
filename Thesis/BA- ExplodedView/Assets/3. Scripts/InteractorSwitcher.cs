@@ -9,9 +9,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class InteractorSwitcher : MonoBehaviour
 {
     public InputActionProperty switchAction;
+    public InputActionProperty resetControlsAction;
+    [SerializeField] List<Transform> targetTrans;
+    [SerializeField] List<Transform> controlTrans;
     [SerializeField] GameObject handInteractor;
     [SerializeField] GameObject rayInteractor;
     bool interSwitch = false;
+
     void Update()
     {
         if (switchAction.action.WasPressedThisFrame())
@@ -28,5 +32,17 @@ public class InteractorSwitcher : MonoBehaviour
             }
             interSwitch = !interSwitch;
         }
+        if (resetControlsAction.action.WasPressedThisFrame())
+        {
+            if (targetTrans.Count != controlTrans.Count)
+                return;
+
+            for (int i = 0; i < targetTrans.Count; i++)
+            {
+                controlTrans[i].position = targetTrans[i].position;
+            }
+        }
     }
+
+    void SayHi() => Debug.Log("HI!");
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5866147693099571071}
   - component: {fileID: 7337891182614863714}
   - component: {fileID: 6270156760337160139}
-  - component: {fileID: 3475897804076583472}
   m_Layer: 0
   m_Name: CellPrefab
   m_TagString: Untagged
@@ -223,16 +222,3 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!135 &3475897804076583472
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5073040963358046397}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
