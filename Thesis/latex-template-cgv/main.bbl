@@ -609,6 +609,39 @@
       \field{title}{Medical Image Atlas Interaction in Virtual Reality}
       \field{year}{2017}
     \endentry
+    \entry{morpheus_2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f532eb3e4041a85113de93118b9d627d}{%
+           family={Dresden},
+           familyi={D\bibinitperiod},
+           given={TU},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {TU Dresden}%
+      }
+      \strng{namehash}{f532eb3e4041a85113de93118b9d627d}
+      \strng{fullhash}{f532eb3e4041a85113de93118b9d627d}
+      \strng{bibnamehash}{f532eb3e4041a85113de93118b9d627d}
+      \strng{authorbibnamehash}{f532eb3e4041a85113de93118b9d627d}
+      \strng{authornamehash}{f532eb3e4041a85113de93118b9d627d}
+      \strng{authorfullhash}{f532eb3e4041a85113de93118b9d627d}
+      \field{labelalpha}{Dre22}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Morpheus}
+      \field{month}{11}
+      \field{title}{Morpheus, a modeling and simulation environment for the study of multi-scale and multicellular systems}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://morpheus.gitlab.io/
+      \endverb
+      \verb{url}
+      \verb https://morpheus.gitlab.io/
+      \endverb
+    \endentry
     \entry{krisanty_2022}{misc}{}
       \name{author}{1}{}{%
         {{hash=ff95694c0817c93f515294dd2297acd0}{%
@@ -630,13 +663,39 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{GitHub}
       \field{month}{3}
-      \field{title}{VR_CA_VIS: A_virtual_reality_visualization_for_cellular_automata_simulation}
+      \field{title}{VR\_CA\_VIS: A virtual reality visualization for cellular automata simulation}
       \field{year}{2022}
       \verb{urlraw}
       \verb https://github.com/taniakrisanty/vr_ca_vis
       \endverb
       \verb{url}
       \verb https://github.com/taniakrisanty/vr_ca_vis
+      \endverb
+    \endentry
+    \entry{paraview}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=55bc089aa2626d8914afebff11bd0b1a}{%
+           family={kitware},
+           familyi={k\bibinitperiod}}}%
+      }
+      \strng{namehash}{55bc089aa2626d8914afebff11bd0b1a}
+      \strng{fullhash}{55bc089aa2626d8914afebff11bd0b1a}
+      \strng{bibnamehash}{55bc089aa2626d8914afebff11bd0b1a}
+      \strng{authorbibnamehash}{55bc089aa2626d8914afebff11bd0b1a}
+      \strng{authornamehash}{55bc089aa2626d8914afebff11bd0b1a}
+      \strng{authorfullhash}{55bc089aa2626d8914afebff11bd0b1a}
+      \field{labelalpha}{kit}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ParaView}
+      \field{title}{Open-source, multi-platform data analysis and visualization application}
+      \verb{urlraw}
+      \verb https://www.paraview.org/
+      \endverb
+      \verb{url}
+      \verb https://www.paraview.org/
       \endverb
     \endentry
   \enddatalist

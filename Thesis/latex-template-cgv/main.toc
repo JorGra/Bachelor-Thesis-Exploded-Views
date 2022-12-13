@@ -7,17 +7,22 @@
 \contentsline {chapter}{\nonumberline Symbols and Acronyms}{XI}{chapter*.10}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
-\contentsline {chapter}{\numberline {3}Related Work}{5}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Methods and Implementation}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Implementation}{13}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Pointexplosion}{13}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Line explosion}{14}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Head mounted line explosion}{16}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Force-based explosion}{16}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.1.5}VR interaction}{18}{subsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.1.6}dynamic data sets for exploded views}{18}{subsection.4.1.6}%
-\contentsline {chapter}{\numberline {5}Results}{19}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusion and Further Work}{21}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Appendix I}{29}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Appendix II}{31}{appendix.B}%
+\contentsline {chapter}{\numberline {3}Related Work}{7}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Methods and Implementation}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Implementation}{15}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Point explosion}{16}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Line explosion}{17}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Head-mounted line explosion}{18}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Force-based explosion}{19}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}VR interaction}{21}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}dynamic data sets for exploded views}{21}{subsection.4.1.6}%
+\contentsline {chapter}{\numberline {5}Results}{23}{chapter.5}%
+\contentsline {subsection}{\numberline {5.0.1}Point explosion}{23}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.2}Line explosion}{24}{subsection.5.0.2}%
+\contentsline {subsection}{\numberline {5.0.3}Force-based explosion}{25}{subsection.5.0.3}%
+\contentsline {subsection}{\numberline {5.0.4}Visualizing the change in time}{26}{subsection.5.0.4}%
+\contentsline {section}{\numberline {5.1}Performance analysis}{27}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Conclusion and Further Work}{29}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Appendix I}{37}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Appendix II}{39}{appendix.B}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
