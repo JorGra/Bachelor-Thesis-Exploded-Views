@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
+
+/// <summary>
+/// Main manager class. Contains important properties, adds new cells and drives animation. 
+/// </summary>
 public class CellManager : MonoBehaviour
 {
     [Header("Animation")]
@@ -81,6 +85,10 @@ public class CellManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Advances time on all cells
+    /// </summary>
+    /// <returns></returns>
     IEnumerator AdvanceTime()
     {
         while (true)
@@ -102,6 +110,14 @@ public class CellManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds a new cell object to container. Called from XML loader
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="voxelPos"></param>
+    /// <param name="center"></param>
+    /// <param name="timeStep"></param>
+    /// <param name="population"></param>
     public void AddCell(int id, Vector3Int[] voxelPos, Vector3 center, int timeStep, string population)
     {
 
@@ -127,6 +143,11 @@ public class CellManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Adds new population and gives it a random color or returns it if it already exists. 
+    /// </summary>
+    /// <param name="name">name of population</param>
+    /// <returns></returns>
     Population GetOrAddPopulation(string name)
     {
         var pop = populations.FirstOrDefault(p => p.name == name);
@@ -202,7 +223,9 @@ public class CellManager : MonoBehaviour
 }
 
 
-
+/// <summary>
+/// Population class. Stores name and color.
+/// </summary>
 [System.Serializable]
 public class Population
 {

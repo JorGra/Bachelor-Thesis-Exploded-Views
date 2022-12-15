@@ -6,6 +6,7 @@ using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
 public class InteractorSwitcher : MonoBehaviour
 {
     public InputActionProperty switchAction;

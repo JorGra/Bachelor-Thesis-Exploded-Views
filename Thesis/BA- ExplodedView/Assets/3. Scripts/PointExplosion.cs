@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Concrete implementation of IExploder. Translates given Transforms from explosion center away.
+/// </summary>
 public class PointExplosion : MonoBehaviour, IExploder
 {
     [SerializeField] Transform explosionCenter;
@@ -20,34 +24,6 @@ public class PointExplosion : MonoBehaviour, IExploder
 
     public void Explode(float explosionForce)
     {
-        /*
-        for (int i = 0; i < parts.Count; i++)
-        {
-            if (explosionOriginalPos.Count != parts.Count || parts[i].parent == null)
-                break;
-
-            var origPos = explosionOriginalPos[i];
-            var container = parts[i].parent;
-
-            var explosionDir = origPos - container.InverseTransformPoint(explosionCenter.position);
-
-
-            explosionTargetPos[i] = origPos + explosionDir.normalized * maxExplosionForce + explosionDir * lengthFactor * explosionDir.magnitude;
-
-
-            if (drawLines)
-            {
-                Debug.DrawLine(explosionCenter.position, container.TransformPoint(origPos));
-                lineDrawer.UpdatePositions(i, explosionCenter.position, container.TransformPoint(origPos));
-
-                Debug.DrawLine(container.TransformPoint(origPos), container.TransformPoint(explosionTargetPos[i]), Color.green);
-                lineDrawer.UpdatePositions(parts.Count + i, container.TransformPoint(origPos), parts[i].position);
-            }
-
-
-            parts[i].localPosition = Vector3.Lerp(origPos, explosionTargetPos[i], explosionForce);
-        }
-        */
 
         for (int i = 0; i < parts.Count; i++)
         {
@@ -80,10 +56,13 @@ public class PointExplosion : MonoBehaviour, IExploder
             parts[i].localPosition = Vector3.Lerp(origPos, explosionTargetPos[i], explosionForce);
         }
     }
-
+    /// <summary>
+    /// Methods takes transforms that are exploded. Called by ExplosionViewHandler, when this exploder is selected.
+    /// </summary>
+    /// <param name="objectsToExplode">List of transfroms that are displaced during the explosion</param>
+    /// <param name="viewHandler">ExplosionviewHandler that calls this function</param>
     public void GiveObjectsToExploder(List<Transform> objectsToExplode, ExplosionViewHandler viewHandler = null)
     {
-        //parts.Clear();
         explosionOriginalPos.Clear();
         explosionTargetPos.Clear();
         cells.Clear();
@@ -104,7 +83,7 @@ public class PointExplosion : MonoBehaviour, IExploder
         }
     }
 
-
+    //Methods for UI Interaction. Called from buttons.
     public void OnMaxExplosionForceSliderChange(float val) => maxExplosionForce = val;
     public void OnLengthFactorSliderChange(float val) => lengthFactor = val;
     public void TogglerpReferencePos(bool val) => CellManager.Instance.lerpReferencePoint = val;

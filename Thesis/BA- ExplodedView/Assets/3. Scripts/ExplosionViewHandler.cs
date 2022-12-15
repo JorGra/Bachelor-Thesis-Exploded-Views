@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Changes the used exploder and stores the Transforms that should be exploded. 
+/// </summary>
 public class ExplosionViewHandler : MonoBehaviour
 {
 

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Switches the current UI panel upon button press. 
+/// </summary>
 public class PanelSwitcher : MonoBehaviour
 {
     [SerializeField] List<ExploderControls> panels = new List<ExploderControls>();

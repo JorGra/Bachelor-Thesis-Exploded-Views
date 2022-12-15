@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+/// <summary>
+/// Cell class. Stores data from the dataset and provides functionality to change time steps and generates the mesh.
+/// </summary>
 public class Cell : MonoBehaviour
 {
 
@@ -37,6 +40,13 @@ public class Cell : MonoBehaviour
         cellManager = CellManager.Instance;
     }
 
+    /// <summary>
+    /// Shows given time step by activating corresponding child object.
+    /// can also activate previous timesteps with a lower opacity.
+    /// </summary>
+    /// <param name="timeStep">time step to show</param>
+    /// <param name="previousTimeSteps">number of previous time steps to show</param>
+    /// <param name="opacityFactor"></param>
     public void ShowTimeStep(uint timeStep, int previousTimeSteps, float opacityFactor = 1f)
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -72,10 +82,15 @@ public class Cell : MonoBehaviour
     {
         transform.GetChild(childIndex).gameObject.SetActive(true);
         transform.GetChild(childIndex).gameObject.GetComponent<MeshRenderer>().material.SetFloat("_Opacity", opacity);
-
     }
 
-
+    /// <summary>
+    /// Adds a new child object, generates a mesh and stores the center
+    /// </summary>
+    /// <param name="positions">List of postitions of the cell at that time step</param>
+    /// <param name="center">the center from the dataset at that time step</param>
+    /// <param name="timeStep">the time step</param>
+    /// <param name="voxelSize">overall scale factor for the mesh</param>
     public void AddTimeStep(Vector3Int[] positions, Vector3 center, int timeStep, float voxelSize)
     {
         var meshObj = new GameObject(timeStep.ToString());
@@ -123,18 +138,26 @@ public class Cell : MonoBehaviour
         return Vector3.Lerp(previousTargetPosition, targetPosition, (Time.timeSinceLevelLoad - timeSinceLastTimeStep) / cellManager.animationSpeed);
     }
 
+    /// <summary>
+    /// shows cell info on UI panel. Gets triggered when cell is grabbed
+    /// </summary>
     public void ActivateCell()
     {
-        cellManager.OnCellSelected(this); //This shows cell info
-
+        cellManager.OnCellSelected(this);
     }
 
-    public void DeactivateCell() //This resets the cells rotation
+    /// <summary>
+    /// Gets triggered when cell is not grabbed anymore
+    /// </summary>
+    public void DeactivateCell()
     {
         transform.localRotation = Quaternion.identity;
     }
  
-    public void CellSelected() //This handles force based selection of cells 
+    /// <summary>
+    /// This gets triggered when selection button is pressed and adds this cell to the currently selected cell list for the force based explosion
+    /// </summary>
+    public void CellSelected() 
     {
         if (selected)
         {
@@ -147,6 +170,9 @@ public class Cell : MonoBehaviour
         selected = !selected;
     }
 
+    /// <summary>
+    /// Adds cell to selected list on CellManager and colors the inital transform marker
+    /// </summary>
     void SelectCell()
     {
         if(!cellManager.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Contains(transform))
@@ -156,6 +182,9 @@ public class Cell : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Removes cell from selected list on CellManager and colors the inital transform marker
+    /// </summary>
     void DeselectCell()
     {
         if (CellManager.Instance.gameObject.GetComponent<ExplosionViewHandler>().selectedCells.Contains(transform))
@@ -163,6 +192,12 @@ public class Cell : MonoBehaviour
         originalTransformObject.GetComponentInChildren<MeshRenderer>().material.color = originalOriginColor;
     }
 
+    /// <summary>
+    /// Generates mesh from given positions list
+    /// </summary>
+    /// <param name="positions">List of positions</param>
+    /// <param name="voxelSize">Scaleing factor of the mesh</param>
+    /// <returns></returns>
     Mesh GenerateMesh(Vector3Int[] positions, float voxelSize)
     {
         var m = new Mesh();
@@ -185,6 +220,13 @@ public class Cell : MonoBehaviour
         return m;
     }
 
+    /// <summary>
+    /// Generates unit cube vertices at given postition
+    /// </summary>
+    /// <param name="position">position to spawn cube</param>
+    /// <param name="offset">offset of cube</param>
+    /// <param name="voxelSize">scaling factor</param>
+    /// <returns></returns>
     Vector3[] GenerateCubeVertices(Vector3Int position, Vector3 offset, float voxelSize)
     {
         Vector3[] vertices = {
@@ -200,6 +242,11 @@ public class Cell : MonoBehaviour
         return vertices;
     }
 
+    /// <summary>
+    /// Adds triangles for mesh rendering
+    /// </summary>
+    /// <param name="cubeID">cube id that is used for offsetting the indices</param>
+    /// <returns></returns>
     int[] GenerateCubeTriangles(int cubeID)
     {
         var offset = cubeID * 8;

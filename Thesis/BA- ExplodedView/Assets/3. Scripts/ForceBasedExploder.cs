@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Force based solution. Given objects are diplaced using forces to the rigid-bodies.
+/// </summary>
 public class ForceBasedExploder : MonoBehaviour, IExploder
 {
     [SerializeField] List<Transform> parts;

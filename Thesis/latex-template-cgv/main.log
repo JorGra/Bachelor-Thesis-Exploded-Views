@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  13 DEC 2022 23:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  14 DEC 2022 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2770,10 +2770,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 1142) has occurred while \output is active []
 
- [18 <./fig/Images/LineExplosionFactors.png>]
-Underfull \vbox (badness 1253) has occurred while \output is active []
-
- [19 <./fig/Images/LineExplosionHeadMounted.png>]
+ [18 <./fig/Images/LineExplosionFactors.png>] [19 <./fig/Images/LineExplosionHe
+adMounted.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20])
@@ -2840,7 +2838,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  37680 strings out of 475389
  733478 string characters out of 2785902
- 1937689 words of memory out of 3000000
+ 1936689 words of memory out of 3000000
  57832 multiletter control sequences out of 15000+600000
  575050 words of font info for 462 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -2862,7 +2860,7 @@ public/amsfonts/cm/cmmi8.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmmi9.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
 /Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (51 pages, 4230229 bytes).
+Output written on main.pdf (51 pages, 4230203 bytes).
 PDF statistics:
  701 PDF objects out of 1000 (max. 8388607)
  168 named destinations out of 1000 (max. 500000)

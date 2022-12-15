@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Line renderer. Implements IExploder. Draws a line between to points, projects parts on this line and moves them away from this line.
+/// </summary>
 [RequireComponent(typeof(LineRenderer))]
 public class LineExplosion : MonoBehaviour, IExploder
 {

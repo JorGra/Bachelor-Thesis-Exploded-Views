@@ -6,11 +6,13 @@ using System.Linq;
 using System.Xml.Linq;
 using UnityEngine;
 
+/// <summary>
+/// XML loader class. Searches the Resources folder and loads any Morpheus snapshotfiles it can find. 
+/// </summary>
 public class LoaderXML : MonoBehaviour
 {
 
     CellManager cellManager;
-
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +23,7 @@ public class LoaderXML : MonoBehaviour
         var info = new DirectoryInfo(path);
 
         var fileInfo = info.GetFiles("*.xml");
-        //var sorted = info.GetFiles("*.xml").OrderBy(f => f);
-
         var dir = Directory.GetFiles(path, "*.xml").OrderBy(f => f); ;
-
-        //for (int i = 0; i < fileInfo.Length; i++)
-        //{
-        //    LoadFile(Path.Combine(path, fileInfo[i].Name), i);
-        //}
 
         for (int i = 0; i < dir.ToArray().Length; i++)
         {
@@ -36,7 +31,11 @@ public class LoaderXML : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Loads file and sends data to CellManager. 
+    /// </summary>
+    /// <param name="path">path to file</param>
+    /// <param name="timeStep">number of this file. Should be equal to the time step of the snapshot</param>
     void LoadFile(string path, int timeStep)
     {
         System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(Xml2CSharp.MorpheusModel));

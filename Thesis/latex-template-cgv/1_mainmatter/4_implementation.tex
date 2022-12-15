@@ -187,33 +187,33 @@ The line explosion diagram calculated by this method is also view-independent, s
 It is also possible to place the line in the canonical axis of the object and thus expand it.  
 \begin{figure}[ht]
 	\begin{lstlisting}
-		List parts
-		Position a, b
-		Float F1, F2, F3
+List parts
+Position a, b
+Float F1, F2, F3
+
+function Explode(float F_e){
+	var AB = b - a
+	
+	foreach(part in parts){
+		var d_p = part.position - a
+		var proj = a + DotProduct(d_p, AB) / DotProduct(AB, AB) * AB
 		
-		function Explode(float F_e){
-			var AB = b - a
-			
-			foreach(part in parts){
-				var d_p = part.position - a
-				var proj = a + DotProduct(d_p, AB) / DotProduct(AB, AB) * AB
-				
-				var d_expl = part.position - proj
-				var d_a_proj = proj - a
-				
-				if(DotProduct(AB, proj) == 1){
-					part.targetPosition = part.initalPosition + d_expl.normalized * F3
-					+ d_a_proj.magnitude * F1 * d_expl.normalized
-					+ d_a_proj * F2
-				}
-				else
-				part.targetPosition = part.initalPosition
-				
-				//LinearInterpolate(a, b, c) is a function that linearly interpolates from Position a to a Position b, by c
-				//so the returned value is a + (b - a) * c
-				part.position = LinearInterpolate(part.initialPosition, part.targetPosition, F_e)
-			}
+		var d_expl = part.position - proj
+		var d_a_proj = proj - a
+		
+		if(DotProduct(AB, proj) == 1){
+			part.targetPosition = part.initalPosition + d_expl.normalized * F3
+			+ d_a_proj.magnitude * F1 * d_expl.normalized
+			+ d_a_proj * F2
 		}
+		else
+		part.targetPosition = part.initalPosition
+		
+		//LinearInterpolate(a, b, c) is a function that linearly interpolates from Position a to a Position b, by c
+		//so the returned value is a + (b - a) * c
+		part.position = LinearInterpolate(part.initialPosition, part.targetPosition, F_e)
+	}
+}
 	\end{lstlisting}
 	\caption{This shows a pseudo code implementation of the algorithm used for exploding the parts away from a line.}
 	\label{fig:LineexplosionCode}
