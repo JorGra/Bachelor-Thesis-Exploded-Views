@@ -25,6 +25,6 @@
 \contentsline {subsection}{\numberline {6.1.4}Visualizing the change in time}{30}{subsection.6.1.4}%
 \contentsline {section}{\numberline {6.2}Performance analysis}{31}{section.6.2}%
 \contentsline {chapter}{\numberline {7}Conclusion and Further Work}{33}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Appendix I}{37}{appendix.A}%
+\contentsline {chapter}{\numberline {A}Appendix}{37}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Expert evaluation questions:}{37}{section.A.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
