@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  14 DEC 2022 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  18 DEC 2022 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2430,7 +2430,7 @@ _hks41_en-eps-converted-to.pdf>] [2
 
 ]) (0_frontmatter/2_task.tex
 LaTeX Font Info:    Trying to load font information for TS1+opensans-TLF on inp
-ut line 27.
+ut line 33.
 
 (D:\Abhängigkeiten\MiKTeX\tex/latex/opensans\ts1opensans-tlf.fd
 File: TS1opensans-TLF.fd 2019/06/24 Font definitions for TS1/opensans-TLF.
@@ -2447,25 +2447,25 @@ Package epstopdf Info: Source file: <logo/cgvLogo_bw_en.eps>
 (epstopdf)                    size: 13655 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=logo/cgvLogo_bw_en-e
 ps-converted-to.pdf logo/cgvLogo_bw_en.eps>
-(epstopdf)             \includegraphics on input line 27.
+(epstopdf)             \includegraphics on input line 33.
 Package epstopdf Info: Output file is already uptodate.
 <logo/cgvLogo_bw_en-eps-converted-to.pdf, id=31, 203.76125pt x 52.195pt>
 File: logo/cgvLogo_bw_en-eps-converted-to.pdf Graphic file (type pdf)
 <use logo/cgvLogo_bw_en-eps-converted-to.pdf>
 Package pdftex.def Info: logo/cgvLogo_bw_en-eps-converted-to.pdf  used on input
- line 27.
+ line 33.
 (pdftex.def)             Requested size: 183.7161pt x 47.05765pt.
 File: DDC-22.pdf Graphic file (type pdf)
 <use DDC-22.pdf>
-Package pdftex.def Info: DDC-22.pdf  used on input line 27.
+Package pdftex.def Info: DDC-22.pdf  used on input line 33.
 (pdftex.def)             Requested size: 23.52893pt x 47.05765pt.
 File: DDC-25.pdf Graphic file (type pdf)
 <use DDC-25.pdf>
-Package pdftex.def Info: DDC-25.pdf  used on input line 27.
+Package pdftex.def Info: DDC-25.pdf  used on input line 33.
 (pdftex.def)             Requested size: 23.52893pt x 47.05765pt.
 File: DDC-28.pdf Graphic file (type pdf)
 <use DDC-28.pdf>
-Package pdftex.def Info: DDC-28.pdf  used on input line 27.
+Package pdftex.def Info: DDC-28.pdf  used on input line 33.
 (pdftex.def)             Requested size: 23.52893pt x 47.05765pt.
  [3
 
@@ -2473,12 +2473,11 @@ Package pdftex.def Info: DDC-28.pdf  used on input line 27.
 
 
  <D:/Abhängigkeiten/MiKTeX/tex/latex/tudscr/logo/TUD-black.pdf> <./logo/cgvLog
-o_bw_en-eps-converted-to.pdf>] [4
+o_bw_en-eps-converted-to.pdf>] [4]) (0_frontmatter/3_declaration.tex [5
 
 
 
 
-]) (0_frontmatter/3_declaration.tex [5
 
 
 
@@ -2507,10 +2506,7 @@ LaTeX Font Info:    Font shape `T1/opensans-TLF/l/sl' in size <10.95> not avail
 able
 (Font)              Font shape `T1/opensans-TLF/l/it' tried instead on input li
 ne 5.
-[9] [10
-
-
-]
+[9] [10]
 chapter without number
 
 LaTeX Warning: Hyper reference `acro:VR' on page XI undefined on input line 11.
@@ -2576,7 +2572,10 @@ LaTeX Warning: Hyper reference `acro:NURBS' on page XI undefined on input line
 LaTeX Warning: Hyper reference `acro:NURBS' on page XI undefined on input line 
 18.
 
-) [11] [12
+) [11
+
+
+] [12
 
 
 ] (1_mainmatter/1_introduction.tex
@@ -2586,7 +2585,7 @@ chapter 1.
 
 ]) (1_mainmatter/2_background.tex [2]
 chapter 2.
-<fig/Images/Li_2008.jpg, id=149, 1023.07219pt x 481.04718pt>
+<fig/Images/Li_2008.jpg, id=159, 1023.07219pt x 481.04718pt>
 File: fig/Images/Li_2008.jpg Graphic file (type jpg)
 <use fig/Images/Li_2008.jpg>
 Package pdftex.def Info: fig/Images/Li_2008.jpg  used on input line 36.
@@ -2598,18 +2597,18 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-<fig/Images/Li_2008_fig3.jpg, id=160, 906.38625pt x 487.8225pt>
+<fig/Images/Li_2008_fig3.jpg, id=170, 906.38625pt x 487.8225pt>
 File: fig/Images/Li_2008_fig3.jpg Graphic file (type jpg)
 <use fig/Images/Li_2008_fig3.jpg>
 Package pdftex.def Info: fig/Images/Li_2008_fig3.jpg  used on input line 56.
 (pdftex.def)             Requested size: 352.81558pt x 189.88527pt.
-<fig/Images/Dataset2D.png, id=167, 1718.42pt x 512.91624pt>
+<fig/Images/Dataset2D.png, id=176, 1718.42pt x 512.91624pt>
 File: fig/Images/Dataset2D.png Graphic file (type png)
 <use fig/Images/Dataset2D.png>
 Package pdftex.def Info: fig/Images/Dataset2D.png  used on input line 73.
 (pdftex.def)             Requested size: 441.0178pt x 131.63326pt.
  [4 <./fig/Images/Li_2008.jpg> <./fig/Images/Li_2008_fig3.jpg>]
-<fig/Images/Dataset3D.png, id=174, 453.19313pt x 333.49594pt>
+<fig/Images/Dataset3D.png, id=183, 453.19313pt x 333.49594pt>
 File: fig/Images/Dataset3D.png Graphic file (type png)
 <use fig/Images/Dataset3D.png>
 Package pdftex.def Info: fig/Images/Dataset3D.png  used on input line 81.
@@ -2621,14 +2620,14 @@ Dataset3D.png>] [6
 
 ]
 chapter 3.
-<fig/Images/Li_ExplodedView_GI04_fig16.jpg, id=190, 564.60938pt x 354.57469pt>
+<fig/Images/Li_ExplodedView_GI04_fig16.jpg, id=198, 564.60938pt x 354.57469pt>
 File: fig/Images/Li_ExplodedView_GI04_fig16.jpg Graphic file (type jpg)
 <use fig/Images/Li_ExplodedView_GI04_fig16.jpg>
 Package pdftex.def Info: fig/Images/Li_ExplodedView_GI04_fig16.jpg  used on inp
 ut line 19.
 (pdftex.def)             Requested size: 198.45667pt x 124.63321pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig1.
-jpg, id=198, 517.18219pt x 392.21532pt>
+jpg, id=206, 517.18219pt x 392.21532pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig1.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2637,7 +2636,7 @@ Package pdftex.def Info: fig/Images/AutomatedGenerationofInteractive3DExplodedV
 iewDiagrams_Li2008_fig1.jpg  used on input line 44.
 (pdftex.def)             Requested size: 205.29541pt x 155.69238pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.
-jpg, id=201, 586.44093pt x 254.45062pt>
+jpg, id=209, 586.44093pt x 254.45062pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig8.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2651,7 +2650,7 @@ Overfull \hbox (22.05223pt too wide) in paragraph at lines 51--52
  []
 
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.
-jpg, id=204, 398.99063pt x 584.1825pt>
+jpg, id=212, 398.99063pt x 584.1825pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig7.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2674,25 +2673,25 @@ Underfull \hbox (badness 1629) in paragraph at lines 65--65
 erationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Autom
 atedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Image
 s/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
-<fig/Images/Tatzgern_fig3.jpg, id=228, 1154.81438pt x 392.21532pt>
+<fig/Images/Tatzgern_fig3.jpg, id=236, 1154.81438pt x 392.21532pt>
 File: fig/Images/Tatzgern_fig3.jpg Graphic file (type jpg)
 <use fig/Images/Tatzgern_fig3.jpg>
 Package pdftex.def Info: fig/Images/Tatzgern_fig3.jpg  used on input line 85.
 (pdftex.def)             Requested size: 418.96556pt x 142.29858pt.
 
 [9 <./fig/Images/Tatzgern_fig3.jpg>]
-<fig/Images/Bruckner_fig2.jpg, id=237, 761.84625pt x 201.75375pt>
+<fig/Images/Bruckner_fig2.jpg, id=245, 761.84625pt x 201.75375pt>
 File: fig/Images/Bruckner_fig2.jpg Graphic file (type jpg)
 <use fig/Images/Bruckner_fig2.jpg>
 Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 144.
 (pdftex.def)             Requested size: 418.96556pt x 110.94951pt.
  [10 <./fig/Images/Bruckner_fig2.jpg>]
-<fig/Images/He_fig1.jpg, id=259, 1436.36626pt x 194.97844pt>
+<fig/Images/He_fig1.jpg, id=267, 1436.36626pt x 194.97844pt>
 File: fig/Images/He_fig1.jpg Graphic file (type jpg)
 <use fig/Images/He_fig1.jpg>
 Package pdftex.def Info: fig/Images/He_fig1.jpg  used on input line 170.
 (pdftex.def)             Requested size: 441.0178pt x 59.86551pt.
-<fig/Images/Viega_fig1.jpg, id=265, 402.00188pt x 399.74344pt>
+<fig/Images/Viega_fig1.jpg, id=273, 402.00188pt x 399.74344pt>
 File: fig/Images/Viega_fig1.jpg Graphic file (type jpg)
 <use fig/Images/Viega_fig1.jpg>
 Package pdftex.def Info: fig/Images/Viega_fig1.jpg  used on input line 189.
@@ -2703,13 +2702,13 @@ Underfull \hbox (badness 1308) in paragraph at lines 190--190
  []
 
 [11 <./fig/Images/He_fig1.jpg>]
-<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=281, 4026.04124pt x 851.18pt>
+<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=289, 4026.04124pt x 851.18pt>
 File: fig/Images/McGuffin_fig_4_fig11_fig8.png Graphic file (type png)
 <use fig/Images/McGuffin_fig_4_fig11_fig8.png>
 Package pdftex.def Info: fig/Images/McGuffin_fig_4_fig11_fig8.png  used on inpu
 t line 207.
 (pdftex.def)             Requested size: 441.0178pt x 93.22745pt.
-<fig/Images/Krisanty_clipping.jpg, id=286, 1431.09656pt x 748.29562pt>
+<fig/Images/Krisanty_clipping.jpg, id=294, 1431.09656pt x 748.29562pt>
 File: fig/Images/Krisanty_clipping.jpg Graphic file (type jpg)
 <use fig/Images/Krisanty_clipping.jpg>
 Package pdftex.def Info: fig/Images/Krisanty_clipping.jpg  used on input line 2
@@ -2722,147 +2721,190 @@ chapter 4.
 
 
 ] [14]
-<fig/Images/PointExplosion.png, id=312, 799.98875pt x 361.35pt>
+<fig/Images/PointExplosion.png, id=322, 799.98875pt x 361.35pt>
 File: fig/Images/PointExplosion.png Graphic file (type png)
 <use fig/Images/PointExplosion.png>
-Package pdftex.def Info: fig/Images/PointExplosion.png  used on input line 97.
+Package pdftex.def Info: fig/Images/PointExplosion.png  used on input line 78.
 (pdftex.def)             Requested size: 286.65887pt x 129.4849pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[15]
-<fig/Images/LineExplosion.png, id=319, 772.8875pt x 361.35pt>
+ [15 <./fig/Images/PointExplosion.png>]
+<fig/Images/LineExplosion.png, id=333, 772.8875pt x 361.35pt>
 File: fig/Images/LineExplosion.png Graphic file (type png)
 <use fig/Images/LineExplosion.png>
-Package pdftex.def Info: fig/Images/LineExplosion.png  used on input line 143.
+Package pdftex.def Info: fig/Images/LineExplosion.png  used on input line 123.
 (pdftex.def)             Requested size: 286.65887pt x 134.02272pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16 <./fig/Images/PointExplosion.png>] [17 <./fig/Images/LineExplosion.png>]
-<fig/Images/LineExplosionFactors.png, id=339, 1394.20876pt x 361.35pt>
+ [16 <./fig/Images/LineExplosion.png>]
+<fig/Images/LineExplosionFactors.png, id=344, 1394.20876pt x 361.35pt>
 File: fig/Images/LineExplosionFactors.png Graphic file (type png)
 <use fig/Images/LineExplosionFactors.png>
 Package pdftex.def Info: fig/Images/LineExplosionFactors.png  used on input lin
-e 180.
+e 163.
 (pdftex.def)             Requested size: 396.91333pt x 102.87003pt.
 LaTeX Font Info:    Font shape `T1/tudtt/l/n' will be
-(Font)              scaled to size 7.19995pt on input line 189.
+(Font)              scaled to size 7.19995pt on input line 172.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `tudtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<fig/Images/LineExplosionHeadMounted.png, id=342, 918.43124pt x 361.35pt>
+ [17 <./fig/Images/LineExplosionFactors.png>]
+<fig/Images/LineExplosionHeadMounted.png, id=355, 918.43124pt x 361.35pt>
 File: fig/Images/LineExplosionHeadMounted.png Graphic file (type png)
 <use fig/Images/LineExplosionHeadMounted.png>
 Package pdftex.def Info: fig/Images/LineExplosionHeadMounted.png  used on input
- line 231.
+ line 207.
 (pdftex.def)             Requested size: 286.65887pt x 112.78375pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 1142) has occurred while \output is active []
-
- [18 <./fig/Images/LineExplosionFactors.png>] [19 <./fig/Images/LineExplosionHe
-adMounted.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20])
-(1_mainmatter/5_results.tex [21] [22
-
-
-]
+ [18 <./fig/Images/LineExplosionHeadMounted.png>] [19] [20] [21]
+<fig/Images/Interaction.png, id=415, 1653.17625pt x 925.4575pt>
+File: fig/Images/Interaction.png Graphic file (type png)
+<use fig/Images/Interaction.png>
+Package pdftex.def Info: fig/Images/Interaction.png  used on input line 336.
+(pdftex.def)             Requested size: 441.0178pt x 246.88315pt.
+) (1_mainmatter/5_results.tex [22 <./fig/Images/Interaction.png>]
 chapter 5.
-[23] [24] [25] [26]) (1_mainmatter/6_conclusion_and_future_work.tex [27]
-[28
+<fig/Images/PointExplosionPicture.png, id=423, 1135.24126pt x 971.63pt>
+File: fig/Images/PointExplosionPicture.png Graphic file (type png)
+<use fig/Images/PointExplosionPicture.png>
+Package pdftex.def Info: fig/Images/PointExplosionPicture.png  used on input li
+ne 22.
+(pdftex.def)             Requested size: 264.61337pt x 226.47984pt.
+<fig/Images/LineExplosionPictures.png, id=426, 2810.5pt x 815.045pt>
+File: fig/Images/LineExplosionPictures.png Graphic file (type png)
+<use fig/Images/LineExplosionPictures.png>
+Package pdftex.def Info: fig/Images/LineExplosionPictures.png  used on input li
+ne 35.
+(pdftex.def)             Requested size: 612.44197pt x 177.60664pt.
+<fig/Images/HeadMountedLineExplosion.png, id=429, 2457.18pt x 813.0375pt>
+File: fig/Images/HeadMountedLineExplosion.png Graphic file (type png)
+<use fig/Images/HeadMountedLineExplosion.png>
+Package pdftex.def Info: fig/Images/HeadMountedLineExplosion.png  used on input
+ line 47.
+(pdftex.def)             Requested size: 441.0178pt x 145.91862pt.
+[23
+
+
+ <./fig/Images/PointExplosionPicture.png>]
+<fig/Images/ForceBasedExplosionPicture.png, id=438, 2157.05875pt x 925.4575pt>
+File: fig/Images/ForceBasedExplosionPicture.png Graphic file (type png)
+<use fig/Images/ForceBasedExplosionPicture.png>
+Package pdftex.def Info: fig/Images/ForceBasedExplosionPicture.png  used on inp
+ut line 57.
+(pdftex.def)             Requested size: 441.0178pt x 189.21164pt.
+<fig/Images/TransparencyAndUI.png, id=441, 1677.26625pt x 925.4575pt>
+File: fig/Images/TransparencyAndUI.png Graphic file (type png)
+<use fig/Images/TransparencyAndUI.png>
+Package pdftex.def Info: fig/Images/TransparencyAndUI.png  used on input line 6
+5.
+(pdftex.def)             Requested size: 441.0178pt x 243.33868pt.
+ [24 <./fig/Images/LineExplosionPictures.png> <./fig/Images/HeadMountedLineExpl
+osion.png>])
+(1_mainmatter/6_evaluation.tex [25 <./fig/Images/ForceBasedExplosionPicture.png
+> <./fig/Images/TransparencyAndUI.png>] [26
 
 
 ]
 chapter 6.
-) (2_bib/0_bibliography.tex [29] [30
+[27] [28] [29] [30]
+<fig/Images/largeDataset.jpg, id=482, 743.02594pt x 715.92468pt>
+File: fig/Images/largeDataset.jpg Graphic file (type jpg)
+<use fig/Images/largeDataset.jpg>
+Package pdftex.def Info: fig/Images/largeDataset.jpg  used on input line 64.
+(pdftex.def)             Requested size: 308.7111pt x 297.45277pt.
+ [31 <./fig/Images/largeDataset.jpg>]
+Overfull \hbox (20.00467pt too wide) in paragraph at lines 81--90
+ [][] 
+ []
+
+) (1_mainmatter/7_conclusion_and_future_work.tex [32]
+chapter 7.
+) (2_bib/0_bibliography.tex [33
 
 
-] [31]
+] [34] [35
+
+
+]
 Overfull \hbox (0.15329pt too wide) in paragraph at lines 7--7
 \T1/opensans-TLF/l/n/10.95 (+15) text = Tats % C3 % A4chlich % 20geht % 20man %
  20heute % 20von % 20etwa % 2086 %
  []
 
-) [32]
-Package tocbasic Info: character protrusion at lof deactivated on input line 24
-.
- (main.lof)
-\tf@lof=\write6
-\openout6 = `main.lof'.
-
- [33
-
-
-] [34
-
-
-]
-Package tocbasic Info: character protrusion at lot deactivated on input line 25
-.
- (main.lot)
-\tf@lot=\write7
-\openout7 = `main.lot'.
-
- (3_appendix/0_appendix.tex [35] [36
-
-
-]
+) (3_appendix/0_appendix.tex [36]
 chapter A.
-[37] [38
+<fig/Images/DataLayout.png, id=539, 442.65375pt x 226.8475pt>
+File: fig/Images/DataLayout.png Graphic file (type png)
+<use fig/Images/DataLayout.png>
+Package pdftex.def Info: fig/Images/DataLayout.png  used on input line 6.
+(pdftex.def)             Requested size: 441.0178pt x 226.02312pt.
+<fig/Images/objectDiagram.png, id=540, 1015.795pt x 1159.33125pt>
+File: fig/Images/objectDiagram.png Graphic file (type png)
+<use fig/Images/objectDiagram.png>
+Package pdftex.def Info: fig/Images/objectDiagram.png  used on input line 13.
+(pdftex.def)             Requested size: 441.0178pt x 503.33208pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<fig/Images/ChangeOfCellTranparent.jpg, id=541, 904.88063pt x 725.71124pt>
+File: fig/Images/ChangeOfCellTranparent.jpg Graphic file (type jpg)
+<use fig/Images/ChangeOfCellTranparent.jpg>
+Package pdftex.def Info: fig/Images/ChangeOfCellTranparent.jpg  used on input l
+ine 20.
+(pdftex.def)             Requested size: 441.0178pt x 353.68591pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 27--30
+
+ []
+
+[37
 
 
-]
-chapter B.
-) [39] (main.aux)
+ <./fig/Images/DataLayout.png>] [38 <./fig/Images/objectDiagram.png>]
+[39 <./fig/Images/ChangeOfCellTranparent.jpg>] (main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37680 strings out of 475389
- 733478 string characters out of 2785902
- 1936689 words of memory out of 3000000
- 57832 multiletter control sequences out of 15000+600000
- 575050 words of font info for 462 fonts, out of 8000000 for 9000
+ 37824 strings out of 475389
+ 738329 string characters out of 2785902
+ 1938293 words of memory out of 3000000
+ 57935 multiletter control sequences out of 15000+600000
+ 577013 words of font info for 476 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 113i,21n,115p,10634b,2648s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/roboto/rbto_e24joy.enc} <C:\Users\
-Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <
+ 113i,21n,115p,10634b,2367s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
+crm0900.pk>{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/roboto/rbto_e24joy.enc} <
 C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
-800.pk> <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\ecrm1095.pk>{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_jg4h6q.en
-c}{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy.enc}<D:/Abhängi
-gkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Light.pfb><D:/Abhängigke
-iten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-LightItalic.pfb><D:/Abhängi
-gkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Regular.pfb><D:/Abhängig
-keiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-SemiBold.pfb><D:/Abhängig
-keiten/MiKTeX/fonts/type1/google/roboto/RobotoMono-Light.pfb><D:/Abhängigkeite
-n/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Abhängigkeiten/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmmi6.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmmi8.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmmi9.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:
-/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (51 pages, 4230203 bytes).
+600.pk> <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ecrm0800.pk> <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
+en/ec/dpi600\ecrm1095.pk>{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_
+jg4h6q.enc}{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy.enc}<D:
+/Abhängigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Light.pfb><D:/Ab
+hängigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-LightItalic.pfb><D:
+/Abhängigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-Regular.pfb><D:/
+Abhängigkeiten/MiKTeX/fonts/type1/ascender/opensans/OpenSans-SemiBold.pfb><D:/
+Abhängigkeiten/MiKTeX/fonts/type1/google/roboto/RobotoMono-Light.pfb><D:/Abhä
+ngigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Abhängigkeiten
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><D:/Abhängigkeiten/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.
+pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Ab
+hängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (51 pages, 12777163 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
- 168 named destinations out of 1000 (max. 500000)
- 107362 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 783 PDF objects out of 1000 (max. 8388607)
+ 181 named destinations out of 1000 (max. 500000)
+ 111540 words of extra memory for PDF output out of 128383 (max. 10000000)
 

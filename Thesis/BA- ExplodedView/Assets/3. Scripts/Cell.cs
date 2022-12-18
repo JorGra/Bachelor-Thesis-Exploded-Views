@@ -80,6 +80,7 @@ public class Cell : MonoBehaviour
 
     void EnableChildWithOpacity(int childIndex, float opacity)
     {
+        CellManager.Instance.activeCells++;
         transform.GetChild(childIndex).gameObject.SetActive(true);
         transform.GetChild(childIndex).gameObject.GetComponent<MeshRenderer>().material.SetFloat("_Opacity", opacity);
     }
@@ -135,7 +136,7 @@ public class Cell : MonoBehaviour
         if (!cellManager.lerpReferencePoint)
             return centers[0];
 
-        return Vector3.Lerp(previousTargetPosition, targetPosition, (Time.timeSinceLevelLoad - timeSinceLastTimeStep) / cellManager.animationSpeed);
+        return Vector3.Lerp(previousTargetPosition, targetPosition, (Time.timeSinceLevelLoad - timeSinceLastTimeStep) / cellManager.animationUpdateIntervall);
     }
 
     /// <summary>

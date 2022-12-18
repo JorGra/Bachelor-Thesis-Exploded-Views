@@ -96,7 +96,7 @@ More relevant, however, is its quality score which is used to select the represe
 
 These criteria are then weighted by Tatzgern et al., which influences the selection of the representative.
 Even if not all of these points are suitable for use in virtual reality, some ideas can still be applied.
-In particular, using the scalar product between the camera position and the direction of the exploding parts is a helpful approach, which could be used to always push parts out of the line of sight without obstructing the view.
+In particular, using the dot product between the camera position and the direction of the exploding parts is a helpful approach, which could be used to always push parts out of the line of sight without obstructing the view.
 
 While Li et al. and Tatzgern et al. relied on calculating the position of the exploded parts, Bruckner et al. used various \textbf{force-based techniques} to transform parts to generate explosion diagrams.\cite{Bruckner_2006}
 Their presented method works with volumetric data sets and splits them into pieces before exploding them. 
@@ -122,7 +122,7 @@ These forces are defined by Bruckner et al. as follows:
 
 	\item \textbf{Viewing force:} To make the exploded view interactive, Bruckner et al. introduce another force that takes the camera position into account, obscuring parts are thus pushed away from the viewing direction. The procedure is described by Bruckner et al. as follows: 
 	"For a part $P_i$ we determine the point along the viewing ray corresponding to the explosion point’s projection which is closest to
-	the center of $P_i$. The force $Fv$ is then:"
+	the center of $P_i$. The force $F_v$ is then:"
 	\begin{equation}
 		F_v = \frac{c_v}{\|r\|} * \frac{r}{\|r\|}
 		\label{eq:viewingforce}
@@ -172,10 +172,10 @@ To allow for easy manipulation of the exploded view's axis, they use Hermit spli
 	\label{fig:He_interactions}
 \end{figure}
 Not only the interaction with VR plays an important role in this work, but also the special feature of a \textbf{time-varying data set}. 
-Special measures are necessary to display these in an exploded view, but after extensive research no related work could be found. 
+Special measures are necessary to display these in an exploded view, but after extensive research no related work on this subject could be found. 
 Therefore, in this work, a focus must be placed on solving this problem.
 
-While exploded views are a large part of this work, they are not the only way to avoid occlusion. 
+Although exploded views are the main part of this work, they are not the only way to avoid occlusion. 
 Another approach that can be combined well with interaction in VR is the use of \textbf{magic lenses}.
 This is like a kind of magnifying glass that allows the user to look inside an object and hide the obscuring geometry of the surface.
 One advantage of this over cutting planes is that the context is preserved because only a selective subarea is hidden.   
@@ -195,12 +195,12 @@ This also functions as a magnifying glass that can be moved across a desktop to 
 For example, you can look inside the buildings of a city model or explore the inside of a human body.
 Their user study showed that "magic lenses are efficient cognitive filters that dynamically organize and display data when and where it is needed."\cite{Hua_2006}
 They proved to be more efficient and intuitive than a traditional interface, although their prototype lacked stability.
-Another alternative approach, which is combinable, is proposed by Preim et al. In their paper, they use different scaling techniques to enlarge and dynamically label objects of interest, making it easier to identify details.\cite{Preim_1997}
+Another alternative approach, which is combinable, is proposed by Preim et al.\cite{Preim_1997} In their paper, they use different scaling techniques to enlarge and dynamically label objects of interest, making it easier to identify details.
 
 Another unique method was presented by McGuffin et al.\cite{McGuffin}
 They show various tools they have developed to inspect volumetric data by peeling and cutting parts away.
-They introduce a Leafer tool to slice and open the dataset, and a Peeler tool to show different layers of the dataset. They also introduce a Boxspreader tool that pushes voxels away, a Hinge Spreader tool, and a Sphere Extender tool to cut and extend different layers of the dataset. Figure \ref{fig:McGuffin} shows these tool on a dataset of a head. 
-With these, complex transformations of the data are possible, which can provide insights into the interior of various volumetric data sets.
+They introduce a Leafer tool to slice and open the dataset, and a Peeler tool to show different layers of the dataset. They also introduce a Boxspreader tool that pushes voxels away, a Hinge Spreader tool, and a Sphere Extender tool to cut and extend different layers of the dataset. Figure \ref{fig:McGuffin} shows these tools on a volumetric dataset of a human head. 
+With these, complex transformations of the data is possible, which can provide insights into the interior of various volumetric data sets.
 One observation made by McGuffin et al. is that animations have greatly improved the usability of these tools, because without them, users had difficulty understanding how the tools operated. 
 \begin{figure}[h]
 	\centering

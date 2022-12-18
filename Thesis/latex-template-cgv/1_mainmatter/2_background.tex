@@ -17,8 +17,8 @@
 When examining complex data sets or models, it is often important to understand the composition of the individual components and their order of assembly. 
 This is especially the case for technical and biological models, where the order of composition defines the function. 
 A problem that often arises is how to inspect the inner parts of such a model without breaking the compositional order. 
-One possibility is to use filters and to cut away the frontal parts, but this is done at the expense of the overview and can make it difficult for the viewer to correctly identify the position of the part in the object. 
-To avoid this, this work focuses on exploded views, as they offer the possibility to reveal internal parts of complex models while preserving their position in relation to other parts. 
+One option is to use filters and thus cut away the occluding parts, but this is done at the expense of clarity and can make it difficult for the viewer to correctly identify the position of the part in the object and gain an understanding of the overview. 
+To avoid this, this work focuses on exploded views, as they offer the possibility to visualize internal parts of complex models while maintaining their spatial relationships with other parts.
 Furthermore, they offer good interactive possibilities, which can also be transferred to the interaction in virtual reality.
 
 Exploded views are drawings or information graphics that pull apart a complicated object as if it were blown up in a controlled manner. 
@@ -40,10 +40,10 @@ They can also be seen in figure \ref{fig:exampleExpl_Li2008}.
 
 
 \begin{itemize}
-	\item \textbf{Blocking constraints:} Parts should be translated so that they do not pass other parts, this is to show the viewer how the components fit together and indicate their relative position.
+	\item \textbf{Blocking constraints:} Parts should be translated so that they do not pass through other parts, this is to show the viewer how the components fit together and indicate their relative position.
 	\item \textbf{Visibility:} The spacing of all parts should be chosen so that each part of interest is visible.
 	\item \textbf{Compactness:} Parts should be moved as little as possible from their original position to facilitate the viewer's mental reconstruction.
-	\item \textbf{Canonical explosion directions:} Most objects have a canonical direction, i.e. an axis in which the object can best be aligned after the explosion. This is determined by various object-specific properties. In order to reduce the visual clutter, only a few of these axes should be chosen, otherwise the viewer will have difficulty recognizing the original composition.
+	\item \textbf{Canonical explosion directions:} Most objects have a canonical direction, i.e. an axis in which the object can best be aligned after the explosion. This is determined by various object-specific properties. In order to reduce the visual clutter, only a few of these axes should be chosen, otherwise the viewer might have difficulty recognizing the original composition.
 	\item \textbf{Part hierarchy:} Complex models are sometimes divided into different exploded views and axes, this can illustrate the composition of smaller parts of the object.
 	\label{items:best_practise}
 \end{itemize}
@@ -62,11 +62,11 @@ In such cases it is also common to hide the outer parts to reveal the inner comp
 
 A distinctive feature which is relevant for this work are the utilized data sets.
 They represent the growth of an embryo, which begins with a few stem cells, which divide and reproduce over the course of the simulation. This creates new cells and cell populations.
-They have been generated using the program \emph{Morpheus} which is being developed at the TU Dresden.\cite{morpheus_2022}
+They have been generated using the program \emph{Morpheus}\footnote{Morpheus website: https://morpheus.gitlab.io/} which is being developed at the TU Dresden.\cite{morpheus_2022}
 \emph{Morpheus} can be used to simulate and visualize the temporal changes of cell complexes and their evolution. 
 The datasets thus represents a biological model in which there is no fixed order of composition and the individual parts may change their position and size over time.  
 Figure \ref{fig:Dataset2D} shows a two-dimensional view of the data set at three time steps, which is created by Morpheus. Here it can be seen how the cell structure changes over time and how two populations form at a later time step. These are colored with blue and green. 
-Figure \ref{fig:Dataset3D} shows a three-dimensional visualization of another dataset that was created with \emph{Morpheus}. This was created with ParaView\cite{paraview}.
+Figure \ref{fig:Dataset3D} shows a three-dimensional visualization of another dataset that was created with \emph{Morpheus}. This was created with ParaView\footnote{ParaView website: https://www.paraview.org/}.
 \begin{figure}[h]
 	\centering
 	%\vspace{-0.7cm}

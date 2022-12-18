@@ -18,7 +18,7 @@ public class CellManager : MonoBehaviour
     [SerializeField] int previousTimeStepsShown;
     [SerializeField] float previousTimeStepsOpacityFactor = 1f;
     [Range(0.05f, 2f)]
-    public float animationSpeed;
+    public float animationUpdateIntervall;
     public bool lerpReferencePoint = false;
 
     [Header("Cells")]
@@ -42,11 +42,12 @@ public class CellManager : MonoBehaviour
     [HideInInspector] public Cell currentlySelectedCell;
     [SerializeField] private TMP_Text cellIDText;
     [SerializeField] private TMP_Text cellPopulationText;
+    [SerializeField] private TMP_Text activeCellsText;
 
     private static CellManager _instance;
 
     float currentSize = 1f;
-
+    public int activeCells;
     public static CellManager Instance { get { return _instance; } }
 
     private void Awake()
@@ -96,17 +97,19 @@ public class CellManager : MonoBehaviour
 
             if (animated)
             {
+                activeCells = 0;
                 foreach (var cell in cells)
                 {
                     //cell.AdvanceTime();
                     cell.ShowTimeStep(currentTimeStep, previousTimeStepsShown, previousTimeStepsOpacityFactor);
                 }
                 currentTimeStep++;
+                activeCellsText.text = activeCells.ToString();
 
                 if (currentTimeStep >= maxTimeStep)
                     currentTimeStep = 0;
             }
-            yield return new WaitForSeconds(animationSpeed);
+            yield return new WaitForSeconds(animationUpdateIntervall);
         }
     }
 
@@ -211,8 +214,9 @@ public class CellManager : MonoBehaviour
         }
     }
 
-    public void OnAnimationSpeedSliderChange(float value) => animationSpeed = value;
+    public void OnAnimationSpeedSliderChange(float value) => animationUpdateIntervall = value;
     public void OnPrevTimeStepsShownChange(float value) => previousTimeStepsShown = (int)value;
+    public void OnSceneReload() => UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
 
     public void OnCellSelected(Cell cell)
     {
