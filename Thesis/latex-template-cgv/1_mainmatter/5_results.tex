@@ -13,21 +13,21 @@
 % informal quality analysis? 
 % waht could be done to improve the visuallisation of dynamic datasetss?
 % Are exploded Views really viable for that?
-This chapter illustrates the implemented methods.
+This chapter illustrates the implemented methods of the prototype.
 The visualization of the data set can be seen in Figure \ref{fig:PointExplosionPicture}. Here the point explosion was used to explode the cell.
-The dataset contains three different cell populations, which are colored orange, green and blue. The colors are set randomly at the start of the program when a new population is found in the dataset. Orange is the cell population named "cells", the population "cells\_inner" is green, and the "lumen" is the largest blue colored cell around the center.
+The data set contains three different cell populations, which are colored orange, green and blue. The colors are set randomly at the start of the program when a new population is found in the data set. Orange is the cell population named "cells", the population "cells\_inner" is green, and the "lumen" is the largest blue colored cell around the center.
 Also small green dots can be seen in the cell center. These mark the initial center of mass of the cell, which is used as the reference point to create the exploded view.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.6\linewidth]{fig/Images/PointExplosionPicture}
-	\caption[]{Point explosion of the dataset. The different cell populations were marked in orange, green and blue. }
+	\caption[]{Point explosion of the data set. The different cell populations were marked in orange, green and blue. }
 	\label{fig:PointExplosionPicture}
 \end{figure}
 
 Figure \ref{fig:LineExplosionPictures} shows the data set as it is transformed with the line explosion. The yellow arrow indicates the axis on which the parts are projected as described in chapter \ref{lineExp}. 
 The yellow arrow is an interactable and can be positioned by the user. 
 The three pictures show different parameter combinations of the factors $F=(F_1, F_2, F_3)$. So here on the left picture each part is translated along the line without influencing the distance of the parts to the axis.  
-This can be achieved with $F=(1,0,0)$ and allows the expansion along the axis, similar to drawn explosion views. The object structure remains largely intact and is merely pulled apart. It can also be seen that the control point $P_s$ was placed inside the cell complex, and thus only the right half of the data set is expanded. 
+This can be achieved with $F=(1,0,0)$ and allows the expansion along the axis, similar to hand drawn explosion views. The object structure remains largely intact and is merely pulled apart. It can also be seen that the control point $P_s$ was placed inside the cell complex, and thus only the right half of the data set is expanded. 
 \begin{figure}[t]
 	%\centering
 	%\noindent
@@ -41,7 +41,7 @@ This allows a clear view of the inside of the object.
 Interesting is the factor combination $F=(0.3, 1, 0)$, which can be seen in the right picture of Figure \ref{fig:LineExplosionPictures}. Here a conical explosion is created which shows the inside of the object and also allows a clear view of the individual parts.  
 Since the parameters can be adjusted via the UI panel at runtime, an analytical inspection is possible, as the best view can easily be found by adjusting the factors as needed.   
 Figure \ref{fig:HeadMountedLineExplosion} shows the extension of the line explosion to be view-dependent. Here, the point $P_s$ was also placed inside the cell complex, pushing all occluding parts out of the view of the observer. 
-On the right graphic, the lumen, i.e. the blue cell, was taken by the user, thus allowing an unobstructed view of the cells behind it or on the lumen itself.  
+On the right picture, the lumen, i.e. the blue cell, was taken by the user, thus allowing an unobstructed view of the cells behind it or on the lumen itself.  
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{fig/Images/HeadMountedLineExplosion}

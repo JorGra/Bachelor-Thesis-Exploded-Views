@@ -8,7 +8,7 @@ In order to explain the developed proposed solutions, this chapter will first co
 To illustrate the implementation, first the structure of the program is presented, then the individual approaches are introduced, and finally the VR interaction and surface inspection are demonstrated and the data set and its change over time are discussed.
 
 \section{Problem Analysis}
-The problem addressed by this work can be divided into three sub-problems. On the one hand, this is the representation of three-dimensional cells and cell complexes; on the other hand, this is the investigation of possible ways to avoid occlusion and to use immersive techniques and interactions to enable cell and cell surface exploration.
+The problem addressed by this work can be divided into three sub-problems. On the one hand, this is the representation of three-dimensional cells and cell complexes. On the other hand, this is the investigation of possible ways to avoid occlusion and to use immersive techniques and interactions to enable cell and cell surface exploration.
 As mentioned in the introductory chapters, different types of explosion views will be tested and compared in order to solve the problem of occlusion.
 Special requirements and restrictions apply in this problem scenario, as both the data set and the use of VR technologies necessitate significant changes to traditional explosion views.
 
@@ -20,46 +20,46 @@ A population in this context refers to a cell type with unique propagation prope
 Different cell populations form a cell complex which is simulated by Morpheus. 
 During the simulation, Morpheus then generates snapshots of the current state of the cell complex at regular intervals. 
 These are saved as XML files and form the data set used for the visualization in this work. 
-In this way, each snapshot describes a temporal state that precisely defines the arrangement of the individual cells in the form of a list of position and surface property values.
+This way, each snapshot describes a temporal state that precisely defines the arrangement of the individual cells in the form of a list of position and surface property values.
 The decisive factor here is that the shape and position of an individual cell can change significantly over the course of the simulation. 
 The chosen method of occlusion avoidance must therefore take this into account and the visualization should enable the precise inspection of a single cell at any time.
 
-If one now wants to look at the inner cells of the data set and inspect the interaction of the different populations more closely, this is not possible due to the outer cells that cover them. 
+If one now wants to look at the inner cells of the data set and inspect the interaction of the different populations more closely, this is not possible due to the outer cells that occlude them. 
 So, occlusion occurs because data is obscured by other foreground data.
 As demonstrated by Krisanty's example shown in figure \ref{fig:tania}, using cutting planes is not a suitable method to avoid this problem while still being able to observe the interaction of individual cells with one another.
 
 \section{Methods}
-Explosive views are suitable for viewing the complete data set and, in particular, for looking into the interior of a cell complex and for inspecting individual cells in a targeted manner. 
-This type of representation translates the individual parts of a model or dataset in such a way that each part is detached from its touching neighbors.
+Explosion views are suitable for viewing the complete data set. In particular, for looking into the interior of a cell complex and for inspecting individual cells in a targeted manner. 
+This type of representation translates the individual parts of a model or data set in such a way that each part is detached from its touching neighbors.
 It should be ensured that the original position of each part is recognizable or comprehensible. 
-To achieve this, exploded views should follow the conventions and properties outlined by Li et al. in the background chapter \ref{items:best_practise}.
-Exploded views that take these properties into account not only allow for the representation of relative spatial relationships, but also allow the viewer to mentally reconstruct the object and observe the arrangement of the individual parts within. 
+To achieve this, explosion views should follow the conventions and properties outlined by Li et al. in the background chapter \ref{items:best_practise}.
+Explosion views that take these properties into account not only allow for the representation of relative spatial relationships, but also allow the viewer to mentally reconstruct the object and observe the arrangement of the individual parts within. 
 This is further enhanced when the explosion strength can be adjusted interactively and is therefore a suitable method for the problem at hand.
-When drawing or generating an exploded view, the following parameters are of importance and must be specified individually for each exploded object:
+When drawing or generating an explosion view, the following parameters are of importance and must be specified individually for each exploded object:
 \begin{itemize}
-	\item \textbf{The canonical axis} of the object, this is the main axis of expansion in which the parts should be exploded to make the mental reconstruction as simple as possible. This depends on many different factors of the object that is being inspected, for mechanical objects this is often related to the assembly order. The definition is more challenging for biological datasets and models. For the dataset at hand, it is not possible to define a clear canonical axis, because the cells change over time and there is no main direction in which the propagation of the cells is oriented. In this case, it is useful to make the choice of the axis dynamically adjustable, as this allows the axis to be adapted to the current state of the cell complex. 
-	\item \textbf{The choice of perspective.} Traditional exploded views are often drawn from the side of the object or from slightly above, looking down at the object. An orthographic view is frequently used to better indicate the distance between the individual parts. 
+	\item \textbf{The canonical axis} of the object, is the main axis of expansion in which the parts should be exploded to ease the mental reconstruction. This depends on many different factors of the object that is being inspected, for mechanical objects this is often related to the assembly order. The definition is more challenging for biological data sets and models. For the data set at hand, it is not possible to define a clear canonical axis, because the cells change over time and there is no main direction in which the propagation of the cells is oriented. In this case, it is useful to make the choice of the axis dynamically adjustable, as this allows the axis to be adapted to the current state of the cell complex. 
+	\item \textbf{The choice of perspective.} Traditional explosion views are often drawn from the side of the object or from slightly above, looking down at the object. An orthographic view is frequently used to better indicate the distance between the individual parts. 
 	This is not the case with interactive systems like Li et al.'s, which allow the camera perspective to be adjusted to provide a more realistic representation of the object.\cite{Wilmot_Li_2008}
-	Because this work focuses on the use of VR technologies, a perspective view should be chosen. 
+	As this work focuses on the use of VR technologies, a perspective view should be chosen. 
 	Furthermore, the camera viewpoint is determined by the position of the headset and should change as the user moves. 
-	The use of VR headsets allows for a much more intuitive exploration of the data set and aids in understanding the object's composition. 
+	The use of VR headsets allows for a more intuitive exploration of the data set and aids in understanding the object's composition. 
 	One issue with this is that it can cause visual clutter because the user's field of vision may be obscured by scattered parts.
-	\item \textbf{View-dependent exploded views.} Closely related to the choice of perspective in interactive exploded views is the choice of whether the position of the exploded parts depends on the camera perspective or not. 
+	\item \textbf{View-dependent explosion views.} Closely related to the choice of perspective in interactive explosion views is the choice of whether the position of the exploded parts depends on the camera perspective or not. 
 	This results in two categories for exploded views in interactive systems.
-	View-independent exploded views that transform parts along an axis or away from a point and are not affected by the camera.
+	View-independent explosion views that transform parts along an axis or away from a point and are not affected by the camera.
 	This allows for a more thorough inspection of all parts and the entire model. 
 	Each part is displayed in such a way that its position within the whole is discernible.
-	View-dependent exploded views are the second type.
+	View-dependent explosion views are the second type.
 	Here, certain parts or points are selected that are always visible, no matter from which angle they are viewed. 
 	This allows for a close examination of specific parts or the object interior.
-	Which of these possibilities is the better one for the given data set has to be investigated.
+	It has to be investigated, which of these possibilities is the better one for the given data set.
 \end{itemize}
 
 Interactive explosion views can be generated in two different ways. 
 Either by calculating the final positions of the exploded parts or by defining forces that push the parts apart to create meaningful explosion views.
 Calculating the positions gives more control over the exploded view and allows to display the composition order. 
 This is more difficult with force-based systems, since the forces would have to be defined so that no elements overlap and no blocking constraints are violated during the explosion. 
-Both methods can generate qualitative exploded views, however, an advantage of the force-based method is that the strength of the forces can easily be adjusted at runtime and thus new explosion views can be generated. 
+Both methods can generate qualitative explosion views, however, an advantage of the force-based method is that the strength of the forces can easily be changed at runtime and thus adjustable explosion views can be generated. 
 In this work both methods are implemented and compared.
 
 
@@ -81,29 +81,29 @@ In this work both methods are implemented and compared.
 \end{figure}
 
 \subsection{Point explosion}
-The simplest method to generate an exploded view is to explode from a single point as pictured in figure \ref{fig:pointExpl1}.
+The simplest method to generate an explosion view is to explode from a single point as pictured in figure \ref{fig:pointExpl1}.
 The initial position of the cells, which is read from the data set, is used as a reference point $P_o$. 
 The user can then place a control point $P_c$ at any position from which the explosion originates. 
 The new position of the parts is thus determined by the translation along the linear line, which is defined by the control point and the initial reference point.
-The target position $P_t$ is determined for each part $P_i$ by the following formula. 
+The target position $P_t$ is determined for each individual part $P_i$ by the following formula. 
 \begin{equation}
 	P_t = P_o + (P_o - P_c) * F_{max}
 	\label{eq:pointExpl1}
 \end{equation}
-Here, $F_{max}$ is a constant factor that describes the maximum explosion distance. At the end the position of the part is determined by interpolating between the reference point $P_o$ and the target point $P_t$ with the user adjustable explosion strength $F_e \in [0, 1]$.
+Here, $F_{max}$ is a constant factor that describes the maximum explosion distance. At the end the position of the part is determined by interpolating between the reference point $P_o$ and the target point $P_t$ with the adjustable explosion strength $F_e \in [0, 1]$.
 It must be ensured that the points are in the same coordinate system, this is not always the case with the implementation used, since the individual parts are child objects of a container object, which allows the data set to be scaled.
-To clarify the spatial relations, a further adjustable factor $F_l$ has been added which is scaled with the length of the vector from the control point $P_c$ to the initial position $P_o$. This can be used to amplify the spatial distances and to restrict the view to nearby objects.
+To clarify the spatial relations, a further adjustable factor $F_l$ has been added which is scaled with the length of the vector from the control point $P_c$ to the initial position $P_o$. This can be used to amplify the spatial distances and restrict the view to nearby objects.
 The final target position is thus described by the following formula:
 \begin{equation}
 	\vec{d} = (P_o - P_c) 
 	\label{eq:pointExpl2}
 \end{equation}
 \begin{equation} 
-	P_t = P_o + \hat{d} * F_{max} + \vec{d} * F_l * \|d\|
+	P_t = P_o + \hat{d} * F_{max} + \vec{d} * F_l * \|\vec{d}\|
 	\label{eq:pointExpl3}
 \end{equation}
 The point explosion is particularly suitable for selecting parts in a targeted manner and for examining them more closely.
-This is a view-independent explosion view, because the position of the camera has no effect on the position of the parts. 
+It is a view-independent explosion view, because the position of the camera has no effect on the position of the parts. 
 However, this method does not take into account any blocking directions and relations. 
 Enclosed objects are also not recognized and could remain hidden.
 Furthermore, there is no consideration of the canonical axes of an object.
@@ -128,10 +128,10 @@ The method is similar to the implementation of the explosion probe by Sonnet et 
 
 \subsection{Line explosion} 
 \label{lineExp}
-An advanced exploded view that allows more control is achieved by defining an axis and transforming the parts away from that axis, as shown in figure \ref{fig:lineExpl1}.
+An advanced explosion view that allows more control is the line explosion. This is achieved by defining an axis and transforming the parts away from that axis, as shown in figure \ref{fig:lineExpl1}.
 This is done by allowing the user to set two control points in space, a line is then drawn between these two control points. 
 The first of the control points $P_s$ indicates the starting position of the line, the second point $P_d$ the direction in which the line should progress. 
-Now each part is projected onto this axis defined by the line, if this projection lies in front of the starting point, the part is pushed away from this projection point. 
+Now each part is projected onto this axis defined by the line. If this projection lies in front of the starting point, the part is pushed away from this projection point. 
 By moving the control points, it is possible to select which parts of the model will explode from their original position and which will remain rigid. 
 Moving the control point that defines the direction of the axis allows the user to create different explosion views.
 The projection $P_{proj_i}$ of each part $P_i$ onto the defined line can be calculated by projecting the vector $\vec{d_p}$ that goes from the starting point $P_s$ to the respective part onto the line $\vec{d_{ab}}$ that passes through the two control points. 
@@ -190,7 +190,7 @@ function Explode(float F_e){
 			+ d_a_proj * F2
 		}
 		else
-		part.targetPosition = part.initalPosition
+			part.targetPosition = part.initalPosition
 		
 		//LinearInterpolate(a, b, c) is a function that linearly interpolates from Position a to a Position b, by c
 		//so the returned value is a + (b - a) * c
@@ -202,12 +202,6 @@ function Explode(float F_e){
 	\label{fig:LineexplosionCode}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.65\linewidth]{fig/Images/LineExplosionHeadMounted}
-	\caption[]{Concept of the head-mounted explosion. The point $P_d$ is set to be the same as the headsets position. This allows a clear view onto the leftmost part, no matter from which angle the user looks. }
-	\label{fig:headExpl}
-\end{figure}
 
 \subsection{Head-mounted line explosion}
 This method is based on the same implementation as the line explosion, but extends it to make it view-dependent. 
@@ -216,13 +210,19 @@ When the first control point is set within the object, an exploded view is creat
 All parts that are in front of the first control point are automatically moved away. 
 This technique allows the user to walk around the object to inspect the interior of the cell from any angle.
 The head-mounted line explosion can easily converted to the previously described line explosion by pausing the position update of the point $P_d$, allowing for a closer examination of specific parts. 
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=.65\linewidth]{fig/Images/LineExplosionHeadMounted}
+	\caption[]{Concept of the head-mounted explosion. The point $P_d$ is set to be the same as the headsets position. This allows a clear view onto the leftmost part, no matter from which angle the user looks. }
+	\label{fig:headExpl}
+\end{figure}
 
 \subsection{Force-based explosion}
 Unlike the previous techniques, this method determines the exploded position of the parts using a force-based approach.
-This approach is based on the same principles described by Bruckner et al., but the forces described by Bruckner et al. have been adapted to give good results with the existing program structure.\cite{Bruckner_2006}
+This approach is based on the same principles described by Bruckner et al., but the forces have been adapted to give good results with the existing program structure.\cite{Bruckner_2006}
 In comparison to Bruckner et al.'s method, however, the reference points of the parts are used to apply the forces and not the vertices of a volumetric data set.
-To create an explosion view, the user selects the desired target parts. 
-It is possible to select multiple target parts, these are only affected by the return force and remain in their original position.
+To create an explosion view, the user selects one or multiple desired target parts. 
+These are only affected by the return force and remain in their original position.
 Now four forces with different strengths are applied to all parts which push them away and allow a free line of sight to the selected parts.
 The four forces acting on each part are defined as follows:
 \begin{itemize}
@@ -238,7 +238,7 @@ The four forces acting on each part are defined as follows:
 	\end{equation}
 	Here, the constant term $c_r$ refers to a variable that affects the force's strength.
 	
-	\item Any piece that is not a selected target piece is affected by the \textbf{explosive force} $F_e$. This pushes all parts apart and creates the exploded view, it emanates from each target part. 
+	\item Any piece that is not a selected target piece is affected by the \textbf{explosive force} $F_e$. This pushes all parts apart and creates the exploded view. It emanates from each target part. 
 	It can be described by the following formula:
 	\begin{equation}
 		F_e = \frac{c_e}{e^{\|r\|}} * \frac{c_e}{P_{count}} * r * f_{expl}
@@ -246,7 +246,7 @@ The four forces acting on each part are defined as follows:
 	\end{equation}
 	Where $c_e$ is again a constant factor, $r$ is a vector that goes from the target part to the part being handled and $f_{expl}$ is a factor that amplifies the force. 
 	$c_e$ is a value between zero and one that can be determined by the user, which is also why the factor $f_{expl}$ was introduced to strengthen the force. 
-	The strength of the force is divided by the number of target parts $P_{count}$ to remain constant on all datasets. 
+	The strength of the force is divided by the number of target parts $P_{count}$ to remain constant on all data sets. 
 	
 	\item The \textbf{viewing force} $F_v$ makes the explosion diagram view-dependent. 
 	This is achieved by calculating an axis from the headset to each selected target part, from which other, non-target, parts are pushed away. 
@@ -259,7 +259,7 @@ The four forces acting on each part are defined as follows:
 	\end{equation}
 	The strength of the force $F_v$ is here divided by the length of the vector $r$, this is useful to minimize the distance of the pushed away parts from their original position. 
 	Here, each part is pushed away no matter whether the projection of the considered part is behind or in front of the currently considered target part. 
-	This results in less visual clutter, since the target part is clearly separated from other parts and can be seen directly on the background without other parts behind it crowding the view. 
+	This results in less visual clutter, since the target part is clearly separated from other parts. It can be seen directly on the background without other parts behind it crowding the view. 
 	$c_v$ is again a constant factor which allows the strength of the force to be adjusted.
 	\item The \textbf{spacing force} $F_s$ is responsible for preventing the pieces from overlapping and acts from any piece that is not a target piece to any other non-target piece. It is calculated as follows:
 	\begin{equation}
@@ -277,48 +277,48 @@ An advantage compared to the other methods is that it is possible to select any 
 \subsection{Dynamic data sets for exploded views}
 
 A major problem that arises in the visualization is the temporal change of the data set. This is to be solved in two different ways.
-On the one hand, the change in the cell over time is visualized and displayed with less opacity.
+On one hand, the change in the cell over time is visualized and displayed with less opacity.
 It can be selected how many previous time steps are displayed at the same time.
 This allows to view the temporal change of the cell over a period of time.
 The second approach adjusts the reference point used to determine the exploded position. 
 This is set, at the user's request, from the centers of mass defined in the data set and interpolated between the individual time steps.
-The reference position of the last time step is defined as the starting point, now it is interpolated to the reference position of the part at the current time step. This happens at the interval with which the time steps are progressed. 
-A problem that can occur is that the parts are close to the projection lines that are calculated to determine the target position. 
-If this is the case, the target position can change abruptly, when the used reference point jumps over the projection line and thus cause a lot of visual movement which makes the inspection of individual areas difficult.  
-In the dataset used for testing, it was found to be more useful to use the initial position of the cell as a permanent reference point. 
+The reference position of the last time step is defined as the starting point, then it is interpolated to the reference position of the part at the current time step. This happens at the interval with which the time steps are progressed. 
+A problem that can occur is that the reference points used to determine the target position of the parts, are close to the projection line. 
+If this is the case, the target position can change abruptly, when the used reference point jumps over the projection line. Thus causing a lot of visual movement which makes the inspection of individual areas difficult.  
+In the data set used for testing, it was found to be more useful to use the initial position of the cell as a permanent reference point. 
 However, this has the obvious disadvantage that the cell can move far away from this initial point over the simulation, which can complicate the spatial comprehension of the structure. 
 
 
 \section{Implementation}
 
-In order to test the developed methods, a prototype was built which allows the immersive exploration of the dataset. Existing frameworks for interaction and rendering in virtual reality were used to reduce the development time for device-independent development and to have more time for refining the methods.
+In order to test the developed methods, a prototype was built which allows the immersive exploration of the data set. Existing frameworks for interaction and rendering in virtual reality were used to reduce the development time for device-independent development and to have more time for refining the methods.
 
 \subsection{Unity Application}
-The dataset is visualized and the exploded views are implemented using Unity 2021.3\footnote{https://unity.com/}.
+The data set is visualized and the explosion views are implemented using Unity 2021.3\footnote{https://unity.com/}.
 Unity is a 3D engine that can be used for game, program and movie development. 
 Since it has been developed for over a decade, there are a variety of plugins and resources that can be used to increase development speed. 
-It also allows platform-independent development and supports all conventional graphics cards. 
+It also allows for platform-independent development and supports all conventional graphic cards. 
 It uses C\# as the programming language for implementing business logic while rendering is implemented natively with C++.  
 The Unity-XR-Interaction-Toolkit\footnote{https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.3/manual/index.html} and the Unity-InputSystem\footnote{https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/QuickStartGuide.html} are used for VR support.
 These are two plugins developed by Unity that simplify the support of all conventional VR headsets by allowing them to be accessed with a unified API.  
 The universal rendering pipeline\footnote{https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@15.0/manual/index.html} is used for more performant and lightweight rendering. It is a striped down version of Unity's standard renderer and allows for more frames per second on mobile devices at the expense of more advanced rendering effects.
 Since this work is about data visualization and high performance is critical for VR headsets, using this rendering pipeline is beneficial.
-An Oculus Quest 2\footnote{https://www.meta.com/de/quest/products/quest-2/} connected to the computer via Oculus link is utilized to test the implementation.
+An Oculus Quest 2\footnote{https://www.meta.com/de/quest/products/quest-2/} connected to the computer via Oculus Link is utilized to test the implementation.
 
-At program start the Resource folder is checked for valid Morpheus datasets.
+At program start the Resource folder is checked for valid Morpheus data sets.
 For each existing file that contains a time step, the corresponding Xml-file is read and loaded. 
 Since each time step contains information about the cell populations and the states of the individual cells, these are loaded one after the other.
-For each time step the program loops through the data set and checks if a cell with the same ID already exists, if this is not the case a new object is created which represents the cell, stores its properties and contains a mesh for each time step of the cell. 
+For each time step the program loops through the data set and checks if a cell with the same ID already exists. If this is not the case a new object is created which represents the cell, stores its properties and contains a mesh for each time step. 
 If a cell object with the same ID already exists, a mesh is generated which visualizes the state of the cell and is attached to the cell object as a child object.
 At runtime, only the child objects that depict the current time step are active while all others are deactivated.
 A manager class allows switching between the different implementations of the exploded views and sends the object transforms that are used to define the exploded positions to the script that drives the explosion. 
 An interface implementation of the exploded view method allows for an extendable usage and development. 
 A detailed object diagram which clarifies the program structure can be found in the appendix (\ref{fig:objectDiagram}).
-The implementation of the methods has turned out to be quite straight forward. Only the scaling of the object which visualizes the data set complicated the implementation, because here the conversion of the coordinate systems must be taken into consideration. 
+The implementation of the methods has turned out to be quite straight forward. Only the scaling of the object which visualizes the data set complicated the implementation, because the conversion of the coordinate systems must be taken into consideration. 
 The force-based method uses Unity's physics engine to determine the location of the exploded parts.
 It is also used to dampen the movement of the parts over time, preventing possible jittering of the parts. 
 However, this can also lead to reduced responsiveness when changing the position of the parts.
-For all methods there is the possibility to visualize the most important directions used for the calculations by lines. 
+For all methods there is the possibility to visualize the most important directions used for the calculations by showing auxiliary lines. 
 This is to facilitate the comprehension of the applied methods and to make it easier for the user to understand the transformation of the parts.
 
 \subsection{VR interaction}
@@ -327,9 +327,9 @@ All non-force based techniques presented are operated by control points that can
 This allows the user to point at the control points, grab them and dynamically adjust their position.
 Furthermore, a user interface was implemented that allows the user to adjust all important parameters of the individual methods. 
 So the best representation can be found at runtime.  
-Additionally, a UI panel that enables the control of the time steps and subsequently permits the selection of a particular time step was added.
+Additionally, a UI panel that enables control of the time steps and subsequently permits the selection of a particular time step was added.
 At any time, it is possible for the user to separate out individual parts and take a closer inspection as it can be seen in figure \ref{fig:Interaction}. 
-The part is then placed in the user's hand and can be rotated and scaled with the keys on the controller. Furthermore, a UI panel shows the ID and population to which the cell belongs. 
+The grabbed part is then placed in the user's hand and can be rotated and scaled with the keys on the controller. A UI panel shows the ID and population to which the cell belongs. 
 Grabbing a cell therefore enables basic surface inspection but the displayed information is limited and could be improved and expanded in future work. 
 \begin{figure}[h]
 	\centering

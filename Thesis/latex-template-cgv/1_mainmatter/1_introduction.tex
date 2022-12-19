@@ -5,18 +5,18 @@
 \label{sec:introduction}
 % The chapter should broadly contextualize your research and motivate your work.
 
-The human brain consists of 86 billion neurons. If one wanted to pick out, visualize and examine just a tiny fraction of these, it would be very difficult to make any meaningful conclusions, as the sheer volume of data prevents close inspection.\cite{peichl_2015}
+The human brain consists of 86 billion neurons\cite{peichl_2015}. If one wanted to pick out, visualize and examine just a tiny fraction of these, it would be very difficult to make any meaningful conclusions, as the sheer volume of data prevents close inspection.
 Nevertheless, correct and precise analysis of datasets is a cornerstone of any research, but this is often challenging, especially as the complexity and size of the dataset increases.
 A common problem with such large data sets is that the data you are trying to examine is obscured and blocked by other data, this is especially the case with three dimensional data sets and is called occlusion.
 Therefore, it is important to develop methods and programs that filter or transform data sets and allow a closer look at individual parts of the data set as well as their context. 
-There are many different techniques to avoid and reduce occlusion. These can roughly be divided into two types: hiding unimportant data and transforming the data set so that occlusion is reduced or completely avoided.
+There are many different techniques to avoid and reduce occlusion. These can roughly be divided into two types: hiding unimportant data or transforming the data set so that occlusion is reduced or completely avoided.
 For example, it is possible to use clipping planes to hide foreground data. A common problem with using them is that the context of the data is difficult to recognize, because only a part of the whole is shown. 
 To reduce this, the position of individual data can be changed so that no more occlusion occurs, but all data is still displayed. 
 One way of transforming the data set is through the use of exploded views. Here, individual parts of a model or data set are pulled apart in such a way that each part of interest can be viewed in detail and the original composition of the data set remains recognizable. 
 
 \textbf{The goal} of this work is to examine and compare different methods for generating such exploded views for cell complexes. Furthermore, it will be tested which of these methods are suitable for inspection in virtual reality (VR) and what new possibilities and difficulties this innovative environment brings.
 Since the immersive visualization of such models in virtual reality and its intuitive interaction creates completely new possibilities for exploded views, it is important to find out which techniques are effective and which established methods are not suitable.
-To do this, an analysis of the state of research and a classification of the different methods will be developed, followed by a prototypical implementation of some selected techniques for exploded views and a comparison of their effectiveness in the virtual space.
+To do this, an analysis of the state of scientific knowledge and a classification of the different methods will be developed, followed by a prototypical implementation of some selected techniques for exploded views and a comparison of their effectiveness in the virtual space.
 For this purpose, a data set of a cell complex is available which is first visualized and then transformed. 
 This dataset was simulated using an external tool and it describes the change of the cell complex over a defined period of time. 
 Therefore it is necessary that the visualization and the explosion view can also show the temporal change of the individual cells of the cell complex.

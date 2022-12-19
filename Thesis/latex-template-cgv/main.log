@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  18 DEC 2022 19:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.6)  19 DEC 2022 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2627,7 +2627,7 @@ Package pdftex.def Info: fig/Images/Li_ExplodedView_GI04_fig16.jpg  used on inp
 ut line 19.
 (pdftex.def)             Requested size: 198.45667pt x 124.63321pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig1.
-jpg, id=206, 517.18219pt x 392.21532pt>
+jpg, id=205, 517.18219pt x 392.21532pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig1.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2636,7 +2636,7 @@ Package pdftex.def Info: fig/Images/AutomatedGenerationofInteractive3DExplodedV
 iewDiagrams_Li2008_fig1.jpg  used on input line 44.
 (pdftex.def)             Requested size: 205.29541pt x 155.69238pt.
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.
-jpg, id=209, 586.44093pt x 254.45062pt>
+jpg, id=208, 586.44093pt x 254.45062pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig8.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2650,7 +2650,7 @@ Overfull \hbox (22.05223pt too wide) in paragraph at lines 51--52
  []
 
 <fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.
-jpg, id=212, 398.99063pt x 584.1825pt>
+jpg, id=211, 398.99063pt x 584.1825pt>
 File: fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_
 fig7.jpg Graphic file (type jpg)
 <use fig/Images/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_f
@@ -2673,46 +2673,46 @@ Underfull \hbox (badness 1629) in paragraph at lines 65--65
 erationofInteractive3DExplodedViewDiagrams_Li2008_fig1.jpg> <./fig/Images/Autom
 atedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig8.jpg> <./fig/Image
 s/AutomatedGenerationofInteractive3DExplodedViewDiagrams_Li2008_fig7.jpg>]
-<fig/Images/Tatzgern_fig3.jpg, id=236, 1154.81438pt x 392.21532pt>
+<fig/Images/Tatzgern_fig3.jpg, id=234, 1154.81438pt x 392.21532pt>
 File: fig/Images/Tatzgern_fig3.jpg Graphic file (type jpg)
 <use fig/Images/Tatzgern_fig3.jpg>
-Package pdftex.def Info: fig/Images/Tatzgern_fig3.jpg  used on input line 85.
+Package pdftex.def Info: fig/Images/Tatzgern_fig3.jpg  used on input line 87.
 (pdftex.def)             Requested size: 418.96556pt x 142.29858pt.
 
 [9 <./fig/Images/Tatzgern_fig3.jpg>]
-<fig/Images/Bruckner_fig2.jpg, id=245, 761.84625pt x 201.75375pt>
+<fig/Images/Bruckner_fig2.jpg, id=243, 761.84625pt x 201.75375pt>
 File: fig/Images/Bruckner_fig2.jpg Graphic file (type jpg)
 <use fig/Images/Bruckner_fig2.jpg>
-Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 144.
+Package pdftex.def Info: fig/Images/Bruckner_fig2.jpg  used on input line 146.
 (pdftex.def)             Requested size: 418.96556pt x 110.94951pt.
  [10 <./fig/Images/Bruckner_fig2.jpg>]
 <fig/Images/He_fig1.jpg, id=267, 1436.36626pt x 194.97844pt>
 File: fig/Images/He_fig1.jpg Graphic file (type jpg)
 <use fig/Images/He_fig1.jpg>
-Package pdftex.def Info: fig/Images/He_fig1.jpg  used on input line 170.
+Package pdftex.def Info: fig/Images/He_fig1.jpg  used on input line 172.
 (pdftex.def)             Requested size: 441.0178pt x 59.86551pt.
-<fig/Images/Viega_fig1.jpg, id=273, 402.00188pt x 399.74344pt>
+<fig/Images/Viega_fig1.jpg, id=272, 402.00188pt x 399.74344pt>
 File: fig/Images/Viega_fig1.jpg Graphic file (type jpg)
 <use fig/Images/Viega_fig1.jpg>
-Package pdftex.def Info: fig/Images/Viega_fig1.jpg  used on input line 189.
+Package pdftex.def Info: fig/Images/Viega_fig1.jpg  used on input line 191.
 (pdftex.def)             Requested size: 110.25444pt x 109.63394pt.
 
-Underfull \hbox (badness 1308) in paragraph at lines 190--190
+Underfull \hbox (badness 1308) in paragraph at lines 192--192
 \T1/opensans-TLF/l/n/9 (+20) pre-sented by Viega et al.
  []
 
 [11 <./fig/Images/He_fig1.jpg>]
-<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=289, 4026.04124pt x 851.18pt>
+<fig/Images/McGuffin_fig_4_fig11_fig8.png, id=288, 4026.04124pt x 851.18pt>
 File: fig/Images/McGuffin_fig_4_fig11_fig8.png Graphic file (type png)
 <use fig/Images/McGuffin_fig_4_fig11_fig8.png>
 Package pdftex.def Info: fig/Images/McGuffin_fig_4_fig11_fig8.png  used on inpu
-t line 207.
+t line 209.
 (pdftex.def)             Requested size: 441.0178pt x 93.22745pt.
-<fig/Images/Krisanty_clipping.jpg, id=294, 1431.09656pt x 748.29562pt>
+<fig/Images/Krisanty_clipping.jpg, id=293, 1431.09656pt x 748.29562pt>
 File: fig/Images/Krisanty_clipping.jpg Graphic file (type jpg)
 <use fig/Images/Krisanty_clipping.jpg>
 Package pdftex.def Info: fig/Images/Krisanty_clipping.jpg  used on input line 2
-17.
+19.
 (pdftex.def)             Requested size: 260.19888pt x 136.04614pt.
 ) (1_mainmatter/4_implementation.tex [12 <./fig/Images/Viega_fig1.jpg> <./fig/I
 mages/McGuffin_fig_4_fig11_fig8.png> <./fig/Images/Krisanty_clipping.jpg>]
@@ -2746,13 +2746,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [17 <./fig/Images/LineExplosionFactors.png>]
-<fig/Images/LineExplosionHeadMounted.png, id=355, 918.43124pt x 361.35pt>
+<fig/Images/LineExplosionHeadMounted.png, id=356, 918.43124pt x 361.35pt>
 File: fig/Images/LineExplosionHeadMounted.png Graphic file (type png)
 <use fig/Images/LineExplosionHeadMounted.png>
 Package pdftex.def Info: fig/Images/LineExplosionHeadMounted.png  used on input
- line 207.
+ line 215.
 (pdftex.def)             Requested size: 286.65887pt x 112.78375pt.
- [18 <./fig/Images/LineExplosionHeadMounted.png>] [19] [20] [21]
+ [18] [19 <./fig/Images/LineExplosionHeadMounted.png>] [20] [21]
 <fig/Images/Interaction.png, id=415, 1653.17625pt x 925.4575pt>
 File: fig/Images/Interaction.png Graphic file (type png)
 <use fig/Images/Interaction.png>
@@ -2876,13 +2876,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37824 strings out of 475389
- 738329 string characters out of 2785902
- 1938291 words of memory out of 3000000
+ 37821 strings out of 475389
+ 738236 string characters out of 2785902
+ 1939291 words of memory out of 3000000
  57935 multiletter control sequences out of 15000+600000
- 577013 words of font info for 476 fonts, out of 8000000 for 9000
+ 576698 words of font info for 474 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 113i,21n,115p,10634b,2367s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 113i,20n,115p,10634b,2367s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
 crm0900.pk>{D:/Abhängigkeiten/MiKTeX/fonts/enc/dvips/roboto/rbto_e24joy.enc} <
 C:\Users\Jorris10\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
@@ -2902,7 +2902,7 @@ blic/amsfonts/cm/cmmi9.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmr10.pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.
 pfb><D:/Abhängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Ab
 hängigkeiten/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (51 pages, 12777480 bytes).
+Output written on main.pdf (51 pages, 12777841 bytes).
 PDF statistics:
  783 PDF objects out of 1000 (max. 8388607)
  181 named destinations out of 1000 (max. 500000)

@@ -22,19 +22,19 @@ This is especially true for visualization methods like cutting planes and explod
 	\vspace{-1cm}
 \end{wrapfigure}
 
-Li et al. provide an example of this.\cite{li2004interactive} In their work, they demonstrate an algorithm that automatically separates traditional drawn explosion views to make them interactive.
+Li et al. provide an example of this. In their work, they demonstrate an algorithm that automatically separates traditional drawn explosion views to make them interactive.
 Their algorithm takes 2D images of explosion view diagrams and automatically cuts them apart, both reducing visual clutter and clarifying the spatial separation of the individual components. 
-Furthermore, the separated parts can be labeled more precisely and retracted and extended as needed. Figure \ref{fig:li_2004} illustrates this approach.
+Furthermore, the separated parts can be labeled more precisely and retracted and extended as needed. Figure \ref{fig:li_2004} illustrates this approach.\cite{li2004interactive}
 
 Since the interaction possibilities of two-dimensional images are limited and data sets and models have become increasingly complex, the question arises as to how the same principles of exploded views can be transferred to three-dimensional space.
-For this purpose, Mohammad et al.\cite{Mohammad_1993} developed a tool that creates exploded views for three-dimensional CAD models. It shows both precise spatial relationships and the order in which the object was assembled.
+For this purpose, Mohammad et al. developed a tool that creates exploded views for three-dimensional CAD models. It shows both precise spatial relationships and the order in which the object was assembled.\cite{Mohammad_1993}
 This is especially useful when visualizing machines and technical objects, as it gives the viewer a clear idea of how the parts are arranged.
 One disadvantage of their implementation is that the individual relations must be clearly defined by a designer beforehand in order to generate the explosion view and calculate the position of the exploded parts.
 As a result, the order of composition and the blocking elements must be known and manually defined.
 
-Li et al. therefore presented a system that automatically extracts non-blocking exploded views from a 3D model, focusing on rearranging parts instead of hiding obscuring geometry.\cite{Wilmot_Li_2008}
+Li et al. therefore presented a system that automatically extracts non-blocking exploded views from a 3D model, focusing on rearranging parts instead of hiding obscuring geometry.
 They also provide a list of tools to interact with the exploded views and dynamically select and show parts of interest.
-Their implementation works for both hierarchical and non-hierarchical models, which also allows it to process biological datasets where there is no fixed assembly order. An example of an exploded Turbine can be seen in figure \ref{fig:Li_fig1}.
+Their implementation works for both hierarchical and non-hierarchical models, which also allows it to process biological data sets where there is no fixed assembly order. An example of an exploded Turbine can be seen in figure \ref{fig:Li_fig1}.
 \begin{figure}
 	\centering
 	\normalsize
@@ -54,7 +54,7 @@ Their implementation works for both hierarchical and non-hierarchical models, wh
 	\end{subfigure}
 \end{figure}
 The algorithm works by calculating an explosion graph when loading the model, which describes the blocking elements of each part from different angles. 
-This allows to retrieve at runtime the sequence of elements needed to disassemble the object without parts passing through others. 
+This allows to retrieve the sequence of elements needed to disassemble the object without parts passing through others and works at runtime. 
 Thus a dynamic explosion graph can be generated which shows an animated composition from all viewing directions.
 An important part of this is the generation of a correct explosion graph. 
 To accomplish this, two problems have to be solved: first, how to move the parts to uncover the target parts without occluding them, and second, how to deal with enclosed parts. 
@@ -66,17 +66,19 @@ To accomplish this, two problems have to be solved: first, how to move the parts
 	\label{fig:splittingContainer}
 	\vspace{-0.8cm}
 \end{wrapfigure}
-Li et al. solve this problem by iteratively going through all the parts and testing for two conditions: each part must be moved so that none of the target parts are obscured. Figure \ref{fig:conditionTests} illustrates these steps.
-In order to isolate target parts from other touching parts, it is also made sure that they are completely visible and close parts are moved further away. 
-If one part is completely enclosed by another, the outer one is separated in the bounding box center and pulled apart so that the inner parts are completely visible, then the algorithm continues. This can be seen in figure \ref{fig:splittingContainer}
+Li et al. solve this problem by iteratively going through all the parts and testing for two conditions.
+Each part must be moved so that none of the target parts are obscured. 
+Furthermore, to isolate target parts from other touching parts, it is also made sure that they are completely visible and close parts are moved further away.
+Figure \ref{fig:conditionTests} illustrates these steps.
+If one part is completely enclosed by another, the outer one is separated in the bounding box center and pulled apart so that the inner parts are completely visible, then the algorithm continues. This can be seen in figure \ref{fig:splittingContainer}.
 The resulting application generates animated exploded views for models with up to fifty parts. 
-However, a disadvantage of this implementation is that it only works for static data sets and does not provide any solution for time-varying data sets.
+However, a disadvantage of this implementation is that it only works for static data sets and does not provide any solution for time-varying data sets.\cite{Wilmot_Li_2008}
 
-Tatzgern et al. improve on the work of Li et al. by finding frequently recurring subsets in a mesh and grouping them, then selecting the best representative of that group and exploding it based on a quality score.\cite{Tatzgern_2010}
+Tatzgern et al. improve on the work of Li et al. by finding frequently recurring subsets in a mesh and grouping them, then selecting the best representative of that group and exploding it based on a quality score.
 The frequently recurring subsets are found automatically based on a frequent sub-graph search.
 The resulting explosion diagrams are especially useful for technological models where there are many identical subsets, and the explosion displays only one of them instead of doing this for each of these subsets and taking up a lot of screen space. 
 A resulting exploded view and the selection of a representative can be seen in figure \ref{fig:tatzgern}.
-For biological datasets, however, this extension is less useful, since it brings little advantage due to the distinct structure of biological objects.
+For biological data sets, however, this extension is less useful, since it brings little advantage due to the distinct structure of biological objects.
 More relevant, however, is its quality score which is used to select the representative. This is also applicable to general explosion views and can be used to quantitatively describe the quality of an explosion view. It is defined by the following evaluation criteria: 
 
 \begin{figure}[t]
@@ -94,26 +96,26 @@ More relevant, however, is its quality score which is used to select the represe
 	\item \textbf{Size of footprint of all other similar groups without any displacements:} Describes how well other similar groups are visible when selected representative is exploded.
 \end{itemize}
 
-These criteria are then weighted by Tatzgern et al., which influences the selection of the representative.
+These criteria are then weighted by Tatzgern et al., which influences the selection of the representative.\cite{Tatzgern_2010}
 Even if not all of these points are suitable for use in virtual reality, some ideas can still be applied.
 In particular, using the dot product between the camera position and the direction of the exploding parts is a helpful approach, which could be used to always push parts out of the line of sight without obstructing the view.
 
-While Li et al. and Tatzgern et al. relied on calculating the position of the exploded parts, Bruckner et al. used various \textbf{force-based techniques} to transform parts to generate explosion diagrams.\cite{Bruckner_2006}
+While Li et al. and Tatzgern et al. relied on calculating the position of the exploded parts, Bruckner et al. used various \textbf{force-based techniques} to transform parts to generate explosion diagrams.
 Their presented method works with volumetric data sets and splits them into pieces before exploding them. 
-For this purpose, they present three tools that interactively split the dataset at runtime using split axes and cutting planes. 
-The first tool splits the first object hit by a ray based on the camera's viewing direction. The second splits all objects not just the first one, while the third allows the user to draw a line onto which all parts are projected, if the projection lies on the line the part is split. 
+For this purpose, they present three tools that interactively split the data set at runtime using split axes and cutting planes. 
+The first tool splits the first object hit by a ray based on the camera's viewing direction. The second tool splits all objects not just the first one. The third tool allows the user to draw a line onto which all parts are projected. If the projection lies on this line the part is split. 
 These tools are designed to work with volumetric data sets and can also be applied to voxel data sets and are therefore suitable for biological objects.
 Another interesting approach they use is the definition of forces acting on all parts to explode the object.
 These forces are defined by Bruckner et al. as follows:
 
 \begin{itemize}
-	\item \textbf{Return force:} The part should move as little as possible from its original position. Therefore, there is a force pushing the part back to its original position. Bruckner et al use the following formula, where $r$ is the vector from the current vertex position to that of its original and $c_r$ is a constant factor. 
+	\item \textbf{Return force:} The part should move as little as possible from its original position. Therefore, there is a force pushing the part back to its original position. Bruckner et al. use the following formula, where $r$ is the vector from the current vertex position to that of its original and $c_r$ is a constant factor. 
 	\begin{equation}
 		F_r = c_r * ln(\|r\|) * \frac{r}{\|r\|}
 		\label{eq:returnforce}
 	\end{equation}
 	
-	\item \textbf{Explosion force:} The user can select individual parts and the force will push all other parts away from the selected parts. Bruckner et al. use the following formula to describe the force $F_e$ that emanates from each selected part and acts on every part $P_i$.
+	\item \textbf{Explosion force:} The user can select individual parts and the force will push all other parts away from the selected parts. Bruckner et al. use the following formula to describe the force $F_e$ that emanates from each selected part and acts on every individual part $P_i$.
 	\begin{equation}
 		F_e = \frac{c_e}{e^{\|r\|}} * \frac{r}{\|r\|}
 		\label{eq:explosionforce}
@@ -137,7 +139,7 @@ These forces are defined by Bruckner et al. as follows:
 	Again, $c_s$ is a constant factor and $r$ is a vector pointing from the center of part $P_i$ to the center $P_j$ of every other part.
 \end{itemize}
 
-These forces are then weighted by Bruckner et al. and applied to each part.
+These forces are then weighted by Bruckner et al. and applied to each part of the object.
 \begin{figure}[t]
 	\centering
 	%\vspace{-0.7cm}
@@ -146,24 +148,24 @@ These forces are then weighted by Bruckner et al. and applied to each part.
 	\label{fig:bruckner}
 \end{figure}
 The result is a view-dependent explosion diagram which can be edited and expanded at runtime, an example can be seen in figure \ref{fig:bruckner}. 
-Thus, it is also possible to uncover enclosed parts by separating the outer part through user input.
+Thus, it is also possible to uncover enclosed parts by separating the outer part through user input.\cite{Bruckner_2006}
 
-Sonnet et al. also use a similar force-based approach.\cite{Sonnet_2004}
-However, their application differs in that a probe is used for explosion which the user can move through the dataset and whose effect radius determines the translation of the parts. 
+Sonnet et al. also use a similar force-based approach.
+However, their application differs in that a probe is used for explosion which the user can move through the data set and whose effect radius determines the translation of the parts.\cite{Sonnet_2004}
 An interesting addition presented for dealing with enclosed objects is that when loading the data set, the size of the bounding box determines the weight of the object. 
 Smaller objects that are inside a larger one will hence be pushed away stronger from the effect radius of the probe. 
 This method is a simple way to avoid occlusion in the case of an enclosed object, but it causes problems when the point used to explode the inner and outer object are the same, since the weighting then has no influence.
 
-\textbf{Virtual reality} opens up new possibilities to interact with and study exploded views. In their paper, He et al. describe several types of interaction methods to explore a CAD model of a brain using VR devices.\cite{He2017}
-To compute an explosion graph that defines the transformation of the parts, they use the bounding box of each mesh, then build a complete bounding volume hierarchy from the bottom-up.
-This is necessary because medical data often do not have a clearly defined order of assembly that can be revealed. 
+\textbf{Virtual reality} opens up new possibilities to interact with and study explosion views. In their paper, He et al. describe several types of interaction methods to explore a CAD model of a brain using VR devices.
+To compute an explosion graph that defines the transformation of the parts, they use the bounding box of each mesh. Then they build a complete bounding volume hierarchy from the bottom-up.
+This is necessary because medical data often does not have a clearly defined order of assembly that can be revealed. 
 In their work, they use parent-child relationships to constrain the transformation and guide it in a constructive manner.
-To allow for easy manipulation of the exploded view's axis, they use Hermit splines, which can be drawn with VR controllers. They also describe several ways of interacting with the mesh to trigger different exploded views, as illustrated in figure \ref{fig:He_interactions}:
+To allow easy manipulation of the exploded view's axis, they use Hermit splines, which can be drawn with VR controllers. They also describe several ways of interacting with the mesh to trigger different explosion views, as illustrated in figure \ref{fig:He_interactions}:
 
 \begin{itemize}
 	\item \textbf{linear explosion:} The user defines an axis by moving the controllers apart in parallel, the mesh is then pulled apart along this axis.
 	\item \textbf{leafing interaction:} He et al. describe this interaction as slicing the object and then leafing through the pieces as if one were leafing through a book.
-	\item \textbf{fanning interaction:} This interaction also first cuts the object into slices, then the individual slices are fanned out as if you were holding playing cards with their backs facing upwards in front of you. 
+	\item \textbf{fanning interaction:} This interaction also first cuts the object into slices, then the individual slices are fanned out as if you were holding playing cards with their backs facing upwards in front of you.\cite{He2017}
 \end{itemize}
 \begin{figure}[h]
 	\centering
@@ -172,17 +174,17 @@ To allow for easy manipulation of the exploded view's axis, they use Hermit spli
 	\label{fig:He_interactions}
 \end{figure}
 Not only the interaction with VR plays an important role in this work, but also the special feature of a \textbf{time-varying data set}. 
-Special measures are necessary to display these in an exploded view, but after extensive research no related work on this subject could be found. 
+Special measures are necessary to display these in an explosion view, but after extensive research no related work on this subject could be found. 
 Therefore, in this work, a focus must be placed on solving this problem.
 
-Although exploded views are the main part of this work, they are not the only way to avoid occlusion. 
+Although explosion views are the main part of this work, they are not the only way to avoid occlusion. 
 Another approach that can be combined well with interaction in VR is the use of \textbf{magic lenses}.
 This is like a kind of magnifying glass that allows the user to look inside an object and hide the obscuring geometry of the surface.
 One advantage of this over cutting planes is that the context is preserved because only a selective subarea is hidden.   
 An example of their work can be seen in figure \ref{fig:viega_hand}.
-One possible implementation of this has been described by Viega et al. among others.\cite{Viega_1996}
-They hide the surface of a hand to reveal the underlying skeleton.
-The same concept was extended by Hua et al. to work in augmented reality with a physical prototype.\cite{Hua_2006}
+One possible implementation of this has been described by Viega et al. among others.
+They hide the surface of a hand to reveal the underlying skeleton.\cite{Viega_1996}
+The same concept was extended by Hua et al. to work in augmented reality with a physical prototype.
 \begin{wrapfigure}{r}{0.25\textwidth}
 	\centering
 	\vspace{-0.4cm}
@@ -194,14 +196,14 @@ The same concept was extended by Hua et al. to work in augmented reality with a 
 This also functions as a magnifying glass that can be moved across a desktop to allow a look inside various objects.
 For example, you can look inside the buildings of a city model or explore the inside of a human body.
 Their user study showed that "magic lenses are efficient cognitive filters that dynamically organize and display data when and where it is needed."\cite{Hua_2006}
-They proved to be more efficient and intuitive than a traditional interface, although their prototype lacked stability.
-Another alternative approach, which is combinable, is proposed by Preim et al.\cite{Preim_1997} In their paper, they use different scaling techniques to enlarge and dynamically label objects of interest, making it easier to identify details.
+They proved to be more efficient and intuitive than a traditional interface, although their prototype lacked stability.\cite{Hua_2006}
+Another alternative approach, which is combinable, is proposed by Preim et al. In their paper, they use different scaling techniques to enlarge and dynamically label objects of interest, making it easier to identify details.\cite{Preim_1997}
 
-Another unique method was presented by McGuffin et al.\cite{McGuffin}
+Another unique method was presented by McGuffin et al.
 They show various tools they have developed to inspect volumetric data by peeling and cutting parts away.
-They introduce a Leafer tool to slice and open the dataset, and a Peeler tool to show different layers of the dataset. They also introduce a Boxspreader tool that pushes voxels away, a Hinge Spreader tool, and a Sphere Extender tool to cut and extend different layers of the dataset. Figure \ref{fig:McGuffin} shows these tools on a volumetric dataset of a human head. 
-With these, complex transformations of the data is possible, which can provide insights into the interior of various volumetric data sets.
-One observation made by McGuffin et al. is that animations have greatly improved the usability of these tools, because without them, users had difficulty understanding how the tools operated. 
+They introduce a Leafer tool to slice and open the data set, and a Peeler tool to show different layers of the data set. They also introduce a Boxspreader tool that pushes voxels away, a Hinge Spreader tool, and a Sphere Extender tool to cut and extend different layers of the data set. Figure \ref{fig:McGuffin} shows these tools on a volumetric data set of a human head. 
+With these tools complex transformations of the data is possible and can provide insights into the interior of various volumetric data sets.
+One observation made by McGuffin et al. is that animations have greatly improved the usability of these tools, because without them, users had difficulty understanding how the tools operated.\cite{McGuffin}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{fig/Images/McGuffin_fig_4_fig11_fig8}
@@ -209,8 +211,8 @@ One observation made by McGuffin et al. is that animations have greatly improved
 	\label{fig:McGuffin}
 \end{figure}
 
-Another related work was presented by Tania Krisanty at the Chair of Computer Graphics at the TU Dresden. She uses a similar slightly simplified version of the same data set used in this work and shows the use of cutting planes in virtual reality, illustrated in figure \ref{fig:tania}.\cite{krisanty_2022}
-She presents several interactions in virtual reality, like grabbing a new cutting plane from an imaginary backpack. 
+Another related work was presented by Tania Krisanty at the Chair of Computer Graphics at the TU Dresden. She uses a similar slightly simplified version of the same data set used in this work and shows the use of cutting planes in virtual reality, illustrated in figure \ref{fig:tania}.
+She presents several interactions in virtual reality, like grabbing a new cutting plane from an imaginary backpack.\cite{krisanty_2022}
 
 \begin{wrapfigure}{r}{0.59\textwidth}
 	\vspace{-0.7cm}
@@ -218,5 +220,5 @@ She presents several interactions in virtual reality, like grabbing a new cuttin
 	\caption[]{Demonstration of the clipping plane interaction developed by Tania Krisanty.[\cite{krisanty_2022}]}
 	\label{fig:tania}
 \end{wrapfigure}
-One issue that arises is the loss of context when viewing the inner cells; one solution developed for this is the selective deactivation of cells, which facilitates the examination of individual cells in the interior but does not completely solve the problem.
+One issue that arises is the loss of context when viewing the inner cells. One solution developed for this is the selective deactivation of cells, which facilitates the examination of individual cells in the interior. This, however, does not completely solve the problem.
 
