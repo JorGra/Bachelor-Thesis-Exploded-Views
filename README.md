@@ -11,3 +11,5 @@
 - or by simulating one using Morpheus.
 3. Start the BA- ExplodedView.exe
 4. The scene should now load. On your left hand is a UI panel, that can be used to change explosion parameters and the implementation used.
+
+*Note that some parameters can only be adjusted by running the program from the editor.*
